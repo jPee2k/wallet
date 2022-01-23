@@ -4,7 +4,8 @@ import propTypes from 'prop-types';
 function App({ data }) {
   return (
     <div className="App">
-      <p>Version {data}</p>
+      <p>Branch: {data}</p>
+      <p>React Version: {React.version}</p>
     </div>
   );
 }
