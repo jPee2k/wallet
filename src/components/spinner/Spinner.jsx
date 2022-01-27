@@ -1,19 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Triangle } from 'react-loader-spinner';
 import { getCssVariable } from '../../helpers/variables.js';
 import styles from './Spinner.module.css';
 
-const Spinner = () => {
+export const Spinner = ({ isLoading }) => {
   const spinnerColor = getCssVariable('--active-element-color');
 
   return (
     <Triangle
       wrapperClass={styles.spinner}
       color={spinnerColor}
-      visible={false}
+      visible={isLoading}
       ariaLabel="loading..."
     />
   );
 };
 
-export default Spinner;
+Spinner.propTypes = {
+  isLoading: PropTypes.bool,
+};
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  isLoading: state.isLoading,
+});
+
+export default connect(mapStateToProps, null)(Spinner);
