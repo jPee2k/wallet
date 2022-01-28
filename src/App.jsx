@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Spinner from './components/spinner/Spinner.jsx';
+import Currency from './components/currency/Currency.jsx';
 import { actionCreators } from './reduxStore/actionCreators.js';
 
 export const App = ({ hideLoader }) => {
@@ -12,6 +13,7 @@ export const App = ({ hideLoader }) => {
     <div className="App">
       <p>React Version: {React.version}</p>
 
+      <Currency/>
       <Spinner/>
     </div>
   );
