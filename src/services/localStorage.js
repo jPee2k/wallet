@@ -9,7 +9,7 @@ export const isAvailableStorage = () => {
 };
 
 export const setDataToLocalStorage = (data = {}) => {
-  isAvailableStorage() && Object.entries(data).forEach(([ key, value ]) => {
+  isAvailableStorage() && Object.entries(data).forEach(([key, value]) => {
     localStorage.setItem(key.toString(), JSON.stringify(value));
   });
 };

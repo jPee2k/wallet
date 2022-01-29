@@ -7,9 +7,9 @@ const rootReducer = (state = initState, action) => {
       return { isLoading: action.payload };
     case HIDE_SPINNER:
       return { isLoading: action.payload };
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export default rootReducer;
