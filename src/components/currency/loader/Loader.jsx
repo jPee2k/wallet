@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rings } from  'react-loader-spinner';
+import { Rings } from 'react-loader-spinner';
 import { getCssVariable } from '../../../helpers/variables';
 import styles from './loader.module.css';
 

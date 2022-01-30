@@ -26,3 +26,4 @@ rules:
   import/prefer-default-export: 0
   default-param-last: 0
   no-unused-expressions: 0
+  object-curly-newline: 0

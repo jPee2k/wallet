@@ -22,8 +22,6 @@ Spinner.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  isLoading: state.isLoading,
-});
+const mapStateToProps = (state, ownProps) => ({ ...ownProps, isLoading: state.isLoading });
 
 export default connect(mapStateToProps, null)(Spinner);

@@ -52,15 +52,13 @@ const Currency = () => {
         </tr>
         </thead>
         <tbody>{
-          rates.map(({ ccy, base_ccy, buy, sale }) => {
-            return (
-              <tr key={`${base_ccy}-${ccy}`}>
-                <td>{ccy}</td>
-                <td>{buy}</td>
-                <td>{sale}</td>
-              </tr>
-            );
-          })
+          rates.map(({ ccy, base_ccy: baseCcy, buy, sale }) => (
+            <tr key={`${baseCcy}-${ccy}`}>
+              <td>{ccy}</td>
+              <td>{buy}</td>
+              <td>{sale}</td>
+            </tr>
+          ))
         }</tbody>
       </table>
     </div>
