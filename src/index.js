@@ -6,8 +6,11 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import reduxStore from './reduxStore/store.js';
 import App from './App.jsx';
 
-import '../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import './stylesheet/vars.css';
+import './stylesheet/fonts.css';
+import './stylesheet/basic/module.scss';
+// eslint-disable-next-line import/no-relative-packages
+import '../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const queryClient = new QueryClient();
 

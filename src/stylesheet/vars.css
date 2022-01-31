@@ -1,4 +1,86 @@
 :root {
   /* --- colors --- */
   --active-element-color: #00FFF0;
+  --main-text-color: #ffffff;
+  --border-color: #000000;
+  --main-background-color: #4141b3;
+  --passive-background-color: #fa00ff;
+  --hover-background-color: #00fff0;
+  --confirm-background-color: #fdfd01;
+  --disabled-color: rgba(255, 255, 255, 0.3);
+  --checkbox-area: #5fa7c0;
+  --logo-shadow-color: #5FA7C0;
+
+  /* --- shadows --- */
+  --shadow: 4px 6px 4px rgba(253, 253, 1, 0.25);
+
+  --text-shadow:
+    -0 -2px 0 #000000,
+    0 -2px 0 #000000,
+    -0 2px 0 #000000,
+    0 2px 0 #000000,
+    -2px -0 0 #000000,
+    2px -0 0 #000000,
+    -2px 0 0 #000000,
+    2px 0 0 #000000,
+    -1px -2px 0 #000000,
+    1px -2px 0 #000000,
+    -1px 2px 0 #000000,
+    1px 2px 0 #000000,
+    -2px -1px 0 #000000,
+    2px -1px 0 #000000,
+    -2px 1px 0 #000000,
+    2px 1px 0 #000000,
+    -2px -2px 0 #000000,
+    2px -2px 0 #000000,
+    -2px 2px 0 #000000,
+    2px 2px 0 #000000,
+    -2px -2px 0 #000000,
+    2px -2px 0 #000000,
+    -2px 2px 0 #000000,
+    2px 2px 0 #000000;
+
+  --text-shadow-colored:
+    -0 -1px 0 #1e1e54,
+    0 -1px 0 #1e1e54,
+    -0 1px 0 #1e1e54,
+    0 1px 0 #1e1e54,
+    -1px -0 0 #1e1e54,
+    1px -0 0 #1e1e54,
+    -1px 0 0 #1e1e54,
+    1px 0 0 #1e1e54,
+    -1px -1px 0 #1e1e54,
+    1px -1px 0 #1e1e54,
+    -1px 1px 0 #1e1e54,
+    1px 1px 0 #1e1e54,
+    -1px -1px 0 #1e1e54,
+    1px -1px 0 #1e1e54,
+    -1px 1px 0 #1e1e54,
+    1px 1px 0 #1e1e54;
+
+  --text-shadow-bold:
+    -0 -2px 1px var(--border-color),
+    0 -2px 1px var(--border-color),
+    -0 2px 1px var(--border-color),
+    0 2px 1px var(--border-color),
+    -2px -0 1px var(--border-color),
+    2px -0 1px var(--border-color),
+    -2px 0 1px var(--border-color),
+    2px 0 1px var(--border-color),
+    -1px -2px 1px var(--border-color),
+    1px -2px 1px var(--border-color),
+    -1px 2px 1px var(--border-color),
+    1px 2px 1px var(--border-color),
+    -2px -1px 1px var(--border-color),
+    2px -1px 1px var(--border-color),
+    -2px 1px 1px var(--border-color),
+    2px 1px 1px var(--border-color),
+    -2px -2px 1px var(--border-color),
+    2px -2px 1px var(--border-color),
+    -2px 2px 1px var(--border-color),
+    2px 2px 1px var(--border-color),
+    -2px -2px 1px var(--border-color),
+    2px -2px 1px var(--border-color),
+    -2px 2px 1px var(--border-color),
+    2px 2px 1px var(--border-color);
 }

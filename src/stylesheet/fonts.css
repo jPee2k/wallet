@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'BebasNeue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+  url('../assets/fonts/BebasNeue-Regular.woff2') format('woff2'),
+  url('../assets/fonts/BebasNeue-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Consolas';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+  url('../assets/fonts/Consolas.woff2') format('woff2'),
+  url('../assets/fonts/Consolas.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CutiveMono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+  url('../assets/fonts/CutiveMono-Regular.woff2') format('woff2'),
+  url('../assets/fonts/CutiveMono-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'MokotoGlitch';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+  url('../assets/fonts/Mokoto-Glitch-Mark-2.woff2') format('woff2'),
+  url('../assets/fonts/Mokoto-Glitch-Mark-2.woff') format('woff');
+}

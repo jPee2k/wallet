@@ -1,0 +1,97 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  scrollbar-color: var(--confirm-background-color) var(--border-color);
+  scrollbar-width: thin;
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: linear-gradient(
+        to right,
+        transparent 40%,
+        var(--border-color) 40%,
+        var(--border-color) 60%,
+        transparent 60%
+    );
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    background-color: var(--confirm-background-color);
+
+    &:active {
+      background-color: var(--hover-background-color);
+    }
+  }
+  ::-webkit-scrollbar-button {
+    height: 12px;
+  }
+}
+
+body {
+  font-family: "CutiveMono", "Georgia", serif, system-ui;
+  font-weight: 400;
+  color: var(--main-text-color);
+
+  min-width: 320px;
+  width: 100vw;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background-image: url("../../assets/images/background-fragment.png");
+  background-repeat: repeat;
+  background-color: var(--main-background-color);
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+.container {
+  width: 1260px;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+a {
+  font-size: 24px;
+  color: var(--hover-background-color);
+  text-shadow: var(--text-shadow-bold);
+
+  transition: color 180ms ease-in-out;
+
+  &:hover,
+  &:focus-visible,
+  &.active {
+    color: var(--confirm-background-color);
+  }
+
+  &:not([href]) {
+    pointer-events: none;
+  }
+}
