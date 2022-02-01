@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Triangle } from 'react-loader-spinner';
 import { getCssVariable } from '../../helpers/variables.js';
 
-import styles from './spinner.module.css';
+import styles from './Spinner.module.css';
 
 export const Spinner = ({ isLoading }) => {
   const spinnerColor = getCssVariable('--active-element-color');
