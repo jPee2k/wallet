@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Triangle } from 'react-loader-spinner';
 import { getCssVariable } from '../../helpers/variables.js';
-import styles from './Spinner.module.css';
+
+import styles from './spinner.module.css';
 
 export const Spinner = ({ isLoading }) => {
   const spinnerColor = getCssVariable('--active-element-color');
@@ -22,6 +23,8 @@ Spinner.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-const mapStateToProps = (state, ownProps) => ({ ...ownProps, isLoading: state.isLoading });
+const mapStateToProps = (state) => ({
+  isLoading: state.global.isLoading,
+});
 
 export default connect(mapStateToProps, null)(Spinner);

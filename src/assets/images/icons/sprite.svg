@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="check" viewBox="0 0 28 28">
+    <path fill="currentColor" d="M26.11 8.844c0 .39-.157.781-.438 1.062L12.234 23.344c-.28.281-.672.437-1.062.437s-.781-.156-1.063-.437l-7.78-7.781c-.282-.282-.438-.672-.438-1.063s.156-.781.437-1.062l2.125-2.125c.281-.282.672-.438 1.063-.438s.78.156 1.062.438l4.594 4.609 10.25-10.266c.281-.281.672-.437 1.062-.437s.782.156 1.063.437l2.125 2.125c.281.282.437.672.437 1.063z"/>
+  </symbol>
+  <symbol id="add" viewBox="0 0 500 500">
+    <path style="fill:#d8d8d8;stroke:#000;stroke-width:25px;stroke-linecap:round" d="m246.019 126.593 1.592 246.018"/><path style="fill:#d8d8d8;stroke:#000;stroke-width:25px;stroke-linecap:round" transform="translate(15.924 31.449)" d="m344.745 218.95-224.522-.001"/>
+  </symbol>
+  <symbol id="exit" viewBox="0 0 500 500">
+    <path style="stroke:#000;stroke-width:24px;fill:transparent;stroke-linecap:round;stroke-linejoin:round" d="m381.369 104.299-262.738-.796v293.79l264.331.796"/><path style="stroke:#000;stroke-width:24px;fill:transparent;stroke-linecap:round;stroke-linejoin:round" d="m204.618 247.612 222.133-.797-152.865-90.764 1.592 179.14 149.681-88.375"/>
+  </symbol>
+  <symbol id="logo" viewBox="0 0 500 500">
+    <defs><linearGradient gradientUnits="userSpaceOnUse" x1="268.818" y1="253.185" x2="268.818" y2="453.025" id="a"><stop offset="0" style="stop-color:#000"/><stop offset="1" style="stop-color:#000"/></linearGradient></defs><path style="fill:#df0;stroke:url(#a);stroke-width:15px" d="m417.197 453.025-277.866-1.592c-31.582 3.981-51.221-17.781-50.955-41.401.517-45.911-.014-63.958 0-109.873.006-18.918 19.379-42.537 50.159-45.381l253.185-1.593c28.397 0 46.431 21.992 52.549 42.196 2.612 8.624 5.87 113.674 4.777 117.835-4.407 16.779-11.783 36.952-31.849 39.809Z"/><path style="stroke:#000;fill:#0ff;stroke-width:15px" d="m398.885 160.828-267.516 93.949 263.535-1.592c15.658-20.435 23.355-47.24 23.09-80.414-.057-7.146-6.427-11.127-19.109-11.943Z"/><path style="stroke:#000;stroke-width:14px;fill:#fff700" d="m449.045 368.365-3.981-40.605H335.191c-20.966 15.393-21.231 29.193-.796 41.401l114.65-.796Z"/>
+  </symbol>
+  <symbol id="search" viewBox="0 0 500 500">
+    <ellipse style="stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-width: 25px; stroke-linecap: round;" cx="193.87" cy="199.045" rx="114.252" ry="107.484"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 25px; stroke-linecap: round;" x1="274.681" y1="285.032" x2="402.866" y2="407.644"/>
+  </symbol>
+  <symbol id="settings" viewBox="0 0 500 500">
+    <path style="stroke:#000;stroke-width:25px;stroke-linecap:round;stroke-linejoin:round;fill:transparent" d="m160.828 97.134 164.012-.797 76.433 72.453 3.185 163.216-73.247 69.268-169.587-.797c-2.685 2.685-72.452-74.839-72.452-74.839l-.001-156.051 71.657-72.453Z"/><ellipse style="stroke:#000;stroke-width:25px;fill:transparent" cx="248.408" cy="248.806" rx="58.121" ry="58.519"/>
+  </symbol>
+  <symbol id="statistics" viewBox="0 0 500 500">
+    <ellipse style="stroke:#000;fill:transparent;stroke-width:25px" cx="249.204" cy="261.146" rx="172.771" ry="168.79"/><path style="stroke:#000;stroke-width:25px;fill:#00fff2" d="m418.79 261.146-169.586 1.592-.796-168.788c109.872 13.535 166.666 67.674 170.382 167.196Z"/>
+  </symbol>
+  <symbol id="eye" viewBox="0 0 32 32">
+    <path d="M16 6C9.021 6 2.972 10.064 0 16c2.972 5.936 9.021 10 16 10s13.027-4.064 16-10c-2.972-5.936-9.021-10-16-10zm7.889 5.303A15.212 15.212 0 0 1 28.559 16a15.223 15.223 0 0 1-4.67 4.697C21.527 22.204 18.799 23 16 23s-5.527-.796-7.889-2.303A15.212 15.212 0 0 1 3.441 16a15.223 15.223 0 0 1 5.041-4.925 8 8 0 1 0 15.036 0c.124.074.248.15.371.228zM16 13a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  </symbol>
+  <symbol id="eye-blocked" viewBox="0 0 32 32">
+    <path d="M29.561.439a1.5 1.5 0 0 0-2.121 0l-6.318 6.318A17.626 17.626 0 0 0 16 6C9.021 6 2.972 10.064 0 16a18.323 18.323 0 0 0 5.407 6.472L.439 27.44a1.5 1.5 0 1 0 2.122 2.121l27-27a1.5 1.5 0 0 0 0-2.121zM13 10a3 3 0 0 1 2.841 2.037l-3.804 3.804A3 3 0 0 1 13 10zm-9.559 6a15.223 15.223 0 0 1 5.041-4.925A7.985 7.985 0 0 0 8 13.812c0 1.715.54 3.304 1.459 4.607l-1.904 1.904A15.219 15.219 0 0 1 3.441 16zM24 13.813c0-.849-.133-1.667-.378-2.434L13.566 21.435a8 8 0 0 0 10.435-7.622z"/><path d="M25.938 9.062 23.77 11.23l.118.074a15.212 15.212 0 0 1 4.67 4.697 15.223 15.223 0 0 1-4.67 4.697 14.642 14.642 0 0 1-11.45 1.864l-2.403 2.403a17.587 17.587 0 0 0 5.964 1.036c6.978 0 13.027-4.064 16-10a18.292 18.292 0 0 0-6.062-6.938z"/>
+  </symbol>
+</svg>

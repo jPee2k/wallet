@@ -1,34 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
 import Spinner from './components/spinner/Spinner.jsx';
-import Currency from './components/currency/Currency.jsx';
-import { actionCreators } from './reduxStore/actionCreators.js';
+import RegistrationPage from './components/registration-page/RegistrationPage.jsx';
 
-export const App = ({ hideLoader }) => {
-  hideLoader();
+const App = () => (
+  <div className="App">
+    <RegistrationPage/>
+    <Spinner/>
+  </div>
+);
 
-  return (
-    <div className="App">
-      <p>React Version: {React.version}</p>
-
-      <Currency/>
-      <Spinner/>
-    </div>
-  );
-}
-
-App.propTypes = {
-  hideLoader: PropTypes.func,
-  showLoader: PropTypes.func,
-};
-
-// use mapDispatchToProps inside your component to get access
-// to spinner switcher ( in props { showLoader, hideLoader } )
-const mapDispatchToProps = (dispatch) => ({
-  showLoader: () => dispatch(actionCreators.showSpinner()),
-  hideLoader: () => dispatch(actionCreators.hideSpinner()),
-});
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

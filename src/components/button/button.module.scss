@@ -1,0 +1,119 @@
+.button {
+  position: relative;
+  display: inline-block;
+
+  appearance: none;
+  border: unset;
+
+  width: 210px;
+  min-height: 60px;
+  padding: 0 15px;
+
+  font-size: 35px;
+  font-family: inherit;
+  vertical-align: middle;
+  color: var(--main-text-color);
+  text-shadow: var(--text-shadow-bold);
+
+  border: 3px solid var(--border-color);
+  border-radius: 25px 0 25px 25px;
+  background-color: var(--passive-background-color);
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+  transition:
+    background-color 120ms ease-in-out,
+    transform 100ms ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    border-radius: inherit;
+    transition:
+      transform 100ms ease-in-out,
+      box-shadow 100ms ease-in-out;
+  }
+
+  &:focus-visible,
+  &:hover {
+    background-color: var(--hover-background-color);
+    transform: translate3d(0, -12px, -1em);
+
+    &:before {
+      box-shadow: 0 0 0 3px var(--border-color);
+      transform: translate3d(0, 6px, -1em);
+    }
+
+    &:after {
+      box-shadow: 0 0 0 3px var(--border-color);
+      transform: translate3d(0, 12px, -1em);
+    }
+  }
+
+  &:active {
+    transform: translate3d(0, 0, 0);
+
+    &::before,
+    &::after {
+      transform: translate3d(0, 0, -1em);
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    filter: saturate(0.6) grayscale(0.7);
+    opacity: 0.6;
+  }
+}
+
+.buttonSmall {
+  height: 30px;
+  min-width: 130px;
+
+  padding: 0 10px;
+
+  font-size: 20px;
+  border-width: 2px;
+  border-radius: 15px 0 15px 15px;
+
+  &:focus-visible,
+  &:hover {
+    transform: translate3d(0, -10px, -1em);
+
+    &:before {
+      box-shadow: 0 0 0 2px var(--border-color);
+      transform: translate3d(0, 4px, -1em);
+    }
+
+    &:after {
+      box-shadow: 0 0 0 2px var(--border-color);
+      transform: translate3d(0, 8px, -1em);
+    }
+  }
+
+  &:active {
+    transform: translate3d(0, 0, 0);
+
+    &::before,
+    &::after {
+      transform: translate3d(0, 0, -1em);
+    }
+  }
+}
+
+.buttonConfirm {
+  background-color: var(--confirm-background-color);
+}
+
+.buttonCancel {
+  background-color: var(--main-background-color);
+}
