@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
-import reduxStore from './reduxStore/store.js';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 
 import './stylesheet/vars.css';
@@ -16,11 +14,11 @@ const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={reduxStore}>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
         <App/>
-      </QueryClientProvider>
-    </Provider>
+      </BrowserRouter>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
