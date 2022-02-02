@@ -1,6 +1,6 @@
 import React from 'react';
 import { Rings } from 'react-loader-spinner';
-import { getCssVariable } from '../../../helpers/variables';
+import { getCssVariable } from '../../../utils/variables.js';
 import styles from './styles.module.css';
 
 const Loader = () => {

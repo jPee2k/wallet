@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
 import useExchangeRateQuery from '../../hooks/useExchangeRateQuery.js';
 import { controller } from '../../services/privatBankAPI.js';
-import { setDataToLocalStorage, getDataFromLocalStorage } from '../../services/localStorage.js';
+import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
 import styles from './styles.module.css';
 
 const Currency = () => {
