@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+import { showSpinner, hideSpinner } from '../../../components/Spinner/spinnerSlice.js';
 
 // import { registerUser } from '../../../services/userAPI.js';
 import schema from './validationSchema.js';
@@ -10,6 +12,8 @@ import InputPassword from '../../../components/InputPassword';
 import Button from '../../../components/Button';
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
+
   const initValues = {
     username: '',
     email: '',
@@ -20,6 +24,9 @@ const RegistrationForm = () => {
   const submitHandler = (userData, actions) => {
     console.log(userData, actions);
   };
+
+  // dispatch(showSpinner());
+  // dispatch(hideSpinner());
 
   return (
     <Formik
