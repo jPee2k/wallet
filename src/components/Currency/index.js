@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Loader from './Loader';
 import useExchangeRateQuery from '../../hooks/useExchangeRateQuery.js';
-import { controller } from '../../services/privat-bank-API.js';
+import { controller } from '../../services/privatBankAPI.js';
 import { setDataToLocalStorage, getDataFromLocalStorage } from '../../services/localStorage.js';
-import Loader from './loader/Loader.jsx';
-import styles from './currency.module.css';
+import styles from './styles.module.css';
 
 const Currency = () => {
   const [rates, setRates] = useState([]);
@@ -35,14 +35,14 @@ const Currency = () => {
 
   if (isLoading || isFetching) {
     return (
-      <div className={styles['currency-widget']}>
+      <div className={styles['Currency-widget']}>
         <Loader/>
       </div>
     );
   }
 
   return (
-    <div className={styles['currency-widget']}>
+    <div className={styles['Currency-widget']}>
       <table border="1">
         <thead>
         <tr>

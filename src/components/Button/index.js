@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './button.module.scss';
+import styles from './styles.module.scss';
 
 const Button = ({ children, type = 'button', classes = '', disabled = false }) => (
   <button className={`${classes} ${styles.button}`} type={type} disabled={disabled}>

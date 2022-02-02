@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Logo.module.css';
+import styles from './styles.module.css';
 
 const { wrapper, name, description } = styles;
 

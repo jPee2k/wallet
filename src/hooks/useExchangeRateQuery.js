@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getExchangeRate } from '../services/privat-bank-API.js';
+import { getExchangeRate } from '../services/privatBankAPI.js';
 
 export default () => {
   const options = {

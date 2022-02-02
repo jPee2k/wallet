@@ -1,14 +1,14 @@
 import React from 'react';
 import { Rings } from 'react-loader-spinner';
 import { getCssVariable } from '../../../helpers/variables';
-import styles from './loader.module.css';
+import styles from './styles.module.css';
 
 const Loader = () => {
   const spinnerColor = getCssVariable('--active-element-color');
 
   return (
     <Rings
-      wrapperClass={styles['currency-loader']}
+      wrapperClass={styles['Currency-Loader']}
       heigth={90}
       width={90}
       color={spinnerColor}

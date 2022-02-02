@@ -1,7 +1,8 @@
 import React from 'react';
-import Logo from './logo/Logo.jsx';
-import RegistrationForm from './registration-form/RegistrationForm.jsx';
-import styles from './RegistrationPage.module.scss';
+import { Link } from 'react-router-dom';
+import Logo from '../../components/Logo';
+import RegistrationForm from './Form';
+import styles from './styles.module.scss';
 
 const { page, registerSection, registerLogo, signIn } = styles;
 
@@ -11,7 +12,7 @@ const RegistrationPage = () => (
       <Logo className={registerLogo}/>
       <RegistrationForm/>
       <span className={signIn}>
-        or: <a href="/login">Sign in</a>
+        or: <Link to="/login">Sign in</Link>
       </span>
     </section>
   </div>
