@@ -5,6 +5,8 @@ import { controller } from '../../services/privatBankAPI.js';
 import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
 import styles from './styles.module.css';
 
+const ALLOWED_CURRENCY = ['USD', 'EUR', 'RUR'];
+
 const Currency = () => {
   const [rates, setRates] = useState([]);
   const { isLoading, isFetching, isSuccess, data } = useExchangeRateQuery();
@@ -20,17 +22,14 @@ const Currency = () => {
   }, []);
 
   useEffect(() => {
-    if (isSuccess) {
-      const filteredRates = data.filter(({ ccy }) => ccy === 'USD' || ccy === 'EUR' || ccy === 'RUR');
-      setRates(filteredRates);
+    if (isSuccess && data) {
+      const filteredRates = data.filter(({ ccy }) => ALLOWED_CURRENCY.includes(ccy));
       setDataToLocalStorage({
         date: Date.now(),
         rates: filteredRates,
       });
+      setRates(filteredRates);
     }
-    return () => {
-      controller.abort();
-    };
   }, [data]);
 
   if (isLoading || isFetching) {
