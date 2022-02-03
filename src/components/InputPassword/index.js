@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ErrorMessage, Field } from 'formik';
 import { ReactComponent as Eye } from '../../assets/images/icons/eye.svg';
 import { ReactComponent as EyeBlocked } from '../../assets/images/icons/eye-blocked.svg';
+import styles from './styles.module.css';
 
 const InputPassword = ({ name, value, ...props }) => {
   const [inputType, setInputType] = useState('password');
@@ -11,19 +12,20 @@ const InputPassword = ({ name, value, ...props }) => {
     inputType === 'password' ? setInputType('text') : setInputType('password');
   };
 
+  const { input, label, wrapper, errorMessage, eyeBtn } = styles;
   const button = (
-    <button type="button" onClick={toggleVisibilityHandler}>
+    <button className={eyeBtn} type="button" onClick={toggleVisibilityHandler}>
       {inputType === 'password' ? <Eye/> : <EyeBlocked/>}
     </button>
   );
 
   return (
-    <label>
-      <span>
-        <Field {...props} type={inputType} name={name}/>
+    <label className={label}>
+      <span className={wrapper}>
+        <Field className={input} {...props} type={inputType} name={name}/>
         {value.length ? button : null}
       </span>
-      <ErrorMessage name={name} component="span"/>
+      <ErrorMessage className={errorMessage} name={name} component="span"/>
     </label>
   );
 };

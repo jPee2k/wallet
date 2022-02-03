@@ -1,10 +1,13 @@
 .wrapper {
   width: 480px;
-  padding: 15px 20px;
+  padding: 12px 20px;
 
-  border: 3px solid var(--border-color);
+  border: 3px solid var(--confirm-background-color);
   border-radius: 25px 0 25px 25px;
-  background-color: var(--confirm-background-color);
+  background-image: url("../../assets/images/background-fragment.png");
+  background-repeat: repeat;
+  background-color: var(--main-background-color);
+  filter: drop-shadow(0px 4px 4px var(--confirm-background-color));
 }
 
 .wrapper > *:not(:last-child) {
@@ -15,7 +18,7 @@
   font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
   font-size: 40px;
   font-weight: 700;
-  color: var(--border-color);
+  color: var(--confirm-background-color);
   text-transform: uppercase;
   text-shadow: 0 6px 4px var(--logo-shadow-color);
 }
@@ -24,6 +27,6 @@
   font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
   font-size: 16px;
   font-weight: 700;
-  color: var(--logo-shadow-color);
+  color: var(--hover-background-color);
   text-transform: uppercase;
 }
