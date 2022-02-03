@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
-import { useSelector, useDispatch } from 'react-redux';
-import { showSpinner, hideSpinner } from '../../../components/Spinner/spinnerSlice.js';
+import { useDispatch } from 'react-redux';
 
-// import { registerUser } from '../../../services/userAPI.js';
 import schema from './validationSchema.js';
+import { useCreateUserMutation } from '../../../services/authAPI.js';
+import { addUserData, addError } from './regFormSlice.js';
+import { showSpinner, hideSpinner } from '../../../components/Spinner/spinnerSlice.js';
 
 import Input from '../../../components/Input';
 import InputPassword from '../../../components/InputPassword';
@@ -13,6 +14,11 @@ import Button from '../../../components/Button';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const [createUser, { isLoading }] = useCreateUserMutation();
+
+  useEffect(() => {
+    isLoading && dispatch(showSpinner());
+  }, [isLoading]);
 
   const initValues = {
     username: '',
@@ -21,12 +27,19 @@ const RegistrationForm = () => {
     passwordConfirmation: '',
   };
 
-  const submitHandler = (userData, actions) => {
-    console.log(userData, actions);
+  const submitHandler = async (validatedData, actions) => {
+    try {
+      const response = await createUser(validatedData).unwrap();
+      dispatch(addUserData(response));
+      dispatch(hideSpinner());
+      actions.resetForm();
+    } catch (err) {
+      dispatch(addError(err));
+      dispatch(hideSpinner());
+      alert(err.data.message); // TODO -> show modal
+    }
+    actions.setSubmitting(false);
   };
-
-  // dispatch(showSpinner());
-  // dispatch(hideSpinner());
 
   return (
     <Formik
@@ -35,13 +48,13 @@ const RegistrationForm = () => {
       onSubmit={submitHandler}
     >
       {({ values }) => (
-        <Form>
+        <Form noValidate={true}>
           <Input name="username" placeholder="Name"/>
           <Input type="email" name="email" placeholder="Email"/>
           <InputPassword name="password" value={values.password} placeholder="Password"/>
           <InputPassword name="passwordConfirmation" placeholder="Password confirmation"
             value={values.passwordConfirmation}/>
-          <Button type="submit" disabled={false}>Sign up</Button>
+          <Button type="submit" disabled={isLoading}>Sign up</Button>
         </Form>
       )}
     </Formik>

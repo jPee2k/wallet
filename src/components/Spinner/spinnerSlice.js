@@ -2,18 +2,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isLoading: false,
+  global: {
+    isLoading: false,
+  },
 };
 
 export const spinnerSlice = createSlice({
-  name: 'spinner',
+  name: 'loading',
   initialState,
   reducers: {
     showSpinner: (state) => {
-      state.isLoading = true;
+      state.global.isLoading = true;
     },
     hideSpinner: (state) => {
-      state.isLoading = false;
+      state.global.isLoading = false;
     },
   },
 });

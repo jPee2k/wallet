@@ -5,7 +5,7 @@ import { getCssVariable } from '../../utils/variables.js';
 import styles from './styles.module.css';
 
 export const Spinner = () => {
-  const isLoading = useSelector((state) => state.spinner.isLoading);
+  const isLoading = useSelector((state) => state.loading.global.isLoading);
   const spinnerColor = getCssVariable('--active-element-color');
 
   return (

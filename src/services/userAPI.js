@@ -1,25 +1,15 @@
-const BASE_URL = 'https://wallet.goit.ua';
-const ALLOWED = ['username', 'email', 'password'];
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const prepareData = (data = {}) => {
-  const preparedData = Object.entries(data)
-    .filter(([key]) => ALLOWED.includes(key))
-    .map(([key, value]) => [key, value.trim()]);
-  return Object.fromEntries(preparedData);
-};
+export const userAPI = createApi({
+  reducerPath: 'userAPI',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://wallet.goit.ua',
+  }),
+  endpoints: (build) => ({
+    getUser: build.query({
+      query: (id = 'current') => `/api/users/${id}`,
+    }),
+  }),
+});
 
-export const regController = new AbortController();
-export const registerUser = (data = {}) => {
-  const url = new URL('/api/auth/sign-up', BASE_URL);
-  const options = {
-    method: 'POST',
-    body: JSON.stringify(prepareData(data)),
-    signal: regController.signal,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  return fetch(url.toString(), options)
-    .then((response) => response.json());
-};
+export const { useGetUserQuery } = userAPI;
