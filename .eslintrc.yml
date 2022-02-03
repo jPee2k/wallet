@@ -20,6 +20,7 @@ settings:
     version: '17'
 
 rules:
+  no-alert: 0
   no-console: 0
   import/extensions: 0
   import/no-named-as-default: 0
@@ -27,3 +28,4 @@ rules:
   default-param-last: 0
   no-unused-expressions: 0
   object-curly-newline: 0
+  no-use-before-define: 0
