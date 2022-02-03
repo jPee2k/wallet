@@ -12,6 +12,8 @@ import Input from '../../../components/Input';
 import InputPassword from '../../../components/InputPassword';
 import Button from '../../../components/Button';
 
+import styles from './styles.module.scss';
+
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const [createUser, { isLoading }] = useCreateUserMutation();
@@ -41,20 +43,23 @@ const RegistrationForm = () => {
     actions.setSubmitting(false);
   };
 
+  const { form, button } = styles;
+
   return (
     <Formik
       initialValues={initValues}
+      validateOnBlur={false}
       validationSchema={schema}
       onSubmit={submitHandler}
     >
       {({ values }) => (
-        <Form noValidate={true}>
+        <Form className={form} noValidate={true}>
           <Input name="username" placeholder="Name"/>
           <Input type="email" name="email" placeholder="Email"/>
           <InputPassword name="password" value={values.password} placeholder="Password"/>
           <InputPassword name="passwordConfirmation" placeholder="Password confirmation"
             value={values.passwordConfirmation}/>
-          <Button type="submit" disabled={isLoading}>Sign up</Button>
+          <Button className={button} type="submit" disabled={isLoading}>Sign up</Button>
         </Form>
       )}
     </Formik>
