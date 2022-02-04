@@ -1,15 +1,24 @@
 :root {
   /* --- colors --- */
   --active-element-color: #00FFF0;
-  --main-text-color: #ffffff;
+  --main-text-color: #FFFFFF;
   --border-color: #000000;
-  --main-background-color: #4141b3;
-  --passive-background-color: #fa00ff;
-  --hover-background-color: #00fff0;
-  --confirm-background-color: #fdfd01;
+  --main-background-color: #4141B3;
+  --passive-background-color: #FA00FF;
+  --hover-background-color: #00FFF0;
+  --confirm-background-color: #FDFD01;
   --disabled-color: rgba(255, 255, 255, 0.3);
-  --checkbox-area: #5fa7c0;
+  --checkbox-area: #5FA7C0;
   --logo-shadow-color: #5FA7C0;
+
+  /* --- sizes --- */
+  --desktop: 1200px;
+  --desktop-sm: 992px; /* lg */
+  --tablet: 768px; /* md */
+  --tablet-sm: 640px;
+  --mobile-landscape: 576px; /* sm */
+  --mobile: 480px;
+  --mobile-sm: 320px;
 
   /* --- shadows --- */
   --shadow: 4px 6px 4px rgba(253, 253, 1, 0.25);

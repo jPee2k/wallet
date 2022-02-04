@@ -1,11 +1,12 @@
 import React from 'react';
 import Currency from '../../components/Currency';
+import UserCard from '../../components/UserCard';
 
-const MainPage = () => (
+const HomePage = () => (
   <React.Fragment>
-    <h2>Main Page</h2>
     <Currency/>
+    <UserCard/>
   </React.Fragment>
 );
 
-export default MainPage;
+export default HomePage;

@@ -4,7 +4,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import ProtectedRoute from '../components/ProtectedRoute';
 import AuthRoute from '../components/AuthRoute';
-import MainPage from '../pages/Main';
+import MainPage from '../pages/Home';
 import AuthPage from '../pages/Auth';
 
 const App = () => (

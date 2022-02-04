@@ -1,7 +1,7 @@
 import React from 'react';
 import { Triangle } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
-import { getCssVariable } from '../../utils/variables.js';
+import { getCssVariable } from '../../utils/useful.js';
 import styles from './styles.module.css';
 
 export const Spinner = () => {
