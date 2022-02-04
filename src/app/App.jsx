@@ -1,46 +1,30 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import Spinner from '../components/Spinner';
+import ProtectedRoute from '../components/ProtectedRoute';
+import AuthRoute from '../components/AuthRoute';
 import MainPage from '../pages/Main';
 import AuthPage from '../pages/Auth';
 
-const App = () => {
-  const navigate = useNavigate();
-  const isAuth = useSelector(({ auth }) => auth.session.isAuth);
+const App = () => (
+  <React.Fragment>
+    <nav style={{ position: 'absolute', right: 0 }}>
+      <Link to="/">Main</Link>{' | '}
+      <Link to="/register">Register</Link>{' | '}
+      <Link to="/login">Login</Link>
+    </nav>
 
-  useEffect(() => (isAuth ? navigate('/') : navigate('/register')), [isAuth]);
+    <Routes>
+      <Route path="/register" element={<AuthRoute><AuthPage action="register"/></AuthRoute>}/>
+      <Route path="/login" element={<AuthRoute><AuthPage action="login"/></AuthRoute>}/>
+      <Route index element={<ProtectedRoute><MainPage/></ProtectedRoute>}/>
 
-  return (
-    <React.Fragment>
-      <nav style={{ position: 'absolute', right: 0 }}>
-        {isAuth ? (
-          <Link to="/">Main</Link>
-        ) : (
-          <React.Fragment>
-            <Link to="/register">Register</Link>{' | '}
-            <Link to="/login">Login</Link>
-          </React.Fragment>
-        )}
-      </nav>
+      <Route path="*" element={<h2>404: This page is not found</h2>}/>
+    </Routes>
 
-      <Routes>
-        {isAuth ? (
-          <Route index element={<MainPage/>}/>
-        ) : (
-          <React.Fragment>
-            <Route path="/register" element={<AuthPage action="register"/>}/>
-            <Route path="/login" element={<AuthPage action="login"/>}/>
-          </React.Fragment>
-        )}
-
-        <Route path="*" element={<h2>404: This page is not found</h2>}/>
-      </Routes>
-
-      <Spinner/>
-    </React.Fragment>
-  );
-};
+    <Spinner/>
+  </React.Fragment>
+);
 
 export default App;
