@@ -10,8 +10,8 @@ const initialState = {
   error: null,
 };
 
-export const regFormSlice = createSlice({
-  name: 'registration',
+export const formSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {
     addUserData: (state, actions) => {
@@ -28,5 +28,5 @@ export const regFormSlice = createSlice({
   },
 });
 
-export const { addUserData, addError } = regFormSlice.actions;
-export default regFormSlice.reducer;
+export const { addUserData, addError } = formSlice.actions;
+export default formSlice.reducer;

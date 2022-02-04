@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const ALLOWED = ['username', 'email', 'password'];
+const ALLOWED_REG_FIELDS = ['username', 'email', 'password'];
+const ALLOWED_LOGIN_FIELDS = ['email', 'password'];
 
 export const authAPI = createApi({
   reducerPath: 'authAPI',
@@ -12,17 +13,25 @@ export const authAPI = createApi({
       query: (body) => ({
         method: 'POST',
         url: '/api/auth/sign-up/',
-        body: prepareRegistrationData(body),
+        body: prepareData(body, ALLOWED_REG_FIELDS),
+      }),
+    }),
+    authUser: build.mutation({
+      query: (body) => ({
+        method: 'POST',
+        url: '/api/auth/sign-in/',
+        body: prepareData(body, ALLOWED_LOGIN_FIELDS),
       }),
     }),
   }),
 });
 
-function prepareRegistrationData(data = {}) {
+function prepareData(data = {}, allowed = []) {
   const preparedData = Object.entries(data)
-    .filter(([key]) => ALLOWED.includes(key))
+    .filter(([key]) => allowed.includes(key))
     .map(([key, value]) => [key, value.trim()]);
+
   return Object.fromEntries(preparedData);
 }
 
-export const { useCreateUserMutation } = authAPI;
+export const { useCreateUserMutation, useAuthUserMutation } = authAPI;

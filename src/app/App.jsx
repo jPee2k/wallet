@@ -4,21 +4,25 @@ import { useSelector } from 'react-redux';
 
 import Spinner from '../components/Spinner';
 import MainPage from '../pages/Main';
-import RegistrationPage from '../pages/Registration';
-import LoginPage from '../pages/Login';
+import AuthPage from '../pages/Auth';
 
 const App = () => {
   const navigate = useNavigate();
-  const isAuth = useSelector(({ registration }) => registration.session.isAuth);
+  const isAuth = useSelector(({ auth }) => auth.session.isAuth);
 
-  useEffect(() => (isAuth ? navigate('/') : navigate('/registration')), [isAuth]);
+  useEffect(() => (isAuth ? navigate('/') : navigate('/register')), [isAuth]);
 
   return (
     <React.Fragment>
       <nav style={{ position: 'absolute', right: 0 }}>
-        <Link to="/">Main</Link>{' | '}
-        <Link to="/registration">Registration</Link>{' | '}
-        <Link to="/login">Login</Link>
+        {isAuth ? (
+          <Link to="/">Main</Link>
+        ) : (
+          <React.Fragment>
+            <Link to="/register">Register</Link>{' | '}
+            <Link to="/login">Login</Link>
+          </React.Fragment>
+        )}
       </nav>
 
       <Routes>
@@ -26,8 +30,8 @@ const App = () => {
           <Route index element={<MainPage/>}/>
         ) : (
           <React.Fragment>
-            <Route path="/registration" element={<RegistrationPage/>}/>
-            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/register" element={<AuthPage action="register"/>}/>
+            <Route path="/login" element={<AuthPage action="login"/>}/>
           </React.Fragment>
         )}
 

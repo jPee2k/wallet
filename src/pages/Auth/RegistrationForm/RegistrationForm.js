@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import schema from './validationSchema.js';
 import { useCreateUserMutation } from '../../../services/authAPI.js';
-import { addUserData, addError } from './regFormSlice.js';
+import { addUserData, addError } from '../formSlice.js';
 import { showSpinner, hideSpinner } from '../../../components/Spinner/spinnerSlice.js';
 
 import Input from '../../../components/Input';
