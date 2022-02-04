@@ -15,17 +15,23 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <nav>
-        <Link to="/">Main</Link><br/>
-        <Link to="/registration">Registration</Link><br/>
-        <Link to="/login">Login</Link><br/>
+      <nav style={{ position: 'absolute', right: 0 }}>
+        <Link to="/">Main</Link>{' | '}
+        <Link to="/registration">Registration</Link>{' | '}
+        <Link to="/login">Login</Link>
       </nav>
 
       <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route path="/registration" element={<RegistrationPage/>}/>
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="*" element={<MainPage/>}/>
+        {isAuth ? (
+          <Route index element={<MainPage/>}/>
+        ) : (
+          <React.Fragment>
+            <Route path="/registration" element={<RegistrationPage/>}/>
+            <Route path="/login" element={<LoginPage/>}/>
+          </React.Fragment>
+        )}
+
+        <Route path="*" element={<h2>404: This page is not found</h2>}/>
       </Routes>
 
       <Spinner/>
