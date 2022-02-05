@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 
@@ -64,14 +63,6 @@ const RegistrationForm = () => {
       )}
     </Formik>
   );
-};
-
-RegistrationForm.propTypes = {
-  hideLoader: PropTypes.func,
-  showLoader: PropTypes.func,
-  addUserToken: PropTypes.func,
-  addUserData: PropTypes.func,
-  addError: PropTypes.func,
 };
 
 export default RegistrationForm;

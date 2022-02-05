@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
   const isAuth = useSelector(({ auth }) => auth.session.isAuth);
-  return isAuth ? children : <Navigate to="/register" />;
+  return isAuth ? children : <Navigate to="/login" />;
 };
 
 ProtectedRoute.propTypes = {

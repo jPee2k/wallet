@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 
@@ -59,11 +58,6 @@ const LoginForm = () => {
       )}
     </Formik>
   );
-};
-
-LoginForm.propTypes = {
-  hideLoader: PropTypes.func,
-  showLoader: PropTypes.func,
 };
 
 export default LoginForm;
