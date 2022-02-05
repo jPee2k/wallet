@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './app/store.js';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { store, persistor } from './app/store.js';
 import App from './app/App.jsx';
 
 import './stylesheet/vars.css';
@@ -18,7 +20,9 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <BrowserRouter><App/></BrowserRouter>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter><App/></BrowserRouter>
+        </PersistGate>
       </Provider>
     </QueryClientProvider>
   </React.StrictMode>,
