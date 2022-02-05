@@ -23,6 +23,12 @@ export const authAPI = createApi({
         body: prepareData(body, ALLOWED_LOGIN_FIELDS),
       }),
     }),
+    logOut: build.mutation({
+      query: () => ({
+        method: 'DELETE',
+        url: '/api/auth/sign-out/',
+      }),
+    }),
   }),
 });
 
@@ -34,4 +40,4 @@ function prepareData(data = {}, allowed = []) {
   return Object.fromEntries(preparedData);
 }
 
-export const { useCreateUserMutation, useAuthUserMutation } = authAPI;
+export const { useCreateUserMutation, useAuthUserMutation, useLogOutMutation } = authAPI;

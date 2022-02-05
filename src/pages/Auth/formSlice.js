@@ -25,8 +25,9 @@ export const formSlice = createSlice({
       state.session.isAuth = false;
       state.error = actions.payload;
     },
+    resetUserData: () => initialState,
   },
 });
 
-export const { addUserData, addError } = formSlice.actions;
+export const { addUserData, addError, resetUserData } = formSlice.actions;
 export default formSlice.reducer;

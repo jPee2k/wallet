@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Spinner from '../components/Spinner';
 import ProtectedRoute from '../components/ProtectedRoute';
@@ -9,12 +9,6 @@ import AuthPage from '../pages/Auth';
 
 const App = () => (
   <React.Fragment>
-    <nav style={{ position: 'absolute', right: 0 }}>
-      <Link to="/">Main</Link>{' | '}
-      <Link to="/register">Register</Link>{' | '}
-      <Link to="/login">Login</Link>
-    </nav>
-
     <Routes>
       <Route path="/register" element={<AuthRoute><AuthPage action="register"/></AuthRoute>}/>
       <Route path="/login" element={<AuthRoute><AuthPage action="login"/></AuthRoute>}/>

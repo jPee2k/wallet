@@ -1,0 +1,32 @@
+.navButton {
+  appearance: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  width: 50px;
+
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--confirm-background-color);
+
+  transition: background-color 80ms ease-in-out;
+}
+
+.navButton:disabled {
+  pointer-events: none;
+  filter: saturate(0.6) grayscale(0.7);
+  opacity: 0.6;
+}
+
+.navButton:focus-visible,
+.navButton:hover {
+  cursor: pointer;
+  background-color: var(--hover-background-color);
+}
+
+.navButton:active {
+  background-color: var(--passive-background-color);
+}
