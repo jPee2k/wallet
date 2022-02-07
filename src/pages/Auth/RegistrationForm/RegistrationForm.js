@@ -15,11 +15,17 @@ import styles from './styles.module.scss';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const [createUser, { isLoading }] = useCreateUserMutation();
+  const [createUser, { isLoading, isError, isSuccess }] = useCreateUserMutation();
 
   useEffect(() => {
     isLoading && dispatch(showSpinner());
   }, [isLoading]);
+
+  useEffect(() => {
+    if (isSuccess || isError) {
+      dispatch(hideSpinner());
+    }
+  }, [isSuccess, isError]);
 
   const initValues = {
     username: '',
@@ -32,11 +38,9 @@ const RegistrationForm = () => {
     try {
       const response = await createUser(validatedData).unwrap();
       dispatch(addUserData(response));
-      dispatch(hideSpinner());
       actions.resetForm();
     } catch (err) {
       dispatch(addError(err));
-      dispatch(hideSpinner());
       alert(err.data.message); // TODO -> show modal
     }
     actions.setSubmitting(false);
@@ -52,7 +56,7 @@ const RegistrationForm = () => {
       onSubmit={submitHandler}
     >
       {({ values }) => (
-        <Form className={form} noValidate={true}>
+        <Form className={form} noValidate={true} autoComplete={'off'}>
           <Input name="username" placeholder="Name"/>
           <Input type="email" name="email" placeholder="Email"/>
           <InputPassword name="password" value={values.password} placeholder="Password"/>
