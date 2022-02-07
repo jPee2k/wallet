@@ -15,11 +15,17 @@ import styles from './styles.module.scss';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const [authUser, { isLoading }] = useAuthUserMutation();
+  const [authUser, { isLoading, isSuccess, isError }] = useAuthUserMutation();
 
   useEffect(() => {
     isLoading && dispatch(showSpinner());
   }, [isLoading]);
+
+  useEffect(() => {
+    if (isSuccess || isError) {
+      dispatch(hideSpinner());
+    }
+  }, [isSuccess, isError]);
 
   const initValues = {
     email: '',
@@ -30,11 +36,9 @@ const LoginForm = () => {
     try {
       const response = await authUser(validatedData).unwrap();
       dispatch(addUserData(response));
-      dispatch(hideSpinner());
       actions.resetForm();
     } catch (err) {
       dispatch(addError(err));
-      dispatch(hideSpinner());
       alert(err.data.message); // TODO -> show modal
     }
     actions.setSubmitting(false);
