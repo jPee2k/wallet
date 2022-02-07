@@ -4,7 +4,7 @@ import { getCardNumber } from '../../utils/useful.js';
 import styles from './styles.module.css';
 
 const UserCard = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.session);
   const { username, balance } = user;
   const { cardBlock, cardNumber, cardBalance, cardName } = styles;
 

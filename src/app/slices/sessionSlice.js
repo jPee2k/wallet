@@ -2,32 +2,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  session: {
-    isAuth: false,
-  },
+  isAuth: false,
+  error: null,
   token: null,
   user: null,
-  error: null,
 };
 
-export const formSlice = createSlice({
-  name: 'auth',
+export const sessionSlice = createSlice({
+  name: 'session',
   initialState,
   reducers: {
     addUserData: (state, actions) => {
       const { user, token } = actions.payload;
-      state.session.isAuth = true;
+      state.isAuth = true;
       state.token = token;
       state.user = user;
       state.error = null;
     },
     addError: (state, actions) => {
-      state.session.isAuth = false;
+      state.isAuth = false;
       state.error = actions.payload;
     },
     resetUserData: () => initialState,
   },
 });
 
-export const { addUserData, addError, resetUserData } = formSlice.actions;
-export default formSlice.reducer;
+export const { addUserData, addError, resetUserData } = sessionSlice.actions;
+export default sessionSlice.reducer;

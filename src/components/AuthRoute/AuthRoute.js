@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const AuthRoute = ({ children }) => {
-  const isAuth = useSelector(({ auth }) => auth.session.isAuth);
+  const isAuth = useSelector(({ session }) => session.isAuth);
   return isAuth ? <Navigate to="/"/> : children;
 };
 

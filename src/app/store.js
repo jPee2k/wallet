@@ -4,13 +4,13 @@ import storage from 'redux-persist/lib/storage';
 
 import { authAPI } from '../services/authAPI.js';
 
-import spinnerReducer from '../components/Spinner/spinnerSlice.js';
-import formReducer from '../pages/Auth/formSlice.js';
+import globalReducer from './slices/globalSlice.js';
+import sessionReducer from './slices/sessionSlice.js';
 
 const rootReducer = combineReducers({
   /* --- sync --- */
-  loading: spinnerReducer,
-  auth: formReducer,
+  global: globalReducer,
+  session: sessionReducer,
 
   /* --- async -> rtk.query --- */
   [authAPI.reducerPath]: authAPI.reducer,
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'user',
   storage,
-  whitelist: 'auth',
+  whitelist: 'session',
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

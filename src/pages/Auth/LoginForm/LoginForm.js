@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import schema from './validationSchema.js';
 import { useAuthUserMutation } from '../../../services/authAPI.js';
-import { addUserData, addError } from '../formSlice.js';
-import { showSpinner, hideSpinner } from '../../../components/Spinner/spinnerSlice.js';
+import { addUserData, addError } from '../../../app/slices/sessionSlice.js';
+import { showSpinner, hideSpinner } from '../../../app/slices/globalSlice.js';
 
 import Input from '../../../components/Input';
 import InputPassword from '../../../components/InputPassword';

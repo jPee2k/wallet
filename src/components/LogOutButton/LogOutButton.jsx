@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import NavButton from '../NavButton';
-import { resetUserData } from '../../pages/Auth/formSlice.js';
+import { resetUserData } from '../../app/slices/sessionSlice.js';
 import { ReactComponent as Exit } from '../../assets/images/icons/exit.svg';
 
 const LogOutButton = () => {
