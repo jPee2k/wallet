@@ -1,0 +1,37 @@
+.label {
+  width: 100%;
+}
+
+.textarea {
+  min-height: 160px;
+  width: 100%;
+
+  padding: 10px;
+
+  appearance: none;
+  resize: none;
+
+  color: var(--border-color);
+  font-size: 18px;
+  font-weight: 700;
+
+  background-color: var(--confirm-background-color);
+  border: 3px solid var(--border-color);
+  border-radius: 15px 0 15px 15px;
+
+  transition: background-color 180ms ease-in-out;
+}
+
+.textarea::placeholder {
+  font: inherit;
+  font-weight: 600;
+  color: var(--main-background-color);
+}
+
+.textarea:focus-visible {
+  background-color: var(--hover-background-color);
+}
+
+.errorMessage {
+  text-indent: 20px;
+}

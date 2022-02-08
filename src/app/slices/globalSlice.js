@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isLoading: false,
+  isModalAddTransactionOpen: false,
 };
 
 export const globalSlice = createSlice({
@@ -15,8 +16,14 @@ export const globalSlice = createSlice({
     hideSpinner: (state) => {
       state.isLoading = false;
     },
+    openModal: (state) => {
+      state.isModalAddTransactionOpen = true;
+    },
+    closeModal: (state) => {
+      state.isModalAddTransactionOpen = false;
+    },
   },
 });
 
-export const { showSpinner, hideSpinner } = globalSlice.actions;
+export const { showSpinner, hideSpinner, openModal, closeModal } = globalSlice.actions;
 export default globalSlice.reducer;

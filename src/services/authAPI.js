@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import prepareHeaders from './prepareHeaders.js';
+import prepareData from '../utils/data.js';
 
 const ALLOWED_REG_FIELDS = ['username', 'email', 'password'];
 const ALLOWED_LOGIN_FIELDS = ['email', 'password'];
@@ -7,6 +9,7 @@ export const authAPI = createApi({
   reducerPath: 'authAPI',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://wallet.goit.ua',
+    prepareHeaders,
   }),
   endpoints: (build) => ({
     createUser: build.mutation({
@@ -31,13 +34,5 @@ export const authAPI = createApi({
     }),
   }),
 });
-
-function prepareData(data = {}, allowed = []) {
-  const preparedData = Object.entries(data)
-    .filter(([key]) => allowed.includes(key))
-    .map(([key, value]) => [key, value.trim()]);
-
-  return Object.fromEntries(preparedData);
-}
 
 export const { useCreateUserMutation, useAuthUserMutation, useLogOutMutation } = authAPI;

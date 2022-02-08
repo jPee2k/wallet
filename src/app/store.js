@@ -3,17 +3,23 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage';
 
 import { authAPI } from '../services/authAPI.js';
+import { transactionCategoryApi } from '../services/transactionCategoryAPI.js';
+import { transactionsApi } from '../services/transactionsAPI.js';
 
 import globalReducer from './slices/globalSlice.js';
 import sessionReducer from './slices/sessionSlice.js';
+import transactionReducer from './slices/transactionSlice.js';
 
 const rootReducer = combineReducers({
   /* --- sync --- */
   global: globalReducer,
   session: sessionReducer,
+  transaction: transactionReducer,
 
   /* --- async -> rtk.query --- */
   [authAPI.reducerPath]: authAPI.reducer,
+  [transactionCategoryApi.reducerPath]: transactionCategoryApi.reducer,
+  [transactionsApi.reducerPath]: transactionsApi.reducer,
 });
 
 const persistConfig = {
@@ -32,6 +38,8 @@ export const store = configureStore({
     },
   }).concat(
     authAPI.middleware,
+    transactionCategoryApi.middleware,
+    transactionsApi.middleware,
   ),
 });
 export const persistor = persistStore(store);
