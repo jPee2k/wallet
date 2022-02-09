@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
-// TODO -> data before
-
 const validationSchema = yup.object({
-  transactionDate: yup.string()
+  transactionDate: yup.date()
+    .min(new Date('01-01-1900'), 'Must be greater than 1900')
+    .max(new Date(), 'Please enter a valid date')
     .required('Field is required'),
   type: yup.string()
     .oneOf(['INCOME', 'EXPENSE'])

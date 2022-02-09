@@ -13,6 +13,7 @@ import Button from '../../Button';
 import CheckboxType from '../CheckboxType';
 import Textarea from '../../Textarea';
 import styles from '../styles.module.scss';
+import DatePicker from '../../DatePicker';
 
 const TYPES = { dec: 'EXPENSE', inc: 'INCOME' };
 
@@ -66,7 +67,7 @@ const TransactionForm = () => {
         <CheckboxType name="type" types={TYPES}/>
         <div className={doubleInputs}>
           <Input name="amount" type="text" placeholder="Amount"/>
-          <Input name="transactionDate" type="date"/>
+          <DatePicker name="transactionDate"/>
         </div>
         <SelectCategory/>
         <Textarea className={textarea} name="comment" placeholder="Comment"/>
