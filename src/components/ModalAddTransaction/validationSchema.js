@@ -13,7 +13,7 @@ const validationSchema = yup.object({
   categoryId: yup.string()
     .required('Field is required'),
   comment: yup.string()
-    .max(1024, 'Must be 254 characters or less'),
+    .max(1024, 'Must be 1024 characters or less'),
   amount: yup.number()
     .typeError('Must be a number type')
     .positive('Only positive values')
