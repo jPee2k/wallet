@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import schema from './validationSchema.js';
 import { useAuthUserMutation } from '../../../services/authAPI.js';
@@ -38,8 +39,9 @@ const LoginForm = () => {
       dispatch(addUserData(response));
       actions.resetForm();
     } catch (err) {
+      const errMessage = err?.data?.message || 'Oops, something went wrong =(';
       dispatch(addError(err));
-      alert(err.data.message); // TODO -> show modal
+      toast.error(errMessage);
     }
     actions.setSubmitting(false);
   };
