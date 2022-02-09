@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import schema from '../validationSchema.js';
-import { closeModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
+import { toast } from 'react-toastify';
+import schema, { dateNow } from '../validationSchema.js';
+import { closeTransactionModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
 import { addTransactionData } from '../../../app/slices/transactionSlice.js';
+import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
 import { useCreateTransactionMutation } from '../../../services/transactionsAPI.js';
 import { getAmountSignByType } from '../../../utils/data.js';
 import SelectCategory from '../SelectCategory';
@@ -11,6 +13,7 @@ import Input from '../../Input';
 import Button from '../../Button';
 import CheckboxType from '../CheckboxType';
 import Textarea from '../../Textarea';
+import DatePicker from '../../DatePicker';
 import styles from '../styles.module.scss';
 
 const TYPES = { dec: 'EXPENSE', inc: 'INCOME' };
@@ -26,18 +29,18 @@ const TransactionForm = () => {
   useEffect(() => {
     if (isSuccess) {
       dispatch(hideSpinner());
-      dispatch(closeModal());
+      dispatch(closeTransactionModal());
     } else if (isError) {
       dispatch(hideSpinner());
     }
   }, [isSuccess, isError]);
 
   const initialValues = {
-    transactionDate: new Date(),
+    transactionDate: dateNow,
     type: TYPES.dec,
     categoryId: '',
     comment: '',
-    amount: '0.00',
+    amount: '',
   };
 
   const submitHandler = async (validatedData, actions) => {
@@ -46,9 +49,10 @@ const TransactionForm = () => {
     try {
       const response = await createTransaction(data).unwrap();
       dispatch(addTransactionData(response));
+      response.balanceAfter && dispatch(updateUserBalance(response.balanceAfter));
       actions.resetForm();
     } catch (err) {
-      alert(err.data.message); // TODO -> react-toastify
+      toast.error(err.data.message);
     }
     actions.setSubmitting(false);
   };
@@ -59,20 +63,24 @@ const TransactionForm = () => {
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={submitHandler}
+      validateOnBlur={false}
     >
-      <Form className={form} autoComplete="off">
-        <CheckboxType name="type" types={TYPES}/>
-        <div className={doubleInputs}>
-          <Input name="amount" type="text" placeholder="Amount"/>
-          <Input name="transactionDate" type="date"/>
-        </div>
-        <SelectCategory/>
-        <Textarea className={textarea} name="comment" placeholder="Comment"/>
-        <div className={navSection}>
-          <Button className={buttonCancel} onClick={() => dispatch(closeModal())}>Cancel</Button>
-          <Button className={buttonConfirm} type="submit">Add</Button>
-        </div>
-      </Form>
+      {({ values }) => (
+        <Form className={form} autoComplete="off">
+          <CheckboxType name="type" types={TYPES}/>
+          <div className={doubleInputs}>
+            <Input name="amount" type="text" placeholder="0.00"/>
+            <DatePicker name="transactionDate"/>
+          </div>
+          <SelectCategory type={values.type}/>
+          <Textarea className={textarea} name="comment" placeholder="Comment"/>
+          <div className={navSection}>
+            <Button className={buttonCancel}
+              onClick={() => dispatch(closeTransactionModal())}>Cancel</Button>
+            <Button className={buttonConfirm} type="submit">Add</Button>
+          </div>
+        </Form>
+      )}
     </Formik>
   );
 };

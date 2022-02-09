@@ -4,7 +4,7 @@ import { Field, useField } from 'formik';
 import { ReactComponent as Arrow } from '../../../assets/images/icons/arrow.svg';
 import styles from './styles.module.scss';
 
-const CheckboxType = ({ name = 'type', types }) => {
+const CheckboxType = ({ name = 'type', types, ...props }) => {
   const [, meta, helpers] = useField(name);
   const { value } = meta;
   const { setValue } = helpers;
@@ -21,6 +21,7 @@ const CheckboxType = ({ name = 'type', types }) => {
         <Field className={input} type="checkbox" name={name} value={value} id={checkbox}
           onChange={clickHandler}
           checked={value === types.dec}
+          {...props}
         />
         <label className={label} htmlFor={checkbox}>
           <span className={area}><Arrow className={icon}/></span>

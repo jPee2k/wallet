@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Spinner from '../components/Spinner';
 import ProtectedRoute from '../components/ProtectedRoute';
 import AuthRoute from '../components/AuthRoute';
@@ -19,6 +20,7 @@ const App = () => (
     </Routes>
 
     <Spinner/>
+    <ToastContainer/>
   </React.Fragment>
 );
 

@@ -24,8 +24,13 @@ export const sessionSlice = createSlice({
       state.error = actions.payload;
     },
     resetUserData: () => initialState,
+    updateUserBalance: (state, actions) => {
+      if (!state.error && state.user) {
+        state.user.balance = actions.payload;
+      }
+    },
   },
 });
 
-export const { addUserData, addError, resetUserData } = sessionSlice.actions;
+export const { addUserData, addError, resetUserData, updateUserBalance } = sessionSlice.actions;
 export default sessionSlice.reducer;
