@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Field, ErrorMessage } from 'formik';
 import { useGetTransactionCategoriesQuery } from '../../../services/transactionCategoryAPI.js';
 import { hideSpinner, showSpinner } from '../../../app/slices/globalSlice';
 import styles from './styles.module.css';
 
-const SelectCategory = () => {
+const SelectCategory = ({ type = '' }) => {
   const [categories, setCategories] = useState([]);
   const { isLoading, isError, isSuccess, data } = useGetTransactionCategoriesQuery();
   const dispatch = useDispatch();
@@ -30,9 +31,11 @@ const SelectCategory = () => {
     return null;
   }
 
-  const options = categories.map(({ id, name }) => (
-    <option key={id} value={id}>{name}</option>
-  ));
+  const options = categories
+    .filter((category) => category.type === type)
+    .map(({ id, name }) => (
+      <option key={id} value={id}>{name}</option>
+    ));
 
   const { input, label } = styles;
   return (
@@ -44,6 +47,10 @@ const SelectCategory = () => {
       <ErrorMessage name="categoryId" component="span"/>
     </label>
   );
+};
+
+SelectCategory.propTypes = {
+  type: PropTypes.string,
 };
 
 export default SelectCategory;

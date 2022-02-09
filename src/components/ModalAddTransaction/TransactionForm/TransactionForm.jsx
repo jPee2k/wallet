@@ -63,20 +63,23 @@ const TransactionForm = () => {
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={submitHandler}
+      validateOnBlur={false}
     >
-      <Form className={form} autoComplete="off">
-        <CheckboxType name="type" types={TYPES}/>
-        <div className={doubleInputs}>
-          <Input name="amount" type="text" placeholder="0.00"/>
-          <DatePicker name="transactionDate"/>
-        </div>
-        <SelectCategory/>
-        <Textarea className={textarea} name="comment" placeholder="Comment"/>
-        <div className={navSection}>
-          <Button className={buttonCancel} onClick={() => dispatch(closeModal())}>Cancel</Button>
-          <Button className={buttonConfirm} type="submit">Add</Button>
-        </div>
-      </Form>
+      {({ values }) => (
+        <Form className={form} autoComplete="off">
+          <CheckboxType name="type" types={TYPES}/>
+          <div className={doubleInputs}>
+            <Input name="amount" type="text" placeholder="0.00"/>
+            <DatePicker name="transactionDate"/>
+          </div>
+          <SelectCategory type={values.type}/>
+          <Textarea className={textarea} name="comment" placeholder="Comment"/>
+          <div className={navSection}>
+            <Button className={buttonCancel} onClick={() => dispatch(closeModal())}>Cancel</Button>
+            <Button className={buttonConfirm} type="submit">Add</Button>
+          </div>
+        </Form>
+      )}
     </Formik>
   );
 };
