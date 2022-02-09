@@ -1,4 +1,7 @@
 :root {
+  /* toastify */
+  --toastify-color-light: var(--confirm-background-color);
+
   /* --- colors --- */
   --active-element-color: #00FFF0;
   --main-text-color: #FFFFFF;

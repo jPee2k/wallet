@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import schema, { dateNow } from '../validationSchema.js';
 import { closeModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
 import { addTransactionData } from '../../../app/slices/transactionSlice.js';
@@ -51,7 +52,7 @@ const TransactionForm = () => {
       response.balanceAfter && dispatch(updateUserBalance(response.balanceAfter));
       actions.resetForm();
     } catch (err) {
-      alert(err.data.message); // TODO -> react-toastify
+      toast.error(err.data.message);
     }
     actions.setSubmitting(false);
   };
