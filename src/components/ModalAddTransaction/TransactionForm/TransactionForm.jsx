@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import schema, { dateNow } from '../validationSchema.js';
-import { closeModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
+import { closeTransactionModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
 import { addTransactionData } from '../../../app/slices/transactionSlice.js';
 import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
 import { useCreateTransactionMutation } from '../../../services/transactionsAPI.js';
@@ -29,7 +29,7 @@ const TransactionForm = () => {
   useEffect(() => {
     if (isSuccess) {
       dispatch(hideSpinner());
-      dispatch(closeModal());
+      dispatch(closeTransactionModal());
     } else if (isError) {
       dispatch(hideSpinner());
     }
@@ -75,7 +75,8 @@ const TransactionForm = () => {
           <SelectCategory type={values.type}/>
           <Textarea className={textarea} name="comment" placeholder="Comment"/>
           <div className={navSection}>
-            <Button className={buttonCancel} onClick={() => dispatch(closeModal())}>Cancel</Button>
+            <Button className={buttonCancel}
+              onClick={() => dispatch(closeTransactionModal())}>Cancel</Button>
             <Button className={buttonConfirm} type="submit">Add</Button>
           </div>
         </Form>

@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   isLoading: false,
   isModalAddTransactionOpen: false,
+  isModalLogoutOpen: false,
 };
 
 export const globalSlice = createSlice({
@@ -16,14 +17,27 @@ export const globalSlice = createSlice({
     hideSpinner: (state) => {
       state.isLoading = false;
     },
-    openModal: (state) => {
+    openTransactionModal: (state) => {
       state.isModalAddTransactionOpen = true;
     },
-    closeModal: (state) => {
+    closeTransactionModal: (state) => {
       state.isModalAddTransactionOpen = false;
+    },
+    openLogoutModal: (state) => {
+      state.isModalLogoutOpen = true;
+    },
+    closeLogoutModal: (state) => {
+      state.isModalLogoutOpen = false;
     },
   },
 });
 
-export const { showSpinner, hideSpinner, openModal, closeModal } = globalSlice.actions;
+export const {
+  showSpinner,
+  hideSpinner,
+  openTransactionModal,
+  closeTransactionModal,
+  openLogoutModal,
+  closeLogoutModal,
+} = globalSlice.actions;
 export default globalSlice.reducer;
