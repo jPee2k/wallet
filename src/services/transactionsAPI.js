@@ -11,6 +11,12 @@ export const transactionsApi = createApi({
     prepareHeaders,
   }),
   endpoints: (build) => ({
+    getTransactions: build.query({
+      query: () => ({
+        method: 'GET',
+        url: '/api/transactions/',
+      }),
+    }),
     createTransaction: build.mutation({
       query: (body) => ({
         method: 'POST',
@@ -18,7 +24,25 @@ export const transactionsApi = createApi({
         body: prepareData(body, ALLOWED_FIELDS),
       }),
     }),
+    updateTransaction: build.mutation({
+      query: (transactionId, body) => ({
+        method: 'PATCH',
+        url: `/api/transactions/${transactionId}`,
+        body: prepareData(body, ALLOWED_FIELDS),
+      }),
+    }),
+    removeTransaction: build.mutation({
+      query: (transactionId) => ({
+        method: 'DELETE',
+        url: `/api/transactions/${transactionId}`,
+      }),
+    }),
   }),
 });
 
-export const { useCreateTransactionMutation } = transactionsApi;
+export const {
+  useGetTransactionsQuery,
+  useCreateTransactionMutation,
+  useUpdateTransactionMutation,
+  useRemoveTransactionMutation,
+} = transactionsApi;
