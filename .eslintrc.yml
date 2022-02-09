@@ -29,3 +29,4 @@ rules:
   no-unused-expressions: 0
   object-curly-newline: 0
   no-use-before-define: 0
+  linebreak-style: 0

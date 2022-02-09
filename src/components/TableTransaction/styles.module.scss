@@ -1,0 +1,120 @@
+.transactionTable {
+  overflow-y: auto;
+  height: 245px;
+  height: calc(100vh - 400px);
+  padding: 3px;
+  @media (min-width: 576px) {
+    height: 300px;
+  }
+  @media (min-width: 992px) {
+    margin-bottom: 68px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    @media (min-width: 576px) {
+      border-collapse: collapse;
+    }
+
+    thead {
+      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      cursor: default;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: -1;
+        box-shadow: 4px 6px 4px #fdfd013f;
+        border-radius: 25px 0px 25px 25px;
+        background-color: #4141b3;
+        background-image: url(../../assets/images/background-fragment.png);
+      }
+      @media (max-width: 576px) {
+        display: none;
+      }
+
+      tr {
+        background-repeat: repeat;
+        box-shadow: 0px 0px 0px 3px #fdfd01;
+        border-radius: 25px 0px 25px 25px;
+        th {
+          text-align: left;
+          padding: 26px 0px 17px 15px;
+          color: #fdfd01;
+        }
+      }
+    }
+    tbody {
+      max-height: 20px;
+      overflow: hidden;
+      cursor: pointer;
+
+      tr {
+        box-shadow: 0px 0px 0px 3px #fdfd01;
+        border-radius: 25px 0px 25px 25px;
+        position: relative;
+        color: #ffffff;
+        text-shadow: -0 -1px 0 #1e1e54, 0 -1px 0 #1e1e54, -0 1px 0 #1e1e54,
+          0 1px 0 #1e1e54, -1px -0 0 #1e1e54, 1px -0 0 #1e1e54, -1px 0 0 #1e1e54,
+          1px 0 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54,
+          -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54, -1px -1px 0 #1e1e54,
+          1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
+
+        &:nth-child(6n) {
+          text-shadow: -0 -1px 0 #fa00ff, 0 -1px 0 #fa00ff, -0 1px 0 #fa00ff,
+            0 1px 0 #fa00ff, -1px -0 0 #fa00ff, 1px -0 0 #fa00ff,
+            -1px 0 0 #fa00ff, 1px 0 0 #fa00ff, -1px -1px 0 #fa00ff,
+            1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff, 1px 1px 0 #fa00ff,
+            -1px -1px 0 #fa00ff, 1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff,
+            1px 1px 0 #fa00ff;
+        }
+        &:nth-child(3n + 1) {
+          text-shadow: none;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          border-radius: 25px 0px 25px 25px;
+          box-shadow: 4px 6px 4px #fdfd013f;
+        }
+
+        @media (min-width: 576px) {
+          box-shadow: none;
+          &::after {
+            display: none;
+          }
+        }
+
+        td {
+          text-transform: capitalize;
+          padding: 0 0 7px 15px;
+          @media (max-width: 576px) {
+            padding: 0 0 0px 15px;
+            &:nth-child(2),
+            &:nth-child(4),
+            &:nth-child(6) {
+              display: none;
+            }
+          }
+        }
+
+        @media (min-width: 576px) {
+          &:first-of-type {
+            td {
+              padding-top: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
