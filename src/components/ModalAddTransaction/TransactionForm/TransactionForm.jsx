@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import schema from '../validationSchema.js';
 import { closeModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
 import { addTransactionData } from '../../../app/slices/transactionSlice.js';
+import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
 import { useCreateTransactionMutation } from '../../../services/transactionsAPI.js';
 import { getAmountSignByType } from '../../../utils/data.js';
 import SelectCategory from '../SelectCategory';
@@ -46,6 +47,7 @@ const TransactionForm = () => {
     try {
       const response = await createTransaction(data).unwrap();
       dispatch(addTransactionData(response));
+      response.balanceAfter && dispatch(updateUserBalance(response.balanceAfter));
       actions.resetForm();
     } catch (err) {
       alert(err.data.message); // TODO -> react-toastify

@@ -1,16 +1,14 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  transactions: [],
-};
+const initialState = [];
 
 export const transactionSlice = createSlice({
-  name: 'transaction',
+  name: 'transactions',
   initialState,
   reducers: {
     addTransactionData: (state, actions) => {
-      state.transactions.push(actions.payload);
+      state.push(actions.payload);
     },
   },
 });

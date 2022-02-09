@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   /* --- sync --- */
   global: globalReducer,
   session: sessionReducer,
-  transaction: transactionReducer,
+  transactions: transactionReducer,
 
   /* --- async -> rtk.query --- */
   [authAPI.reducerPath]: authAPI.reducer,
