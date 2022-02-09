@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import schema from '../validationSchema.js';
+import schema, { dateNow } from '../validationSchema.js';
 import { closeModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
 import { addTransactionData } from '../../../app/slices/transactionSlice.js';
 import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
@@ -12,8 +12,8 @@ import Input from '../../Input';
 import Button from '../../Button';
 import CheckboxType from '../CheckboxType';
 import Textarea from '../../Textarea';
-import styles from '../styles.module.scss';
 import DatePicker from '../../DatePicker';
+import styles from '../styles.module.scss';
 
 const TYPES = { dec: 'EXPENSE', inc: 'INCOME' };
 
@@ -35,11 +35,11 @@ const TransactionForm = () => {
   }, [isSuccess, isError]);
 
   const initialValues = {
-    transactionDate: new Date(),
+    transactionDate: dateNow,
     type: TYPES.dec,
     categoryId: '',
     comment: '',
-    amount: '0.00',
+    amount: '',
   };
 
   const submitHandler = async (validatedData, actions) => {
@@ -66,7 +66,7 @@ const TransactionForm = () => {
       <Form className={form} autoComplete="off">
         <CheckboxType name="type" types={TYPES}/>
         <div className={doubleInputs}>
-          <Input name="amount" type="text" placeholder="Amount"/>
+          <Input name="amount" type="text" placeholder="0.00"/>
           <DatePicker name="transactionDate"/>
         </div>
         <SelectCategory/>
