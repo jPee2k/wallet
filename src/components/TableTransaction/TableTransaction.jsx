@@ -1,187 +1,59 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-const TableTransaction = () => {
+const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
+
+const TableTransaction = ({ data = [] }) => {
   const { transactionTable, table } = styles;
 
   return (
     <div className={transactionTable}>
       <table className={table}>
         <thead>
-          <tr>
-            <th>test</th>
-            <th>Type</th>
-            <th>Category</th>
-            <th>Comments</th>
-            <th>Amount</th>
-            <th>Balance</th>
-          </tr>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Comments</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
-          <tr>
-            <td>04.01.09</td>
-            <td>dd</td>
-            <td>Food</td>
-            <td>Dinner</td>
-            <td>55.70</td>
-            <td>127,254.7</td>
-          </tr>
+        {
+          data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter }) => {
+            return (
+              <tr key={id}>
+                <td>{new Date(transactionDate).toLocaleDateString()}</td>
+                <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
+                <td>{categoryId}</td>
+                <td>{comment}</td>
+                <td>{amount.toFixed(2)}</td>
+                <td>{balanceAfter.toFixed(2)}</td>
+              </tr>
+            );
+          })
+        }
         </tbody>
       </table>
     </div>
   );
+};
+
+TableTransaction.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      transactionDate: PropTypes.string.isRequired,
+      type: PropTypes.oneOf([TRANSACTION_TYPES.inc, TRANSACTION_TYPES.dec]).isRequired,
+      categoryId: PropTypes.string.isRequired,
+      userId: PropTypes.string.isRequired,
+      comment: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+      balanceAfter: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default TableTransaction;

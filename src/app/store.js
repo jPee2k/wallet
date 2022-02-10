@@ -8,13 +8,13 @@ import { transactionsApi } from '../services/transactionsAPI.js';
 
 import globalReducer from './slices/globalSlice.js';
 import sessionReducer from './slices/sessionSlice.js';
-import transactionReducer from './slices/transactionSlice.js';
+import financeReducer from './slices/financeSlice.js';
 
 const rootReducer = combineReducers({
   /* --- sync --- */
   global: globalReducer,
   session: sessionReducer,
-  transactions: transactionReducer,
+  finance: financeReducer,
 
   /* --- async -> rtk.query --- */
   [authAPI.reducerPath]: authAPI.reducer,

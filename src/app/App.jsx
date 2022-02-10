@@ -13,8 +13,8 @@ const App = () => (
     <Routes>
       <Route path="/register" element={<AuthRoute><AuthPage action="register"/></AuthRoute>}/>
       <Route path="/login" element={<AuthRoute><AuthPage action="login"/></AuthRoute>}/>
+      <Route path="/transaction" element={<ProtectedRoute><Transaction/></ProtectedRoute>}/>
       <Route index element={<ProtectedRoute><MainPage/></ProtectedRoute>}/>
-      <Route path="/Transaction" element={<ProtectedRoute><Transaction/></ProtectedRoute>}/>
 
       <Route path="*" element={<h2>404: This page is not found</h2>}/>
     </Routes>

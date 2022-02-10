@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import schema, { dateNow } from '../validationSchema.js';
 import { closeTransactionModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
-import { addTransactionData } from '../../../app/slices/transactionSlice.js';
+import { addTransaction } from '../../../app/slices/financeSlice.js';
 import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
 import { useCreateTransactionMutation } from '../../../services/transactionsAPI.js';
 import { getAmountSignByType } from '../../../utils/data.js';
@@ -48,7 +48,7 @@ const TransactionForm = () => {
 
     try {
       const response = await createTransaction(data).unwrap();
-      dispatch(addTransactionData(response));
+      dispatch(addTransaction(response));
       response.balanceAfter && dispatch(updateUserBalance(response.balanceAfter));
       actions.resetForm();
     } catch (err) {
