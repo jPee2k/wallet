@@ -1,3 +1,4 @@
+
 .wrapper {
   position: fixed;
   z-index: 1000;
@@ -49,6 +50,7 @@
   text-indent: 20px;
   color: var(--active-element-color);
   text-shadow: var(--text-shadow);
+  text-align: center;
 }
 
 .navSection {
@@ -65,4 +67,20 @@
 
 .buttonCancel {
   background-color: var(--main-background-color);
+}
+
+
+@media (min-width: 320px) and (max-width: 550px){
+  .message{
+    text-align: center;
+  }
+  
+  .wrapper{
+    width: 99%;
+    height: 100%;
+  }
+
+  .buttonConfirm{
+    margin-top: 10px;
+  }
 }
