@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import Logo from '../../components/Logo';
 import RegistrationForm from './RegistrationForm';
 import LoginForm from './LoginForm';
+
 import styles from './styles.module.scss';
 
 const { page, section, logo, link } = styles;

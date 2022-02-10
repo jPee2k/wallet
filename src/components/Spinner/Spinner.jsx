@@ -1,11 +1,14 @@
 import React from 'react';
 import { Triangle } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
+
+import { getLoadingState } from '../../app/slices/selectors.js';
 import { getCssVariable } from '../../utils/useful.js';
+
 import styles from './styles.module.css';
 
 export const Spinner = () => {
-  const isLoading = useSelector((state) => state.global.isLoading);
+  const isLoading = useSelector(getLoadingState);
   const spinnerColor = getCssVariable('--active-element-color');
 
   return (

@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useGetTransactionsQuery } from '../../../services/transactionsAPI.js';
-import { hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
+import { getTransactionsFromState } from '../../../app/slices/selectors.js';
 import { addData } from '../../../app/slices/financeSlice.js';
+import { useLoader } from '../../../hooks/useLoader.js';
 
 import ButtonAddTransaction from '../../../components/ButtonAddTransaction';
 import ModalAddTransaction from '../../../components/ModalAddTransaction';
@@ -11,21 +12,13 @@ import TableTransaction from './TransactionTable';
 import styles from './styles.module.scss';
 
 const TransactionTab = () => {
-  const { isLoading, isError, isSuccess, data } = useGetTransactionsQuery();
-  const transactions = useSelector((state) => state.finance.data);
+  const { isLoading, isError, isSuccess, data = [] } = useGetTransactionsQuery();
+  const transactions = useSelector(getTransactionsFromState);
   const dispatch = useDispatch();
 
+  useLoader({ dispatch, isSuccess, isError, isLoading });
   useEffect(() => {
-    isLoading && dispatch(showSpinner());
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (isSuccess || isError) {
-      dispatch(hideSpinner());
-    }
-  }, [isSuccess, isError]);
-
-  useEffect(() => {
+    // TODO -> FIX state
     if (isSuccess && data) {
       dispatch(addData(data));
     }

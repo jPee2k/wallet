@@ -1,27 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+
 import { useLogOutMutation } from '../../services/authAPI.js';
-import { hideSpinner, showSpinner, closeLogoutModal } from '../../app/slices/globalSlice.js';
+import { closeLogoutModal } from '../../app/slices/globalSlice.js';
 import { resetUserData } from '../../app/slices/sessionSlice.js';
+import { useLoader } from '../../hooks/useLoader.js';
+import { getLogOutModalState } from '../../app/slices/selectors.js';
+
 import Button from '../Button';
 import styles from './styles.module.scss';
 
 const ModalLogOut = () => {
-  const isModalOpen = useSelector((state) => state.global.isModalLogoutOpen);
-  const [logOut, { isLoading, isError, isSuccess }] = useLogOutMutation();
   const dispatch = useDispatch();
+  const isModalOpen = useSelector(getLogOutModalState);
+  const [logOut, { isLoading, isError, isSuccess }] = useLogOutMutation();
 
-  useEffect(() => {
-    isLoading && dispatch(showSpinner());
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (isSuccess || isError) {
-      dispatch(hideSpinner());
-    }
-  }, [isSuccess, isError]);
-
+  useLoader({ dispatch, isLoading, isError, isSuccess });
   useEffect(() => {
     const closeOnPress = (evt) => (evt.code === 'Escape') && dispatch(closeLogoutModal());
     window.addEventListener('keyup', closeOnPress);
@@ -50,8 +45,8 @@ const ModalLogOut = () => {
         <p className={message}>Are you sure you want to log out?</p>
         <div className={navSection}>
           <Button className={buttonCancel}
-            onClick={() => dispatch(closeLogoutModal())}>Cancel</Button>
-          <Button className={buttonConfirm} onClick={logOutClickHandler}>Exit</Button>
+            onClick={() => dispatch(closeLogoutModal())}>Stay</Button>
+          <Button className={buttonConfirm} onClick={logOutClickHandler}>Leave</Button>
         </div>
       </div>
     </div>

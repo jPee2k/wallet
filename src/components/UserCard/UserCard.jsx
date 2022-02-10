@@ -1,11 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
+import { getUserFromState } from '../../app/slices/selectors.js';
 import { getCardNumber } from '../../utils/useful.js';
 import getFormattedCurrency from '../../utils/money.js';
+
 import styles from './styles.module.scss';
 
 const UserCard = () => {
-  const { user } = useSelector((state) => state.session);
+  const user = useSelector(getUserFromState);
   const { username, balance } = user;
   const { cardBlock, cardNumber, cardInfo, cardMember, cardCode } = styles;
 

@@ -1,37 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Field, ErrorMessage } from 'formik';
+import { toast } from 'react-toastify';
+
 import { useGetTransactionCategoriesQuery } from '../../../services/transactionCategoryAPI.js';
-import { hideSpinner, showSpinner } from '../../../app/slices/globalSlice';
+import { useLoader } from '../../../hooks/useLoader.js';
+
 import styles from './styles.module.css';
 
 const SelectCategory = ({ type = '' }) => {
-  const [categories, setCategories] = useState([]);
-  const { isLoading, isError, isSuccess, data } = useGetTransactionCategoriesQuery();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    isLoading && dispatch(showSpinner());
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (isSuccess || isError) {
-      dispatch(hideSpinner());
-    }
-  }, [isSuccess, isError]);
-
-  useEffect(() => {
-    if (isSuccess && data) {
-      setCategories(data);
-    }
-  }, [data]);
+  const { isLoading, isError, isSuccess, data = [] } = useGetTransactionCategoriesQuery();
+  useLoader({ dispatch, isLoading, isError, isSuccess });
 
   if (isError) {
+    toast.error('Oops, something went wrong =(');
     return null;
   }
 
-  const options = categories
+  const options = data
     .filter((category) => category.type === type)
     .map(({ id, name }) => (
       <option key={id} value={id}>{name}</option>

@@ -2,12 +2,15 @@ import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+
+import { useLoader } from '../../../hooks/useLoader.js';
 import schema, { dateNow } from '../validationSchema.js';
-import { closeTransactionModal, hideSpinner, showSpinner } from '../../../app/slices/globalSlice.js';
+import { closeTransactionModal } from '../../../app/slices/globalSlice.js';
 import { addTransaction } from '../../../app/slices/financeSlice.js';
 import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
 import { useCreateTransactionMutation } from '../../../services/transactionsAPI.js';
 import { getAmountSignByType } from '../../../utils/data.js';
+
 import SelectCategory from '../SelectCategory';
 import Input from '../../Input';
 import Button from '../../Button';
@@ -18,22 +21,15 @@ import styles from '../styles.module.scss';
 
 const TYPES = { dec: 'EXPENSE', inc: 'INCOME' };
 
+// TODO -> FIX unmount error
 const TransactionForm = () => {
   const dispatch = useDispatch();
   const [createTransaction, { isLoading, isError, isSuccess }] = useCreateTransactionMutation();
 
+  useLoader({ dispatch, isLoading, isError, isSuccess });
   useEffect(() => {
-    isLoading && dispatch(showSpinner());
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(hideSpinner());
-      dispatch(closeTransactionModal());
-    } else if (isError) {
-      dispatch(hideSpinner());
-    }
-  }, [isSuccess, isError]);
+    isSuccess && dispatch(closeTransactionModal());
+  }, [isSuccess]);
 
   const initialValues = {
     transactionDate: dateNow,
