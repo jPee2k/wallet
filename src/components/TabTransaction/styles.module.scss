@@ -1,0 +1,28 @@
+.mainSectionBlock {
+    width: 100%;
+    margin: 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .currencyInfoBlock {
+    order: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 22px;
+    @media (min-width: 992px) {
+      flex-direction: column;
+      width: 340px;
+      order: 2;
+      padding: 0;
+    }
+  }
+  .mainBlock {
+    order: 2;
+    width: 100%;
+    @media (min-width: 992px) {
+      order: 1;
+      width: calc(100% - 395px);
+    }
+  }
+}

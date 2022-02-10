@@ -1,0 +1,22 @@
+.btnTransaction {
+  background-color: #4141b3;
+  background-image: url(../../assets/images/background-fragment.png);
+  background-repeat: repeat;
+  border: 3px solid #fdfd01;
+  box-shadow: 4px 6px 4px #fdfd013f;
+  border-radius: 25px 0px 25px 25px;
+  line-height: 1;
+  height: 40px;
+  color: #fdfd01;
+  text-shadow: none;
+  font-size: 21px;
+  font-weight: 400;
+  max-width: max-content;
+  min-width: unset;
+  &:hover {
+    background-color: #4141b3;
+  }
+  @media (min-width: 992px) {
+    font-size: 24px;
+  }
+}

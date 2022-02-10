@@ -1,0 +1,138 @@
+/* .cardBlock {
+  --cardWidth: 480px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  width: var(--cardWidth);
+  height: calc(var(--cardWidth) * 0.6);
+  padding: 40px 15px 12px;
+
+  cursor: default;
+
+  border: 3px solid var(--confirm-background-color);
+  border-radius: calc(var(--cardWidth) * 0.04);
+  background: url(../../assets/images/card-bg.png) no-repeat;
+  background-size: cover;
+  box-shadow: 0 5px 4px 3px var(--border-color);
+}
+
+.cardNumber {
+  font-family: "CutiveMono", "Georgia", serif, system-ui;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 5px;
+  color: var(--hover-background-color);
+  text-shadow: var(--text-shadow-bold);
+}
+
+.cardBalance {
+  position: relative;
+
+  font-family: "BebasNeue", "Arial", sans-serif, system-ui;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.2;
+  color: var(--confirm-background-color);
+  text-shadow: var(--text-shadow-bold);
+}
+
+.cardName {
+  align-self: flex-start;
+
+  font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--hover-background-color);
+  text-shadow: var(--text-shadow-bold);
+} */
+
+.cardBlock {
+  display: block;
+  width: 100%;
+  background: url(../../assets/images/card-bg.png) no-repeat;
+  background-size: cover;
+  border: 3px solid #fdfd01;
+  box-shadow: 0px 5px 4px 3px #000000;
+  border-radius: 15px;
+  padding: 35px 6px 31px;
+  width: 180px;
+  cursor: default;
+  @media (min-width: 576px) {
+    border-radius: 30px;
+    width: 290px;
+  }
+  @media (min-width: 992px) {
+    width: 100%;
+    border-radius: 40px;
+    padding: 58px 8px 60px;
+  }
+  .cardNumber {
+    font-family: "CutiveMono", "Georgia", serif, system-ui;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: #00fff0;
+    text-shadow: -0 -2px 0 #000000, 0 -2px 0 #000000, -0 2px 0 #000000,
+      0 2px 0 #000000, -2px -0 0 #000000, 2px -0 0 #000000, -2px 0 0 #000000,
+      2px 0 0 #000000, -1px -2px 0 #000000, 1px -2px 0 #000000,
+      -1px 2px 0 #000000, 1px 2px 0 #000000, -2px -1px 0 #000000,
+      2px -1px 0 #000000, -2px 1px 0 #000000, 2px 1px 0 #000000,
+      -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
+      2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
+      -2px 2px 0 #000000, 2px 2px 0 #000000;
+    margin-bottom: 8px;
+    @media (min-width: 576px) {
+      font-size: 23px;
+    }
+    @media (min-width: 992px) {
+      font-size: 27px;
+    }
+  }
+  .cardInfo {
+    display: flex;
+    justify-content: space-between;
+    .cardMember {
+      font-family: "BebasNeue", "Arial", sans-serif, system-ui;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.2;
+      color: #fdfd01;
+      text-shadow: -0 -2px 0 #000000, 0 -2px 0 #000000, -0 2px 0 #000000,
+        0 2px 0 #000000, -2px -0 0 #000000, 2px -0 0 #000000, -2px 0 0 #000000,
+        2px 0 0 #000000, -1px -2px 0 #000000, 1px -2px 0 #000000,
+        -1px 2px 0 #000000, 1px 2px 0 #000000, -2px -1px 0 #000000,
+        2px -1px 0 #000000, -2px 1px 0 #000000, 2px 1px 0 #000000,
+        -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
+        2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
+        -2px 2px 0 #000000, 2px 2px 0 #000000;
+      @media (min-width: 768px) {
+        font-size: 28px;
+      }
+    }
+    .cardCode {
+      font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
+      font-weight: normal;
+      font-size: 10px;
+      line-height: 2;
+      color: #00fff0;
+      text-shadow: -0 -2px 0 #000000, 0 -2px 0 #000000, -0 2px 0 #000000,
+        0 2px 0 #000000, -2px -0 0 #000000, 2px -0 0 #000000, -2px 0 0 #000000,
+        2px 0 0 #000000, -1px -2px 0 #000000, 1px -2px 0 #000000,
+        -1px 2px 0 #000000, 1px 2px 0 #000000, -2px -1px 0 #000000,
+        2px -1px 0 #000000, -2px 1px 0 #000000, 2px 1px 0 #000000,
+        -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
+        2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
+        -2px 2px 0 #000000, 2px 2px 0 #000000;
+      @media (min-width: 768px) {
+        font-size: 15px;
+      }
+    }
+  }
+}

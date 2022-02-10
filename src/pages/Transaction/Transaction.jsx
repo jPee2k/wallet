@@ -1,17 +1,9 @@
 import React from 'react';
-import Currency from '../../components/Currency';
-import UserCard from '../../components/UserCard';
-import ButtonAddTransaction from '../../components/ButtonAddTransaction';
-import ModalAddTransaction from '../../components/ModalAddTransaction';
-import TableTransaction from '../../components/TableTransaction';
+import TabTransaction from '../../components/TabTransaction';
 
 const Transaction = () => (
   <React.Fragment>
-    <Currency/>
-    <UserCard/>
-    <TableTransaction/>
-    <ButtonAddTransaction/>
-    <ModalAddTransaction/>
+    <TabTransaction/>
   </React.Fragment>
 );
 

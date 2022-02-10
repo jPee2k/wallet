@@ -1,20 +1,26 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getCardNumber } from '../../utils/useful.js';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 const UserCard = () => {
   const { user } = useSelector((state) => state.session);
   const { username, balance } = user;
-  const { cardBlock, cardNumber, cardBalance, cardName } = styles;
+  const { cardBlock, cardNumber, cardInfo, cardMember, cardCode } = styles;
 
   // TODO -> exchanged currency list
-
   return (
     <div className={cardBlock}>
       <p className={cardNumber}>{getCardNumber(user.id)}</p>
-      <p className={cardBalance}>{balance.toLocaleString('ua-UA', { style: 'currency', currency: 'UAH' })}</p>
-      <p className={cardName}>{username}</p>
+      <div className={cardInfo}>
+        <p className={cardMember}>{username}</p>
+        <p className={cardCode}>
+          {balance.toLocaleString('ua-UA', {
+            style: 'currency',
+            currency: 'UAH',
+          })}
+        </p>
+      </div>
     </div>
   );
 };
