@@ -44,7 +44,7 @@ const ModalLogOut = () => {
 
   const { buttonCancel, buttonConfirm, message, title, wrapper, modal, navSection } = styles;
   return (
-    <div className={wrapper} onKeyUp={() => dispatch(closeLogoutModal())}>
+    <div className={wrapper}>
       <div className={modal} style={{ color: 'black' }}>
         <h2 className={title}>Exit</h2>
         <p className={message}>Are you sure you want to log out?</p>

@@ -19,7 +19,7 @@ const ModalAddTransaction = () => {
   }
 
   return (
-    <div className={styles.wrapper} onKeyUp={() => dispatch(closeTransactionModal())}>
+    <div className={styles.wrapper}>
       <div className={styles.modal}>
         <h2 className={styles.title}>Add transaction</h2>
         <TransactionForm/>
