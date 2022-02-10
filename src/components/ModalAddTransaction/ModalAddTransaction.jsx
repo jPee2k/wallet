@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { closeTransactionModal } from '../../app/slices/globalSlice.js';
+import { getTransactionModalState } from '../../app/slices/selectors.js';
+
 import TransactionForm from './TransactionForm';
 import styles from './styles.module.scss';
 
 const ModalAddTransaction = () => {
-  const isModalOpen = useSelector((state) => state.global.isModalAddTransactionOpen);
+  const isModalOpen = useSelector(getTransactionModalState);
   const dispatch = useDispatch();
 
   useEffect(() => {

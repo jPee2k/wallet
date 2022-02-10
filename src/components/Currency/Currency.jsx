@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Loader from './Loader';
+
+import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
 import useExchangeRateQuery from '../../hooks/useExchangeRateQuery.js';
 import { controller } from '../../services/privatBankAPI.js';
-import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
+
+import Loader from './Loader';
 import styles from './styles.module.css';
 
 const ALLOWED_CURRENCY = ['USD', 'EUR', 'RUR'];

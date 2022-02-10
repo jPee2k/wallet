@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
+import { getAuthState } from '../../app/slices/selectors.js';
+
 const AuthRoute = ({ children }) => {
-  const isAuth = useSelector(({ session }) => session.isAuth);
+  const isAuth = useSelector(getAuthState);
   return isAuth ? <Navigate to="/"/> : children;
 };
 

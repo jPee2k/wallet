@@ -1,9 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+
 import Currency from '../../components/Currency';
 import UserCard from '../../components/UserCard';
 import LogOutButton from '../../components/LogOutButton';
 import NavButton from '../../components/NavButton';
+
 import { ReactComponent as Chart } from '../../assets/images/icons/chart.svg';
 import { ReactComponent as Card } from '../../assets/images/icons/card.svg';
 import styles from './TransactionTab/styles.module.scss';
