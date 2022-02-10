@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getCardNumber } from '../../utils/useful.js';
+import getFormattedCurrency from '../../utils/money.js';
 import styles from './styles.module.scss';
 
 const UserCard = () => {
@@ -15,10 +16,7 @@ const UserCard = () => {
       <div className={cardInfo}>
         <p className={cardMember}>{username}</p>
         <p className={cardCode}>
-          {balance.toLocaleString('ua-UA', {
-            style: 'currency',
-            currency: 'UAH',
-          })}
+          {getFormattedCurrency(balance)}
         </p>
       </div>
     </div>
