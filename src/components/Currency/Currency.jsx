@@ -3,7 +3,7 @@ import Loader from './Loader';
 import useExchangeRateQuery from '../../hooks/useExchangeRateQuery.js';
 import { controller } from '../../services/privatBankAPI.js';
 import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 const ALLOWED_CURRENCY = ['USD', 'EUR', 'RUR'];
 
@@ -40,22 +40,23 @@ const Currency = () => {
     );
   }
 
+  const { currencyWidget } = styles;
   return (
-    <div className={styles['Currency-widget']}>
-      <table border="1">
+    <div className={currencyWidget}>
+      <table>
         <thead>
         <tr>
-          <th>Currency</th>
           <th>Purchase</th>
           <th>Sale</th>
+          <th></th>{/* Currency */}
         </tr>
         </thead>
         <tbody>{
           rates.map(({ ccy, base_ccy: baseCcy, buy, sale }) => (
             <tr key={`${baseCcy}-${ccy}`}>
-              <td>{ccy}</td>
               <td>{buy}</td>
               <td>{sale}</td>
+              <td>{ccy}</td>
             </tr>
           ))
         }</tbody>
