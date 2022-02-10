@@ -1,20 +1,23 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import Spinner from '../components/Spinner';
 import ProtectedRoute from '../components/ProtectedRoute';
 import AuthRoute from '../components/AuthRoute';
-import MainPage from '../pages/Home';
+import Spinner from '../components/Spinner';
+import TransactionTab from '../pages/Home/TransactionTab';
+import DiagramTab from '../pages/Home/DiagramTab';
+import HomePage from '../pages/Home';
 import AuthPage from '../pages/Auth';
-import Transaction from '../pages/Transaction';
 
 const App = () => (
   <React.Fragment>
     <Routes>
       <Route path="/register" element={<AuthRoute><AuthPage action="register"/></AuthRoute>}/>
       <Route path="/login" element={<AuthRoute><AuthPage action="login"/></AuthRoute>}/>
-      <Route path="/transaction" element={<ProtectedRoute><Transaction/></ProtectedRoute>}/>
-      <Route index element={<ProtectedRoute><MainPage/></ProtectedRoute>}/>
+      <Route path="/" element={<ProtectedRoute><HomePage/></ProtectedRoute>}>
+        <Route path="transactions" element={<TransactionTab/>}/>
+        <Route path="statistics" element={<DiagramTab/>}/>
+      </Route>
 
       <Route path="*" element={<h2>404: This page is not found</h2>}/>
     </Routes>

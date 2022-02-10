@@ -5,8 +5,11 @@ import styles from './styles.module.scss';
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 
 const TableTransaction = ({ data = [] }) => {
-  const { transactionTable, table } = styles;
+  if (data.length === 0) {
+    return null;
+  }
 
+  const { transactionTable, table, decTransaction } = styles;
   return (
     <div className={transactionTable}>
       <table className={table}>
@@ -18,23 +21,26 @@ const TableTransaction = ({ data = [] }) => {
           <th>Comments</th>
           <th>Amount</th>
           <th>Balance</th>
+          <th>Operations</th>
         </tr>
         </thead>
         <tbody>
-        {
-          data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter }) => {
-            return (
-              <tr key={id}>
-                <td>{new Date(transactionDate).toLocaleDateString()}</td>
-                <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
-                <td>{categoryId}</td>
-                <td>{comment}</td>
-                <td>{amount.toFixed(2)}</td>
-                <td>{balanceAfter.toFixed(2)}</td>
-              </tr>
-            );
-          })
-        }
+        {data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter }) => {
+          return (
+            <tr key={id} className={type === TRANSACTION_TYPES.dec ? decTransaction : null}>
+              <td>{new Date(transactionDate).toLocaleDateString()}</td>
+              <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
+              <td>{categoryId}</td>
+              <td>{comment}</td>
+              <td>{amount.toFixed(2)}</td>
+              <td>{balanceAfter.toFixed(2)}</td>
+              <td>
+                <button>edit</button>
+                <button>remove</button>
+              </td>
+            </tr>
+          );
+        })}
         </tbody>
       </table>
     </div>
