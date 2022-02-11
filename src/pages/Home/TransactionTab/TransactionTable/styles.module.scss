@@ -62,19 +62,20 @@
         border-radius: 25px 0px 25px 25px;
         position: relative;
         color: #ffffff;
-        text-shadow: -0 -1px 0 #1e1e54, 0 -1px 0 #1e1e54, -0 1px 0 #1e1e54,
-          0 1px 0 #1e1e54, -1px -0 0 #1e1e54, 1px -0 0 #1e1e54, -1px 0 0 #1e1e54,
-          1px 0 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54,
-          -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54, -1px -1px 0 #1e1e54,
-          1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
+        //text-shadow: -0 -1px 0 #1e1e54, 0 -1px 0 #1e1e54, -0 1px 0 #1e1e54,
+        //  0 1px 0 #1e1e54, -1px -0 0 #1e1e54, 1px -0 0 #1e1e54, -1px 0 0 #1e1e54,
+        //  1px 0 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54,
+        //  -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54, -1px -1px 0 #1e1e54,
+        //  1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
 
         &.decTransaction {
-          text-shadow: -0 -1px 0 #fa00ff, 0 -1px 0 #fa00ff, -0 1px 0 #fa00ff,
-            0 1px 0 #fa00ff, -1px -0 0 #fa00ff, 1px -0 0 #fa00ff,
-            -1px 0 0 #fa00ff, 1px 0 0 #fa00ff, -1px -1px 0 #fa00ff,
-            1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff, 1px 1px 0 #fa00ff,
-            -1px -1px 0 #fa00ff, 1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff,
-            1px 1px 0 #fa00ff;
+          color: tomato;
+          //text-shadow: -0 -1px 0 #fa00ff, 0 -1px 0 #fa00ff, -0 1px 0 #fa00ff,
+          //  0 1px 0 #fa00ff, -1px -0 0 #fa00ff, 1px -0 0 #fa00ff,
+          //  -1px 0 0 #fa00ff, 1px 0 0 #fa00ff, -1px -1px 0 #fa00ff,
+          //  1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff, 1px 1px 0 #fa00ff,
+          //  -1px -1px 0 #fa00ff, 1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff,
+          //  1px 1px 0 #fa00ff;
         }
         &::after {
           content: "";
@@ -116,4 +117,8 @@
       }
     }
   }
+}
+
+.newTransaction {
+  background-color: springgreen;
 }

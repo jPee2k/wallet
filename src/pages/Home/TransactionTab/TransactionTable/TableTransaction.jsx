@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
+const { transactionTable, table, decTransaction, newTransaction } = styles;
 
 const TableTransaction = ({ data = [] }) => {
   if (data.length === 0) {
-    return null;
+    return <p>no transactions</p>;
   }
 
-  const { transactionTable, table, decTransaction } = styles;
   return (
     <div className={transactionTable}>
       <table className={table}>
@@ -25,9 +25,10 @@ const TableTransaction = ({ data = [] }) => {
         </tr>
         </thead>
         <tbody>
-        {data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter }) => {
+        {/* eslint-disable-next-line max-len */}
+        {data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter, status }) => {
           return (
-            <tr key={id} className={type === TRANSACTION_TYPES.dec ? decTransaction : null}>
+            <tr key={id} className={getClassName(type, status)}>
               <td>{new Date(transactionDate).toLocaleDateString()}</td>
               <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
               <td>{categoryId}</td>
@@ -58,8 +59,15 @@ TableTransaction.propTypes = {
       comment: PropTypes.string.isRequired,
       amount: PropTypes.number.isRequired,
       balanceAfter: PropTypes.number.isRequired,
+      status: PropTypes.string,
     }),
   ).isRequired,
 };
+
+function getClassName(type, status) {
+  const typeClass = (type === TRANSACTION_TYPES.dec) ? decTransaction : null;
+  const statusClass = (status === 'new') ? newTransaction : null;
+  return `${typeClass} ${statusClass}`.trim();
+}
 
 export default TableTransaction;

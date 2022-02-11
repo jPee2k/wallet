@@ -6,6 +6,7 @@ const ALLOWED_FIELDS = ['transactionDate', 'type', 'categoryId', 'comment', 'amo
 
 export const transactionsApi = createApi({
   reducerPath: 'transactionsAPI',
+  // tagTypes: ['transactions'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://wallet.goit.ua',
     prepareHeaders,
@@ -16,6 +17,7 @@ export const transactionsApi = createApi({
         method: 'GET',
         url: '/api/transactions/',
       }),
+      // providesTags: ['transactions'],
     }),
     createTransaction: build.mutation({
       query: (body) => ({
@@ -23,6 +25,7 @@ export const transactionsApi = createApi({
         url: '/api/transactions/',
         body: prepareData(body, ALLOWED_FIELDS),
       }),
+      // invalidatesTags: ['transactions'],
     }),
     updateTransaction: build.mutation({
       query: (transactionId, body) => ({

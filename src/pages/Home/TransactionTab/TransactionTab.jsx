@@ -12,13 +12,13 @@ import TableTransaction from './TransactionTable';
 import styles from './styles.module.scss';
 
 const TransactionTab = () => {
-  const { isLoading, isError, isSuccess, data = [] } = useGetTransactionsQuery();
+  const { isLoading, isError, isSuccess, data = [], refetch } = useGetTransactionsQuery();
   const transactions = useSelector(getTransactionsFromState);
   const dispatch = useDispatch();
 
   useLoader({ dispatch, isSuccess, isError, isLoading });
+  useEffect(() => refetch(), []);
   useEffect(() => {
-    // TODO -> FIX state
     if (isSuccess && data) {
       dispatch(addData(data));
     }

@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-// import sortBy from 'lodash.sortby';
 
 const initialState = {
   data: [],
@@ -15,15 +14,16 @@ export const financeSlice = createSlice({
       state.categories = actions.payload;
     },
     addTransaction: (state, actions) => {
-      state.data.unshift(actions.payload);
+      state.data.unshift({ status: 'new', ...actions.payload });
     },
-    // TODO -> FIX state
     addData: (state, actions) => {
-      // state.data = sortBy([...actions.payload, ...state.data], [
-      //   ({ transactionDate }) => (new Date(transactionDate)),
-      // ]).reverse();
-      state.data = actions.payload;
+      state.data = [...actions.payload].sort((a, b) => {
+        const dateA = new Date(a.transactionDate);
+        const dateB = new Date(b.transactionDate);
+        return dateB - dateA;
+      });
     },
+    resetFinanceData: () => initialState,
   },
 });
 
@@ -31,5 +31,6 @@ export const {
   addCategories,
   addTransaction,
   addData,
+  resetFinanceData,
 } = financeSlice.actions;
 export default financeSlice.reducer;

@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import { useLoader } from '../../hooks/useLoader.js';
 import { useLogOutMutation } from '../../services/authAPI.js';
 import { closeLogoutModal } from '../../app/slices/globalSlice.js';
 import { resetUserData } from '../../app/slices/sessionSlice.js';
-import { useLoader } from '../../hooks/useLoader.js';
+import { resetFinanceData } from '../../app/slices/financeSlice.js';
 import { getLogOutModalState } from '../../app/slices/selectors.js';
 
 import Button from '../Button';
@@ -27,6 +28,7 @@ const ModalLogOut = () => {
     try {
       await logOut().unwrap();
       dispatch(resetUserData());
+      dispatch(resetFinanceData());
       dispatch(closeLogoutModal());
     } catch (err) {
       toast.error(err?.data?.message || 'Oops, something went wrong =(');
