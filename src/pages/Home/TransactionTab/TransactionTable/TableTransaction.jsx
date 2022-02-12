@@ -7,7 +7,7 @@ import { ReactComponent as Delete } from '../../../../assets/images/icons/delete
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 const { transactionTable, table, decTransaction, newTransaction } = styles;
 
-const TableTransaction = ({ data = [] }) => {
+const TableTransaction = ({ data = [], categories = [] }) => {
   if (data.length === 0) {
     return <p>no transactions</p>;
   }
@@ -33,7 +33,7 @@ const TableTransaction = ({ data = [] }) => {
             <tr key={id} className={getClassName(type, status)}>
               <td> {new Date(transactionDate).toLocaleDateString()}</td>
               <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
-              <td>{categoryId}</td>
+              <td>{getCategoryNameByID(categories, categoryId)}</td>
               <td>{comment}</td>
               <td>{amount.toFixed(2)}</td>
               <td>{balanceAfter.toFixed(2)}</td>
@@ -64,12 +64,24 @@ TableTransaction.propTypes = {
       status: PropTypes.string,
     }),
   ).isRequired,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      type: PropTypes.oneOf([TRANSACTION_TYPES.inc, TRANSACTION_TYPES.dec]).isRequired,
+    }),
+  ).isRequired,
 };
 
 function getClassName(type, status) {
   const typeClass = (type === TRANSACTION_TYPES.dec) ? decTransaction : null;
   const statusClass = (status === 'new') ? newTransaction : null;
   return `${typeClass} ${statusClass}`.trim();
+}
+
+function getCategoryNameByID(categories, id) {
+  const currItem = categories.find((category) => category.id === id);
+  return currItem?.name || '';
 }
 
 export default TableTransaction;

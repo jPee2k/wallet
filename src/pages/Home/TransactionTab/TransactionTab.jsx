@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useGetTransactionsQuery } from '../../../services/transactionsAPI.js';
-import { getTransactionsFromState } from '../../../app/slices/selectors.js';
+import { getTransactionCategoriesFromState, getTransactionsFromState } from '../../../app/slices/selectors.js';
 import { addData } from '../../../app/slices/financeSlice.js';
 import { useLoader } from '../../../hooks/useLoader.js';
 
@@ -14,6 +14,7 @@ import styles from './styles.module.scss';
 const TransactionTab = () => {
   const { isLoading, isError, isSuccess, data = [], refetch } = useGetTransactionsQuery();
   const transactions = useSelector(getTransactionsFromState);
+  const categories = useSelector(getTransactionCategoriesFromState);
   const dispatch = useDispatch();
 
   useLoader({ dispatch, isSuccess, isError, isLoading });
@@ -27,7 +28,7 @@ const TransactionTab = () => {
   const { mainBlock } = styles;
   return (
     <div className={mainBlock}>
-      <TableTransaction data={transactions}/>
+      <TableTransaction data={transactions} categories={categories}/>
 
       <ButtonAddTransaction/>
       <ModalAddTransaction/>
