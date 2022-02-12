@@ -14,9 +14,9 @@ export function prepareData(data = {}, allowed = []) {
 export const getAmountSignByType = (data, types) => {
   const { amount, type } = data;
   if (type === types.dec) {
-    return -amount;
+    return -parseFloat(amount);
   }
-  return amount;
+  return parseFloat(amount);
 };
 
 export default prepareData;
