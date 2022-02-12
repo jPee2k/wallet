@@ -50,9 +50,6 @@ body {
   color: var(--main-text-color);
 
   min-width: 320px;
-  width: 100vw;
-  min-height: 100vh;
-
   overflow-x: hidden;
 
   background-image: url("../../assets/images/background-fragment.png");
@@ -93,5 +90,17 @@ a {
 
   &:not([href]) {
     pointer-events: none;
+  }
+}
+
+#root {
+  height: 100vh;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 480px) {
+    padding: 20px;
   }
 }

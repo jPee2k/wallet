@@ -1,8 +1,9 @@
 .header {
-  padding: 8px 0;
+  //padding: 8px 0;
+  padding-bottom: 16px;
 
   @media (min-width: 768px) {
-    padding: 23px 0 13px;
+    //padding: 23px 0 13px;
   }
   .headerBlock {
     display: flex;
@@ -17,7 +18,7 @@
     max-width: 100%;
     margin: 0 auto;
     @media (min-width: 576px) {
-      padding: 22px 25px;
+      //padding: 22px 25px;
       border-radius: 25px 0px 25px 25px;
     }
     .headerTitleBlock {

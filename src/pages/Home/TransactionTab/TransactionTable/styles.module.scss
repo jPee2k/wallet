@@ -1,12 +1,15 @@
 .transactionTable {
   overflow-y: auto;
-  height: 245px;
-  height: calc(100vh - 400px);
+  height: 37vh;
+  //height: 245px;
+  //height: calc(100vh - 400px);
   padding: 3px;
   @media (min-width: 576px) {
-    min-height: 360px;
+    height: 40vh;
+    //min-height: 360px;
   }
   @media (min-width: 992px) {
+    height: 60vh;
     margin-bottom: 20px;
   }
   .table {
