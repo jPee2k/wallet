@@ -24,6 +24,9 @@ export const financeSlice = createSlice({
         return item;
       });
     },
+    removeTransaction: (state, action) => {
+      state.data = state.data.filter((item) => item.id !== action.payload);
+    },
     addData: (state, action) => {
       state.data = [...action.payload].sort((a, b) => {
         const dateA = new Date(a.transactionDate);
@@ -41,5 +44,6 @@ export const {
   addData,
   resetFinanceData,
   editTransaction,
+  removeTransaction,
 } = financeSlice.actions;
 export default financeSlice.reducer;

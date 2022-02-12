@@ -14,5 +14,6 @@ export const getTransactionByID = (state, transactionID) => {
 
 // modals
 export const getTransactionModalState = (state) => state.global.isModalAddTransactionOpen;
-export const getTransactionID = (state) => state.global.transactionID;
 export const getLogOutModalState = (state) => state.global.isModalLogoutOpen;
+export const getRemoveTransactionModalState = (state) => state.global.isModalRemoveTransactionOpen;
+export const getTransactionID = (state) => state.global.transactionID;

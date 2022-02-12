@@ -5,6 +5,7 @@ const initialState = {
   isLoading: false,
   isModalLogoutOpen: false,
   isModalAddTransactionOpen: false,
+  isModalRemoveTransactionOpen: false,
   transactionID: null,
 };
 
@@ -19,10 +20,11 @@ export const globalSlice = createSlice({
       state.isLoading = false;
     },
     openTransactionModal: (state, action) => {
-      state.isModalAddTransactionOpen = true;
       state.transactionID = action.payload ? action.payload : null;
+      state.isModalAddTransactionOpen = true;
     },
     closeTransactionModal: (state) => {
+      state.transactionID = null;
       state.isModalAddTransactionOpen = false;
     },
     openLogoutModal: (state) => {
@@ -30,6 +32,14 @@ export const globalSlice = createSlice({
     },
     closeLogoutModal: (state) => {
       state.isModalLogoutOpen = false;
+    },
+    openRemoveTransactionModal: (state, action) => {
+      state.transactionID = action.payload ? action.payload : null;
+      state.isModalRemoveTransactionOpen = true;
+    },
+    closeRemoveTransactionModal: (state) => {
+      state.transactionID = null;
+      state.isModalRemoveTransactionOpen = false;
     },
   },
 });
@@ -41,5 +51,7 @@ export const {
   closeTransactionModal,
   openLogoutModal,
   closeLogoutModal,
+  openRemoveTransactionModal,
+  closeRemoveTransactionModal,
 } = globalSlice.actions;
 export default globalSlice.reducer;

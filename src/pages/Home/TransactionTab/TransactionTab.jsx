@@ -10,6 +10,7 @@ import ButtonAddTransaction from '../../../components/ButtonAddTransaction';
 import ModalAddTransaction from '../../../components/ModalAddTransaction';
 import TableTransaction from './TransactionTable';
 import styles from './styles.module.scss';
+import ModalRemoveTransaction from '../../../components/ModalRemoveTransaction';
 
 const TransactionTab = () => {
   const { isLoading, isError, isSuccess, data = [], refetch } = useGetTransactionsQuery();
@@ -29,9 +30,10 @@ const TransactionTab = () => {
   return (
     <div className={mainBlock}>
       <TableTransaction data={transactions} categories={categories}/>
-
       <ButtonAddTransaction/>
+
       <ModalAddTransaction/>
+      <ModalRemoveTransaction/>
     </div>
   );
 };
