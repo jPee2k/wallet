@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isLoading: false,
-  isModalAddTransactionOpen: false,
   isModalLogoutOpen: false,
+  isModalAddTransactionOpen: false,
+  transactionID: null,
 };
 
 export const globalSlice = createSlice({
@@ -17,8 +18,9 @@ export const globalSlice = createSlice({
     hideSpinner: (state) => {
       state.isLoading = false;
     },
-    openTransactionModal: (state) => {
+    openTransactionModal: (state, action) => {
       state.isModalAddTransactionOpen = true;
+      state.transactionID = action.payload ? action.payload : null;
     },
     closeTransactionModal: (state) => {
       state.isModalAddTransactionOpen = false;

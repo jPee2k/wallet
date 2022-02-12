@@ -2,13 +2,15 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { closeTransactionModal } from '../../app/slices/globalSlice.js';
-import { getTransactionModalState } from '../../app/slices/selectors.js';
+import { getTransactionID, getTransactionModalState } from '../../app/slices/selectors.js';
 
+import EditTransactionForm from './EditTransactionForm';
 import TransactionForm from './TransactionForm';
 import styles from './styles.module.scss';
 
 const ModalAddTransaction = () => {
   const isModalOpen = useSelector(getTransactionModalState);
+  const transactionID = useSelector(getTransactionID);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,8 +26,17 @@ const ModalAddTransaction = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal}>
-        <h2 className={styles.title}>Add transaction</h2>
-        <TransactionForm/>
+        {transactionID ? (
+          <React.Fragment>
+            <h2 className={styles.title}>Edit transaction</h2>
+            <EditTransactionForm transactionID={transactionID}/>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <h2 className={styles.title}>Add transaction</h2>
+            <TransactionForm/>
+          </React.Fragment>
+        )}
       </div>
     </div>
   );

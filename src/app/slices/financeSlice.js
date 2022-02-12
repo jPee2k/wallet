@@ -10,14 +10,22 @@ export const financeSlice = createSlice({
   name: 'finance',
   initialState,
   reducers: {
-    addCategories: (state, actions) => {
-      state.categories = actions.payload;
+    addCategories: (state, action) => {
+      state.categories = action.payload;
     },
-    addTransaction: (state, actions) => {
-      state.data.unshift({ status: 'new', ...actions.payload });
+    addTransaction: (state, action) => {
+      state.data.unshift({ status: 'new', ...action.payload });
     },
-    addData: (state, actions) => {
-      state.data = [...actions.payload].sort((a, b) => {
+    editTransaction: (state, action) => {
+      state.data = state.data.map((item) => {
+        if (item.id === action.payload.id) {
+          return action.payload;
+        }
+        return item;
+      });
+    },
+    addData: (state, action) => {
+      state.data = [...action.payload].sort((a, b) => {
         const dateA = new Date(a.transactionDate);
         const dateB = new Date(b.transactionDate);
         return dateB - dateA;
@@ -32,5 +40,6 @@ export const {
   addTransaction,
   addData,
   resetFinanceData,
+  editTransaction,
 } = financeSlice.actions;
 export default financeSlice.reducer;

@@ -8,7 +8,11 @@ export const getUserFromState = (state) => state.session.user;
 // transactions
 export const getTransactionCategoriesFromState = (state) => state.finance.categories;
 export const getTransactionsFromState = (state) => state.finance.data;
+export const getTransactionByID = (state, transactionID) => {
+  return state.finance.data.find(({ id }) => id === transactionID);
+};
 
 // modals
 export const getTransactionModalState = (state) => state.global.isModalAddTransactionOpen;
+export const getTransactionID = (state) => state.global.transactionID;
 export const getLogOutModalState = (state) => state.global.isModalLogoutOpen;
