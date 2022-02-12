@@ -15,6 +15,7 @@ const App = () => (
       <Route path="/register" element={<AuthRoute><AuthPage action="register"/></AuthRoute>}/>
       <Route path="/login" element={<AuthRoute><AuthPage action="login"/></AuthRoute>}/>
       <Route path="/" element={<ProtectedRoute><HomePage/></ProtectedRoute>}>
+        <Route index element={<TransactionTab/>}/>
         <Route path="transactions" element={<TransactionTab/>}/>
         <Route path="statistics" element={<DiagramTab/>}/>
       </Route>
