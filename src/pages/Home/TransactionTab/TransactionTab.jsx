@@ -8,6 +8,7 @@ import { useLoader } from '../../../hooks/useLoader.js';
 
 import ButtonAddTransaction from '../../../components/ButtonAddTransaction';
 import ModalAddTransaction from '../../../components/ModalAddTransaction';
+import ModalRemoveTransaction from '../../../components/ModalRemoveTransaction';
 import TableTransaction from './TransactionTable';
 import styles from './styles.module.scss';
 
@@ -33,6 +34,7 @@ const TransactionTab = () => {
         <ButtonAddTransaction/>
       </div>
       <ModalAddTransaction/>
+      <ModalRemoveTransaction/>
     </div>
   );
 };

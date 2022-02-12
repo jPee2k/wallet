@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonEdit from '../ButtonEdit';
+import ButtonDelete from '../ButtonDelete';
 import styles from './styles.module.scss';
-import { ReactComponent as Edit } from '../../../../assets/images/icons/edit.svg';
-import { ReactComponent as Delete } from '../../../../assets/images/icons/delete.svg';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 const { transactionTable, table, decTransaction, newTransaction } = styles;
@@ -38,8 +38,8 @@ const TableTransaction = ({ data = [], categories = [] }) => {
               <td>{amount.toFixed(2)}</td>
               <td>{balanceAfter.toFixed(2)}</td>
               <td>
-                <button><Edit/></button>
-                <button><Delete/></button>
+                <ButtonEdit transactionID={id}/>
+                <ButtonDelete transactionID={id}/>
               </td>
             </tr>
           );
