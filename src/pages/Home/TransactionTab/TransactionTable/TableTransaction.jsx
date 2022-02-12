@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
+import { ReactComponent as Edit } from '../../../../assets/images/icons/edit.svg';
+import { ReactComponent as Delete } from '../../../../assets/images/icons/delete.svg';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 const { transactionTable, table, decTransaction, newTransaction } = styles;
@@ -29,15 +31,15 @@ const TableTransaction = ({ data = [] }) => {
         {data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter, status }) => {
           return (
             <tr key={id} className={getClassName(type, status)}>
-              <td>{new Date(transactionDate).toLocaleDateString()}</td>
+              <td> {new Date(transactionDate).toLocaleDateString()}</td>
               <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
               <td>{categoryId}</td>
               <td>{comment}</td>
               <td>{amount.toFixed(2)}</td>
               <td>{balanceAfter.toFixed(2)}</td>
               <td>
-                <button>edit</button>
-                <button>remove</button>
+                <button><Edit/></button>
+                <button><Delete/></button>
               </td>
             </tr>
           );

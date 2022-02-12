@@ -5,7 +5,7 @@
   padding: 0 0 0 20px;
   margin-left: auto;
   width: 100%;
-
+  max-width: 370px;
   @media (min-width: 576px) {
     width: calc(100% - 290px);
     flex-direction: row;
@@ -77,6 +77,10 @@
             -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
             2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
             -2px 2px 0 #000000, 2px 2px 0 #000000;
+            svg {
+              fill: #fdfd01;
+              filter: drop-shadow(3px 3px 2px #000000b5);
+            }
         }
       }
     }

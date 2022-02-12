@@ -1,0 +1,57 @@
+.settingsBlock {
+  width: 1260px;
+  max-width: 100%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px 20px;
+
+  .settingsList {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 576px) {
+      padding-top: 18px;
+      border-top: 3px solid #fdfd01;
+    }
+    @media (min-width: 992px) {
+      width: calc(100% - 350px);
+    }
+
+    .settingsItem {
+      list-style: none;
+      margin-right: 23px;
+      @media (min-width: 576px) {
+        margin-right: 30px;
+      }
+      &:last-of-type {
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.currentData {
+  display: none;
+  font-family: "BebasNeue", "Arial", sans-serif, system-ui;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #fdfd01;
+  text-shadow: -0 -1px 0 #1e1e54, 0 -1px 0 #1e1e54, -0 1px 0 #1e1e54,
+    0 1px 0 #1e1e54, -1px -0 0 #1e1e54, 1px -0 0 #1e1e54, -1px 0 0 #1e1e54,
+    1px 0 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54,
+    1px 1px 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54,
+    -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: 10px;
+  cursor: default;
+
+  @media (min-width: 992px) {
+    display: block;
+  }
+}

@@ -1,0 +1,69 @@
+.header {
+  padding: 8px 0;
+
+  @media (min-width: 768px) {
+    padding: 23px 0 13px;
+  }
+  .headerBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #fdfd01;
+    // filter: drop-shadow(0px 4px 4px #fdfd01);
+    box-shadow: 4px 6px 4px #fdfd013f;
+    border-radius: 19px 0px 19px 19px;
+    padding: 8px 16px;
+    width: 850px;
+    max-width: 100%;
+    margin: 0 auto;
+    @media (min-width: 576px) {
+      padding: 22px 25px;
+      border-radius: 25px 0px 25px 25px;
+    }
+    .headerTitleBlock {
+      display: block;
+      .title {
+        font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 1;
+        color: #fdfd01;
+        text-shadow: 0px 6px 4px #5FA7C0;
+        margin: 0 0 10px;
+        cursor: default;
+        @media (min-width: 576px) {
+          font-size: 30px;
+          margin: 0 0 20px;
+        }
+        @media (min-width: 768px) {
+          font-size: 40px;
+        }
+      }
+      .titleDescription {
+        margin: 0;
+        font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
+        font-weight: 400;
+        font-size: 7px;
+        line-height: 1;
+        color: #00fff0;
+        cursor: default;
+        @media (min-width: 576px) {
+          font-size: 15px;
+        }
+      }
+    }
+    .logoImg {
+      width: 37px;
+      height: 37px;
+
+      @media (min-width: 576px) {
+        width: 60px;
+        height: 60px;
+      }
+      @media (min-width: 768px) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}

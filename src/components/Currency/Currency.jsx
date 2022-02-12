@@ -3,6 +3,7 @@ import Loader from './Loader';
 import useExchangeRateQuery from '../../hooks/useExchangeRateQuery.js';
 import { controller } from '../../services/privatBankAPI.js';
 import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
+import { ReactComponent as CurrencyIcon } from '../../assets/images/icons/currency.svg';
 import styles from './styles.module.scss';
 
 const ALLOWED_CURRENCY = ['USD', 'EUR', 'RUR'];
@@ -48,7 +49,7 @@ const Currency = () => {
         <tr>
           <th>Purchase</th>
           <th>Sale</th>
-          <th></th>{/* Currency */}
+          <th><CurrencyIcon/></th>{/* Currency */}
         </tr>
         </thead>
         <tbody>{
