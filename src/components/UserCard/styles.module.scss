@@ -64,10 +64,12 @@
   box-shadow: 0 5px 4px 3px #000000;
   border-radius: 25px;
   padding: 12px;
+  min-height: 210px;
   //flex-shrink: 0;
   //width: 180px;
   cursor: default;
   @media (min-width: 576px) {
+    min-height: unset;
     border-radius: 30px;
     width: 290px;
   }
@@ -79,7 +81,7 @@
   .cardNumber {
     font-family: "CutiveMono", "Georgia", serif, system-ui;
     font-weight: 400;
-    font-size: 6vw;
+    font-size: 7vw;
     line-height: 1;
     color: #00fff0;
     text-align: center;
@@ -101,6 +103,9 @@
       font-size: 19px;
     }
     @media (min-width: 992px) {
+      font-size: 25px;
+    }
+    @media (min-width: 1100px) {
       font-size: 27px;
     }
   }

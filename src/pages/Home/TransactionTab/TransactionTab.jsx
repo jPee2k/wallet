@@ -25,12 +25,13 @@ const TransactionTab = () => {
     }
   }, [data]);
 
-  const { mainBlock } = styles;
+  const { mainBlock, transactionsContainer } = styles;
   return (
     <div className={mainBlock}>
-      <TableTransaction data={transactions} categories={categories}/>
-
-      <ButtonAddTransaction/>
+      <div className={transactionsContainer}>
+        <TableTransaction data={transactions} categories={categories}/>
+        <ButtonAddTransaction/>
+      </div>
       <ModalAddTransaction/>
     </div>
   );

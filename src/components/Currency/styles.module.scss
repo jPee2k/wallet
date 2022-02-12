@@ -3,15 +3,11 @@
   flex-direction: column;
   flex-grow: 1;
   margin: 0;
-  //padding: 0 0 0 20px;
   margin-left: auto;
   width: 100%;
-  //max-width: 370px;
   @media (min-width: 576px) {
     max-width: 360px;
-    //width: calc(100% - 290px);
     flex-direction: row;
-    //padding: 0 0 0 30px;
     justify-content: end;
     flex-wrap: wrap;
   }
@@ -19,7 +15,6 @@
   @media (min-width: 992px) {
     order: -1;
     width: 100%;
-    //padding: 27px 0 0 0;
   }
 
   table {
@@ -79,10 +74,10 @@
             -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
             2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
             -2px 2px 0 #000000, 2px 2px 0 #000000;
-            svg {
-              fill: #fdfd01;
-              filter: drop-shadow(3px 3px 2px #000000b5);
-            }
+          svg {
+            fill: #fdfd01;
+            filter: drop-shadow(3px 3px 2px #000000b5);
+          }
         }
       }
     }
@@ -90,12 +85,18 @@
       tr {
         &:first-of-type {
           td {
-            padding-top: 10px;
+            padding-top: 20px;
+            @media (min-width: 768px) {
+              padding-top: 10px;
+            }
           }
         }
         &:last-of-type {
           td {
-            padding-bottom: 10px;
+            padding-bottom: 20px;
+            @media (min-width: 768px) {
+              padding-bottom: 10px;
+            }
           }
         }
         td {
@@ -112,9 +113,10 @@
             2px 1px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
             -2px 2px 0 #000000, 2px 2px 0 #000000, -2px -2px 0 #000000,
             2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
-          padding: 0 0px 0 15px;
+          padding: 10px 0px 0 15px;
           @media (min-width: 768px) {
             font-size: 27px;
+            padding: 0 0px 0 15px;
           }
           @media (min-width: 992px) {
             font-size: 30px;

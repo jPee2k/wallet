@@ -11,12 +11,8 @@
     display: flex;
     width: 100%;
     margin: 0;
-    padding: 0;
-
-    @media (min-width: 576px) {
-      padding-top: 18px;
-      border-top: 3px solid #fdfd01;
-    }
+    padding: 18px 0 0;
+    border-top: 3px solid #fdfd01;
     @media (min-width: 992px) {
       width: calc(100% - 350px);
     }

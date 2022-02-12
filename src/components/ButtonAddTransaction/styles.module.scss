@@ -11,10 +11,17 @@
   text-shadow: none;
   font-size: 21px;
   font-weight: 400;
-  max-width: max-content;
+  max-width: 100%;
+  width: 100%;
   min-width: unset;
+  margin-bottom: 18px;
   &:hover {
     background-color: #4141b3;
+  }
+  @media (min-width: 656px) {
+    max-width: max-content;
+    width: unset;
+    margin-bottom: unset;
   }
   @media (min-width: 992px) {
     font-size: 24px;

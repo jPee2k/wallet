@@ -1,22 +1,23 @@
 .transactionTable {
   overflow-y: auto;
-  height: 37vh;
-  //height: 245px;
-  //height: calc(100vh - 400px);
+  height: 50vh;
   padding: 3px;
-  @media (min-width: 576px) {
+  margin-bottom: 20px;
+  min-height: 530px;
+  @media (min-width: 656px) {
     height: 40vh;
-    //min-height: 360px;
+    min-height: unset;
   }
   @media (min-width: 992px) {
-    height: 60vh;
+    // height: 56vh;
+    height: calc(100vh - 313px);
     margin-bottom: 20px;
   }
   .table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 15px;
-    @media (min-width: 576px) {
+    @media (min-width: 656px) {
       border-collapse: collapse;
     }
 
@@ -38,7 +39,7 @@
         background-color: #4141b3;
         background-image: url(../../../../assets/images/background-fragment.png);
       }
-      @media (max-width: 576px) {
+      @media (max-width: 656px) {
         display: none;
       }
 
@@ -50,8 +51,12 @@
 
         th {
           text-align: left;
-          padding: 26px 0px 17px 15px;
+          padding: 26px 0px 17px 7px;
           color: #fdfd01;
+
+          @media (min-width: 1200px) {
+            padding: 26px 0px 17px 15px;
+          }
         }
       }
     }
@@ -73,13 +78,7 @@
           1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
 
         &.decTransaction {
-          color: #fff;
-          text-shadow: -0 -1px 0 #fa00ff, 0 -1px 0 #fa00ff, -0 1px 0 #fa00ff,
-            0 1px 0 #fa00ff, -1px -0 0 #fa00ff, 1px -0 0 #fa00ff,
-            -1px 0 0 #fa00ff, 1px 0 0 #fa00ff, -1px -1px 0 #fa00ff,
-            1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff, 1px 1px 0 #fa00ff,
-            -1px -1px 0 #fa00ff, 1px -1px 0 #fa00ff, -1px 1px 0 #fa00ff,
-            1px 1px 0 #fa00ff;
+          color: #fea4ff;
         }
         &::after {
           content: "";
@@ -91,34 +90,51 @@
           box-shadow: 4px 6px 4px #fdfd013f;
         }
 
-        @media (min-width: 576px) {
-          box-shadow: none;
-          &::after {
-            display: none;
-          }
-        }
-
         td {
           text-transform: capitalize;
-          padding: 0 0 7px 15px;
-
           div {
             text-overflow: ellipsis;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 1;
           }
-          @media (max-width: 576px) {
+          @media (max-width: 656px) {
             padding: 0 0 0px 15px;
-            &:nth-child(2),
-            &:nth-child(4),
-            &:nth-child(6) {
-              display: none;
-            }
+            // &:nth-child(2),
+            // &:nth-child(4),
+            // &:nth-child(6) {
+            //   display: none;
+            // }
+          }
+          @media (min-width: 1200px) {
+            padding: 0 0 7px 15px;
           }
         }
 
-        @media (min-width: 576px) {
+        @media (max-width: 656px) {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 20px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          td {
+            text-align: center;
+            padding: 5px 10px ;
+            &:first-of-type {
+              padding-top: 20px;
+            }
+            &:last-of-type {
+              padding-bottom: 20px;
+            }
+          }
+        }
+        @media (min-width: 656px) {
+          box-shadow: none;
+          &::after {
+            display: none;
+          }
+
           &:first-of-type {
             td {
               padding-top: 20px;
@@ -131,7 +147,6 @@
         border: none;
         svg {
           cursor: pointer;
-          // fill: #f1c40f ;
           fill: #baed7e;
           transition: 0.4s ease-in-out;
           filter: drop-shadow(3px 3px 2px #fdfd013f);
