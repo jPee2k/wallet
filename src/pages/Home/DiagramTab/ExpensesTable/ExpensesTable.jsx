@@ -21,10 +21,6 @@ const ExpensesTable = ({ data = [], categories = [] }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Food</td>
-            <td>560</td>
-          </tr>
           {/* eslint-disable-next-line max-len */}
           {expensesData.map(({ id, categoryName, amountData }) => {
             return (
