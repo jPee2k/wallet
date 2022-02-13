@@ -6,10 +6,11 @@ export const getAuthState = (state) => state.session.isAuth;
 export const getUserFromState = (state) => state.session.user;
 
 // transactions
+export const getTransactionsState = (state) => state.finance;
 export const getTransactionCategoriesFromState = (state) => state.finance.categories;
-export const getTransactionsFromState = (state) => state.finance.data;
+export const getTransactionsFromState = (state) => state.finance.items;
 export const getTransactionByID = (state, transactionID) => {
-  return state.finance.data.find(({ id }) => id === transactionID);
+  return state.finance.items.find(({ id }) => id === transactionID);
 };
 
 // modals

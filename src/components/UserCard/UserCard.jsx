@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 
 const UserCard = () => {
   const user = useSelector(getUserFromState);
-  const { username, balance } = user;
+  const { username = '', balance = 0 } = user;
   const { cardBlock, cardNumber, cardInfo, cardMember, cardCode } = styles;
 
   // TODO -> exchanged currency list

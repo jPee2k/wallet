@@ -10,6 +10,7 @@ export const userAPI = createApi({
   endpoints: (build) => ({
     getUser: build.query({
       query: (id = 'current') => `/api/users/${id}`,
+      keepUnusedDataFor: 0,
     }),
   }),
 });
