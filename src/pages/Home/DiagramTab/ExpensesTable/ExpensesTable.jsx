@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from './styles.module.scss';
+import styles from './styles.module.scss';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 
@@ -10,29 +10,40 @@ const ExpensesTable = ({ data = [], categories = [] }) => {
   }
   const { expensesData, totalIncome, totalExpenses } = ExpensesDataMapper(data, categories);
 
+  const { statisticsTable, table } = styles;
   return (
-    <div>
-        <div>
-          <div>Category</div>
-          <div>Amount</div>
-        </div>
-        {/* eslint-disable-next-line max-len */}
-        {expensesData.map(({ id, categoryName, amountData }) => {
-          return (
-            <div key={id}>
-              <div>{categoryName}</div>
-              <div>{amountData}</div>
-            </div>
-          );
-        })}
-        <div>
-          <div>Total income</div>
-          <div>{totalIncome}</div>
-        </div>
-        <div>
-          <div>Total expenses</div>
-          <div>{totalExpenses}</div>
-        </div>
+    <div className={statisticsTable}>
+      <table className={table}>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Food</td>
+            <td>560</td>
+          </tr>
+          {/* eslint-disable-next-line max-len */}
+          {expensesData.map(({ id, categoryName, amountData }) => {
+            return (
+              <tr key={id}>
+                <td>{categoryName}</td>
+                <td>{amountData}</td>
+              </tr>
+            );
+          })}
+          <tr>
+            <td>Total income</td>
+            <td>{totalIncome}</td>
+          </tr>
+          <tr>
+            <td>Total expenses</td>
+            <td>{totalExpenses}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
