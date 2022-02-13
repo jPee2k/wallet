@@ -27,7 +27,7 @@ const DatePicker = ({ name, ...props }) => {
     <label className={label}>
       <Datetime initialValue={value} inputProps={inputProps} onChange={changeHandler}
         dateFormat="DD-MM-YYYY"
-        timeFormat="HH:mm:ss"
+        timeFormat={false}
         {...props}
       />
       <ErrorMessage className={errorMessage} name={name} component="span"/>
