@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 
-const LabelsRender = ({ data = [], categories = [] }) => {
+const ExpensesTable = ({ data = [], categories = [] }) => {
   if (data.length === 0) {
     return <p>no transactions</p>;
   }
-  const { labelsData, totalIncome, totalExpenses } = LabelDataMapper(data, categories);
+  const { expensesData, totalIncome, totalExpenses } = ExpensesDataMapper(data, categories);
 
   return (
     <div>
@@ -17,7 +17,7 @@ const LabelsRender = ({ data = [], categories = [] }) => {
           <div>Amount</div>
         </div>
         {/* eslint-disable-next-line max-len */}
-        {labelsData.map(({ id, categoryName, amountData }) => {
+        {expensesData.map(({ id, categoryName, amountData }) => {
           return (
             <div key={id}>
               <div>{categoryName}</div>
@@ -37,7 +37,7 @@ const LabelsRender = ({ data = [], categories = [] }) => {
   );
 };
 
-const LabelDataMapper = (data, categories) => {
+const ExpensesDataMapper = (data, categories) => {
   return data.reduce((result, dataItem) => {
     const { id, categoryId, amount } = dataItem;
     const amountData = Math.abs(amount);
@@ -50,26 +50,26 @@ const LabelDataMapper = (data, categories) => {
 
     const categoryName = getCategoryNameByID(categories, categoryId);
 
-    const existingResultIndex = result.labelsData.findIndex((existingLabelData) => {
-      return existingLabelData.categoryName === categoryName;
+    const existingResultIndex = result.expensesData.findIndex((existingExpensesData) => {
+      return existingExpensesData.categoryName === categoryName;
     });
     if (existingResultIndex >= 0) {
       // eslint-disable-next-line no-param-reassign
-      result.labelsData[existingResultIndex].amountData += amountData;
+      result.expensesData[existingResultIndex].amountData += amountData;
       // eslint-disable-next-line no-param-reassign
       result.totalExpenses = amountData + result.totalExpenses;
       return result;
     }
 
-    const labelData = { id, categoryName, amountData };
-    result.labelsData.push(labelData);
+    const expensesData = { id, categoryName, amountData };
+    result.expensesData.push(expensesData);
     // eslint-disable-next-line no-param-reassign
     result.totalExpenses = amountData + result.totalExpenses;
     return result;
-  }, { labelsData: [], totalIncome: 0, totalExpenses: 0 });
+  }, { expensesData: [], totalIncome: 0, totalExpenses: 0 });
 };
 
-LabelsRender.propTypes = {
+ExpensesTable.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -97,4 +97,4 @@ function getCategoryNameByID(categories, id) {
   return currItem?.name || '';
 }
 
-export default LabelsRender;
+export default ExpensesTable;
