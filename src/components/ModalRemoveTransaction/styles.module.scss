@@ -1,0 +1,86 @@
+
+.wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  width: 600px;
+  padding:  20px 40px 30px;
+
+  border: 3px solid var(--border-color);
+  border-radius: 25px 0 25px 25px;
+  box-shadow: 0 4px 4px var(--border-color);
+  background-color: var(--confirm-background-color);
+}
+
+.title {
+  margin: 0;
+  padding: 0 20px;
+
+  font-family: "MokotoGlitch","Georgia",fantasy,system-ui;
+  text-shadow: 0 4px 4px var(--hover-background-color);
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 1.2;
+  color: var(--border-color);
+}
+
+.message {
+  font-family: "CutiveMono","Georgia",serif,system-ui;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 2.3px;
+  text-indent: 20px;
+  color: var(--active-element-color);
+  text-shadow: var(--text-shadow);
+  text-align: center;
+}
+
+.navSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.buttonConfirm {
+  background-color: var(--remove-background-color);
+}
+
+.buttonCancel {
+  background-color: var(--main-background-color);
+}
+
+
+@media (min-width: 320px) and (max-width: 550px){
+  .message{
+    text-align: center;
+  }
+
+  .wrapper{
+    width: 99%;
+    height: 100%;
+  }
+
+  .buttonConfirm{
+    margin-top: 10px;
+  }
+}

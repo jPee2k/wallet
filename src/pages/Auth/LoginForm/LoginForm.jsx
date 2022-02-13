@@ -51,7 +51,7 @@ const LoginForm = () => {
         <Form className={form} noValidate={true}>
           <Input type="email" name="email" placeholder="Email"/>
           <InputPassword name="password" value={values.password} placeholder="Password"/>
-          <Button className={button} type="submit" disabled={false}>Sign up</Button>
+          <Button className={button} type="submit" disabled={false}>Log in</Button>
         </Form>
       )}
     </Formik>

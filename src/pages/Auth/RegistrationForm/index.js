@@ -1,3 +1,3 @@
-import RegistrationForm from './RegistrationForm.js';
+import RegistrationForm from './RegistrationForm.jsx';
 
 export default RegistrationForm;

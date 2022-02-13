@@ -28,16 +28,16 @@ export const transactionsApi = createApi({
       // invalidatesTags: ['transactions'],
     }),
     updateTransaction: build.mutation({
-      query: (transactionId, body) => ({
+      query: ({ transactionID, body }) => ({
         method: 'PATCH',
-        url: `/api/transactions/${transactionId}`,
+        url: `/api/transactions/${transactionID}`,
         body: prepareData(body, ALLOWED_FIELDS),
       }),
     }),
     removeTransaction: build.mutation({
-      query: (transactionId) => ({
+      query: (transactionID) => ({
         method: 'DELETE',
-        url: `/api/transactions/${transactionId}`,
+        url: `/api/transactions/${transactionID}`,
       }),
     }),
   }),

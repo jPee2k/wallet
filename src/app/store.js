@@ -3,6 +3,7 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage';
 
 import { authAPI } from '../services/authAPI.js';
+import { userAPI } from '../services/userAPI.js';
 import { transactionCategoryApi } from '../services/transactionCategoryAPI.js';
 import { transactionsApi } from '../services/transactionsAPI.js';
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
 
   /* --- async -> rtk.query --- */
   [authAPI.reducerPath]: authAPI.reducer,
+  [userAPI.reducerPath]: userAPI.reducer,
   [transactionCategoryApi.reducerPath]: transactionCategoryApi.reducer,
   [transactionsApi.reducerPath]: transactionsApi.reducer,
 });
@@ -38,6 +40,7 @@ export const store = configureStore({
     },
   }).concat(
     authAPI.middleware,
+    userAPI.middleware,
     transactionCategoryApi.middleware,
     transactionsApi.middleware,
   ),
