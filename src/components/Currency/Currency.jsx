@@ -47,8 +47,8 @@ const Currency = () => {
       <table>
         <thead>
         <tr>
-          <th>Purchase</th>
-          <th>Sale</th>
+          <th>Buy</th>
+          <th>Sell</th>
           <th><CurrencyIcon/></th>{/* Currency */}
         </tr>
         </thead>
