@@ -13,7 +13,7 @@ const ButtonAddTransaction = () => {
   };
 
   return (
-    <Button onClick={clickHandler} className={btnTransaction}>+ Add transaction</Button>
+    <Button onClick={clickHandler} className={btnTransaction}>+<span>Add transaction</span></Button>
   );
 };
 

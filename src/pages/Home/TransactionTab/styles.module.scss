@@ -8,6 +8,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  order: 3;
+  @media (min-width: 656px) {
+    order: 2;
+  }
   .currencyInfoBlock {
     order: 1;
     width: 100%;
@@ -29,6 +33,7 @@
     }
     @media (min-width: 1100px) {
       width: 340px;
+      // align-self: start;
     }
   }
   .mainBlock {

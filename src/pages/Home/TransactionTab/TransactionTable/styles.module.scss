@@ -92,6 +92,12 @@
 
         td {
           text-transform: capitalize;
+          span {
+            margin-right: 5px;
+            @media (min-width: 656px) {
+            display: none;
+            }
+          }
           div {
             text-overflow: ellipsis;
             overflow: hidden;
@@ -119,13 +125,16 @@
             margin-bottom: 0;
           }
           td {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             text-align: center;
             padding: 5px 10px ;
             &:first-of-type {
-              padding-top: 20px;
+              padding-top: 12px;
             }
             &:last-of-type {
-              padding-bottom: 20px;
+              padding-bottom: 12px;
             }
           }
         }

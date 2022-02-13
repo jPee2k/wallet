@@ -1,4 +1,6 @@
 .btnTransaction {
+  display: flex;
+  align-items: center;
   background-color: #4141b3;
   background-image: url(../../assets/images/background-fragment.png);
   background-repeat: repeat;
@@ -11,19 +13,31 @@
   text-shadow: none;
   font-size: 21px;
   font-weight: 400;
-  max-width: 100%;
-  width: 100%;
+  max-width: max-content;
   min-width: unset;
   margin-bottom: 18px;
+  position: fixed;
+  right: 15px;
+  bottom: 0;
   &:hover {
     background-color: #4141b3;
   }
   @media (min-width: 656px) {
-    max-width: max-content;
+    position: unset;
+    right: unset;
+    bottom: unset;
     width: unset;
     margin-bottom: unset;
   }
   @media (min-width: 992px) {
     font-size: 24px;
+  }
+
+  span {
+    display: none;
+    @media (min-width: 656px) {
+      display: block;
+      margin-left: 5px;
+    }
   }
 }

@@ -31,12 +31,12 @@ const TableTransaction = ({ data = [], categories = [] }) => {
         {data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter, status }) => {
           return (
             <tr key={id} className={getClassName(type, status)}>
-              <td> {new Date(transactionDate).toLocaleDateString()}</td>
-              <td>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
-              <td>{getCategoryNameByID(categories, categoryId)}</td>
-              <td>{comment}</td>
-              <td>{amount.toFixed(2)}</td>
-              <td>{balanceAfter.toFixed(2)}</td>
+              <td><span>Date</span> {new Date(transactionDate).toLocaleDateString()}</td>
+              <td><span>Type</span>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
+              <td><span>Category</span>{getCategoryNameByID(categories, categoryId)}</td>
+              <td><span>Comments</span>{comment}</td>
+              <td><span>Amount</span>{amount.toFixed(2)}</td>
+              <td><span>Balance</span>{balanceAfter.toFixed(2)}</td>
               <td>
                 <ButtonEdit transactionID={id}/>
                 <ButtonDelete transactionID={id}/>

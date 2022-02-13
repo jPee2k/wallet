@@ -5,14 +5,22 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  padding: 15px;
+  padding: 15px 5px 10px;
+  order: 2;
+  @media (min-width: 656px) {
+    order: 3;
+    padding: 15px;
+  }
 
   .settingsList {
     display: flex;
     width: 100%;
     margin: 0;
-    padding: 18px 0 0;
-    border-top: 3px solid #fdfd01;
+    padding: 0;
+    @media (min-width: 656px) {
+      padding: 18px 0 0;
+      border-top: 3px solid #fdfd01;
+    }
     @media (min-width: 992px) {
       width: calc(100% - 350px);
     }

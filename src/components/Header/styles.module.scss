@@ -1,5 +1,7 @@
 .header {
-  padding-bottom: 20px;
+  @media (min-width: 656px) {
+    padding-bottom: 20px;
+  }
 
   .headerBlock {
     display: flex;
@@ -23,7 +25,7 @@
         font-size: 17px;
         line-height: 1;
         color: #fdfd01;
-        text-shadow: 0px 6px 4px #5FA7C0;
+        text-shadow: 0px 6px 4px #5fa7c0;
         margin: 0 0 10px;
         cursor: default;
         @media (min-width: 576px) {
