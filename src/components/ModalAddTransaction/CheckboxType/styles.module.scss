@@ -21,9 +21,10 @@
   overflow: hidden;
   opacity: 0;
 
-  &:not(:disabled):hover ~ .label .area,
-  &:not(:disabled):focus-visible ~ .label .area {
-    background-color: var(--hover-background-color);
+  &:not(:disabled):hover ~ .label .area {
+    @media screen and (min-width: 992px) {
+      background-color: var(--hover-background-color);
+    }
   }
 
   &:disabled ~ .label,

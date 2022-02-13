@@ -23,24 +23,30 @@ import styles from '../styles.module.scss';
 
 const TYPES = { dec: 'EXPENSE', inc: 'INCOME' };
 
-// TODO -> FIX unmount error
 const EditTransactionForm = ({ transactionID = null }) => {
-  const [updateTransaction, { isLoading, isError, isSuccess }] = useUpdateTransactionMutation();
-  const transactionData = useSelector((state) => getTransactionByID(state, transactionID));
   const dispatch = useDispatch();
+  const transactionData = useSelector((state) => getTransactionByID(state, transactionID));
+  const [
+    updateTransaction,
+    { data = {}, isLoading, isError, isSuccess },
+  ] = useUpdateTransactionMutation();
 
   useLoader({ dispatch, isLoading, isError, isSuccess });
+  useEffect(() => {
+    if (isSuccess && data) {
+      dispatch(editTransaction(data));
+      data.balanceAfter && dispatch(updateUserBalance(data.balanceAfter));
+    }
+  }, [data]);
   useEffect(() => {
     isSuccess && dispatch(closeTransactionModal());
   }, [isSuccess]);
 
   const submitHandler = async (validatedData, actions) => {
-    const data = { ...validatedData, amount: getAmountSignByType(validatedData, TYPES) };
+    const preparedData = { ...validatedData, amount: getAmountSignByType(validatedData, TYPES) };
 
     try {
-      const response = await updateTransaction({ transactionID, body: data }).unwrap();
-      dispatch(editTransaction(response));
-      response.balanceAfter && dispatch(updateUserBalance(response.balanceAfter));
+      await updateTransaction({ transactionID, body: preparedData }).unwrap();
       actions.resetForm();
     } catch (err) {
       toast.error(err.data.message);
@@ -51,7 +57,11 @@ const EditTransactionForm = ({ transactionID = null }) => {
   const { buttonConfirm, buttonCancel, form, navSection, doubleInputs, textarea } = styles;
   return (
     <Formik
-      initialValues={{ ...transactionData, amount: Math.abs(transactionData.amount) }}
+      initialValues={{
+        ...transactionData,
+        transactionDate: new Date(transactionData.transactionDate),
+        amount: Math.abs(transactionData.amount),
+      }}
       validationSchema={schema}
       onSubmit={submitHandler}
       validateOnBlur={false}

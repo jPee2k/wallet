@@ -21,12 +21,20 @@ import styles from '../styles.module.scss';
 
 const TYPES = { dec: 'EXPENSE', inc: 'INCOME' };
 
-// TODO -> FIX unmount error
 const TransactionForm = () => {
   const dispatch = useDispatch();
-  const [createTransaction, { isLoading, isError, isSuccess }] = useCreateTransactionMutation();
+  const [
+    createTransaction,
+    { data = {}, isLoading, isError, isSuccess },
+  ] = useCreateTransactionMutation();
 
   useLoader({ dispatch, isLoading, isError, isSuccess });
+  useEffect(() => {
+    if (isSuccess && data) {
+      dispatch(addTransaction(data));
+      data.balanceAfter && dispatch(updateUserBalance(data.balanceAfter));
+    }
+  }, [data]);
   useEffect(() => {
     isSuccess && dispatch(closeTransactionModal());
   }, [isSuccess]);
@@ -40,12 +48,10 @@ const TransactionForm = () => {
   };
 
   const submitHandler = async (validatedData, actions) => {
-    const data = { ...validatedData, amount: getAmountSignByType(validatedData, TYPES) };
+    const preparedData = { ...validatedData, amount: getAmountSignByType(validatedData, TYPES) };
 
     try {
-      const response = await createTransaction(data).unwrap();
-      dispatch(addTransaction(response));
-      response.balanceAfter && dispatch(updateUserBalance(response.balanceAfter));
+      await createTransaction(preparedData).unwrap();
       actions.resetForm();
     } catch (err) {
       toast.error(err.data.message);
