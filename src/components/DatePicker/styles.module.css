@@ -1,7 +1,6 @@
 .label {
   width: 100%;
-  min-height: 75px;
-
+  /* min-height: 60px; */
   display: flex;
   flex-direction: column;
 }

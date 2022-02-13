@@ -1,16 +1,11 @@
 .header {
-  //padding: 8px 0;
   padding-bottom: 20px;
 
-  @media (min-width: 768px) {
-    //padding: 23px 0 13px;
-  }
   .headerBlock {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 3px solid #fdfd01;
-    // filter: drop-shadow(0px 4px 4px #fdfd01);
     box-shadow: 4px 6px 4px #fdfd013f;
     border-radius: 19px 0px 19px 19px;
     padding: 8px 16px;
@@ -18,7 +13,6 @@
     max-width: 100%;
     margin: 0 auto;
     @media (min-width: 576px) {
-      //padding: 22px 25px;
       border-radius: 25px 0px 25px 25px;
     }
     .headerTitleBlock {

@@ -1,0 +1,39 @@
+.statisticsBlock {
+  order: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 40px 0;
+  }
+  @media (min-width: 992px) {
+    order: 1;
+    width: calc(100% - 337px);
+  }
+  @media (min-width: 1100px) {
+    width: calc(100% - 365px);
+  }
+  .statistics {
+    order: 1;
+    width: 350px;
+    max-width: 100%;
+    padding-bottom: 30px;
+
+    @media (min-width: 768px) {
+      padding-bottom: 0;
+      max-width: calc(100% - 400px);
+      order: 1;
+    }
+    canvas {
+      width: 350px;
+      max-width: 100%;
+      @media (min-width: 992px) {
+        width: 450px;
+      }
+    }
+  }
+}
