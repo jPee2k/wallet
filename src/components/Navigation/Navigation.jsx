@@ -1,13 +1,12 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton';
 import NavButton from '../NavButton';
+import DateTime from '../DateTime';
 import { ReactComponent as Chart } from '../../assets/images/icons/chart.svg';
 import { ReactComponent as Card } from '../../assets/images/icons/card.svg';
 import styles from './styles.module.scss';
 
 const Navigation = () => {
-  const today = new Date();
-  // const timezoneOffset = today.().toString();
   const {
     settingsBlock,
     settingsList,
@@ -15,7 +14,6 @@ const Navigation = () => {
     currentData,
   } = styles;
 
-  // TODO -> exchanged currency list
   return (
     <div className={settingsBlock}>
       <ul className={settingsList}>
@@ -33,7 +31,7 @@ const Navigation = () => {
           <LogOutButton />
         </li>
       </ul>
-      <div className={currentData}>{today.getDay()} : {today.getMonth()} : {today.getYear()}</div>
+      <DateTime className={currentData}/>
     </div>
   );
 };
