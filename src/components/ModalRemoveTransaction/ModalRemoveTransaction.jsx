@@ -29,6 +29,7 @@ const ModalRemoveTransaction = () => {
       await removeTransaction(transactionID).unwrap();
       dispatch(removeTransactionFromStore(transactionID));
       dispatch(closeRemoveTransactionModal());
+      // TODO -> update user balance
     } catch (err) {
       toast.error(err?.data?.message || 'Oops, something went wrong =(');
     }

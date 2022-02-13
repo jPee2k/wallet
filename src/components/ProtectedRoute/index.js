@@ -1,3 +1,3 @@
-import ProtectedRoute from './ProtectedRoute.js';
+import ProtectedRoute from './ProtectedRoute.jsx';
 
 export default ProtectedRoute;

@@ -16,7 +16,7 @@ const AuthPage = ({ action = 'register' }) => (
       <Logo className={logo}/>
       {action === 'register' ? <RegistrationForm/> : <LoginForm/>}
       <span className={link}>
-        or: {action === 'register' ? <Link to="/login">Sign in</Link> : <Link to="/register">Sign up</Link>}
+        or: {action === 'register' ? <Link to="/login">Log in</Link> : <Link to="/register">Sign up</Link>}
       </span>
     </section>
   </div>
