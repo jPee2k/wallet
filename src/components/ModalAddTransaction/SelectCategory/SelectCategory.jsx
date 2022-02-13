@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useGetTransactionCategoriesQuery } from '../../../services/transactionCategoryAPI.js';
 import { useLoader } from '../../../hooks/useLoader.js';
 
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 const SelectCategory = ({ type = '' }) => {
   const dispatch = useDispatch();
