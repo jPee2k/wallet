@@ -7,8 +7,9 @@ import styles from './styles.module.scss';
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 const { transactionTable, table, decTransaction, newTransaction } = styles;
 
-const TableTransaction = ({ data = [], categories = [] }) => {
-  if (data.length === 0) {
+const TableTransaction = ({ data = {} }) => {
+  const { items = [], categories = [] } = data;
+  if (items.length === 0) {
     return <p>no transactions</p>;
   }
 
@@ -28,7 +29,7 @@ const TableTransaction = ({ data = [], categories = [] }) => {
         </thead>
         <tbody>
         {/* eslint-disable-next-line max-len */}
-        {data.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter, status }) => {
+        {items.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter, status }) => {
           return (
             <tr key={id} className={getClassName(type, status)}>
               <td><span>Date</span> {new Date(transactionDate).toLocaleDateString()}</td>
@@ -51,26 +52,28 @@ const TableTransaction = ({ data = [], categories = [] }) => {
 };
 
 TableTransaction.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      transactionDate: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([TRANSACTION_TYPES.inc, TRANSACTION_TYPES.dec]).isRequired,
-      categoryId: PropTypes.string.isRequired,
-      userId: PropTypes.string.isRequired,
-      comment: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
-      balanceAfter: PropTypes.number.isRequired,
-      status: PropTypes.string,
-    }),
-  ).isRequired,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([TRANSACTION_TYPES.inc, TRANSACTION_TYPES.dec]).isRequired,
-    }),
-  ).isRequired,
+  data: PropTypes.shape({
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        transactionDate: PropTypes.string.isRequired,
+        type: PropTypes.oneOf([TRANSACTION_TYPES.inc, TRANSACTION_TYPES.dec]).isRequired,
+        categoryId: PropTypes.string.isRequired,
+        userId: PropTypes.string.isRequired,
+        comment: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+        balanceAfter: PropTypes.number.isRequired,
+        status: PropTypes.string,
+      }),
+    ),
+    categories: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.oneOf([TRANSACTION_TYPES.inc, TRANSACTION_TYPES.dec]).isRequired,
+      }),
+    ),
+  }).isRequired,
 };
 
 function getClassName(type, status) {
