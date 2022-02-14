@@ -1,17 +1,13 @@
-
 .wrapper {
   position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
-
   width: 100vw;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -20,21 +16,22 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
-
+  max-width: calc(100% - 60px);
   width: 600px;
-  padding:  20px 40px 30px;
-
+  padding: 20px;
   border: 3px solid var(--border-color);
   border-radius: 25px 0 25px 25px;
   box-shadow: 0 4px 4px var(--border-color);
   background-color: var(--confirm-background-color);
+  @media (min-width: 576px) {
+    padding: 20px 40px 30px;
+  }
 }
 
 .title {
   margin: 0;
   padding: 0 20px;
-
-  font-family: "MokotoGlitch","Georgia",fantasy,system-ui;
+  font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
   text-shadow: 0 4px 4px var(--hover-background-color);
   font-weight: normal;
   font-size: 45px;
@@ -43,14 +40,20 @@
 }
 
 .message {
-  font-family: "CutiveMono","Georgia",serif,system-ui;
+  font-family: "CutiveMono", "Georgia", serif, system-ui;
   font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 2.3px;
+  font-size: 21px;
+  letter-spacing: -0.7px;
   text-indent: 20px;
   color: var(--active-element-color);
   text-shadow: var(--text-shadow);
+  max-width: 300px;
   text-align: center;
+  @media (min-width: 576px) {
+    font-size: 24px;
+    letter-spacing: 2.3px;
+    max-width: 400px;
+  }
 }
 
 .navSection {
@@ -63,24 +66,13 @@
 
 .buttonConfirm {
   background-color: var(--passive-background-color);
+  margin: 0 5px;
 }
 
 .buttonCancel {
   background-color: var(--main-background-color);
-}
-
-
-@media (min-width: 320px) and (max-width: 550px){
-  .message{
-    text-align: center;
-  }
-  
-  .wrapper{
-    width: 99%;
-    height: 100%;
-  }
-
-  .buttonConfirm{
-    margin-top: 10px;
+  margin: 0 5px;
+  @media (max-width: 586px) {
+    margin-bottom: 10px;
   }
 }

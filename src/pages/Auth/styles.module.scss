@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  max-width: 100%;
   margin: auto;
   overflow-x: hidden;
 }
@@ -13,18 +13,26 @@
   align-items: center;
 
   margin: 20px;
-  padding: 12px 30px;
+  padding: 12px 20px;
 
   border: 3px solid var(--confirm-background-color);
   border-radius: 25px 0 25px 25px;
+  max-width: 100%;
+  @media (min-width: 576px) {
+    padding: 12px 30px;
+  }
 }
 
 .logo {
   margin-bottom: 30px;
+  max-width: 100%;
 }
 
 .link {
   align-self: flex-end;
   font-size: 24px;
   margin-top: 20px;
+  max-width: 100%;
 }
+
+

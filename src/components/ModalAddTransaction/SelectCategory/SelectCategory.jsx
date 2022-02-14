@@ -25,14 +25,14 @@ const SelectCategory = ({ type = '' }) => {
       <option key={id} value={id}>{name}</option>
     ));
 
-  const { input, label } = styles;
+  const { input, label, errorMessage } = styles;
   return (
     <label className={label}>
       <Field className={input} component="select" name="categoryId">
         <option value="">Select a category</option>
         {options}
       </Field>
-      <ErrorMessage name="categoryId" component="span"/>
+      <ErrorMessage className={errorMessage} name="categoryId" component="span"/>
     </label>
   );
 };

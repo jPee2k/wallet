@@ -16,17 +16,35 @@
 
 .name {
   font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
-  font-size: 40px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--confirm-background-color);
   text-transform: uppercase;
   text-shadow: 0 6px 4px var(--logo-shadow-color);
 }
+@media (min-width: 468px) {
+  .name {
+    font-size: 33px;
+  }
+}
+@media (min-width: 768px) {
+  .name {
+    font-size: 40px;
+  }
+}
+
+
 
 .description {
   font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--hover-background-color);
   text-transform: uppercase;
+}
+
+@media (min-width: 468px) {
+  .description {
+    font-size: 16px;
+  }
 }

@@ -1,6 +1,6 @@
 .label {
   width: 100%;
-  /* min-height: 60px; */
+  min-height: 75px;
   display: flex;
   flex-direction: column;
 }
@@ -36,4 +36,5 @@
 
 .errorMessage {
   text-indent: 20px;
+  font-size: 18px;
 }
