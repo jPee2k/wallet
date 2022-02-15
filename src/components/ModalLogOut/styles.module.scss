@@ -15,8 +15,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  max-width: calc(100% - 60px);
+  gap: 20px;
+  max-width: calc(100% - 40px);
   width: 600px;
   padding: 20px;
   border: 3px solid var(--border-color);
@@ -25,6 +25,7 @@
   background-color: var(--confirm-background-color);
   @media (min-width: 576px) {
     padding: 20px 40px 30px;
+    gap: 30px;
   }
 }
 
@@ -61,18 +62,45 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-grow: 1;
+  gap: 10px;
   width: 100%;
 }
 
 .buttonConfirm {
   background-color: var(--passive-background-color);
-  margin: 0 5px;
 }
 
 .buttonCancel {
   background-color: var(--main-background-color);
-  margin: 0 5px;
-  @media (max-width: 586px) {
-    margin-bottom: 10px;
+}
+
+.buttonCancel,
+.buttonConfirm {
+  @media screen and (max-width: 575px) {
+    height: 36px;
+    min-width: 130px;
+    min-height: unset;
+
+    padding: 0 10px;
+
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px 0 15px 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    &:active {
+      background-color: var(--hover-background-color);
+    }
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      transform: unset;
+    }
   }
 }
