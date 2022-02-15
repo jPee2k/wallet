@@ -94,6 +94,8 @@ a {
 }
 
 #root {
+  position: relative;
+
   height: 100vh;
   padding: 15px;
 
@@ -108,6 +110,6 @@ a {
 .rdtPicker {
   border-radius: 8px;
   td{
-    font-style: 19px;
+    font-size: 19px;
   }
 }

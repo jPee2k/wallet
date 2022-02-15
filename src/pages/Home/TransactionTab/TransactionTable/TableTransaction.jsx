@@ -5,7 +5,7 @@ import ButtonDelete from '../ButtonDelete';
 import styles from './styles.module.scss';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
-const { transactionTable, table, decTransaction, newTransaction } = styles;
+const { transactionTable, table, decTransaction, newTransaction, operationBlock } = styles;
 
 const TableTransaction = ({ data = {} }) => {
   const { items = [], categories = [] } = data;
@@ -38,7 +38,7 @@ const TableTransaction = ({ data = {} }) => {
               <td><span>Comments</span>{comment}</td>
               <td><span>Amount</span>{amount.toFixed(2)}</td>
               <td><span>Balance</span>{balanceAfter.toFixed(2)}</td>
-              <td>
+              <td className={operationBlock}>
                 <ButtonEdit transactionID={id}/>
                 <ButtonDelete transactionID={id}/>
               </td>

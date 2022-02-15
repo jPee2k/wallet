@@ -1,6 +1,8 @@
 .header {
-  @media (min-width: 656px) {
-    padding-bottom: 20px;
+  padding-bottom: 15px;
+
+  @media (min-width: 768px) {
+    padding-bottom: 22px;
   }
 
   .headerBlock {
@@ -17,8 +19,10 @@
     @media (min-width: 576px) {
       border-radius: 25px 0px 25px 25px;
     }
+
     .headerTitleBlock {
       display: block;
+
       .title {
         font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
         font-weight: 400;
@@ -36,6 +40,7 @@
           font-size: 40px;
         }
       }
+
       .titleDescription {
         margin: 0;
         font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
@@ -49,6 +54,7 @@
         }
       }
     }
+
     .logoImg {
       width: 37px;
       height: 37px;
