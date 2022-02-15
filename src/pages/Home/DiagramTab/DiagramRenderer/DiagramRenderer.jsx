@@ -9,7 +9,7 @@ const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 
 const DiagramRenderer = ({ data = [], categories = [] }) => {
   if (data.length === 0) {
-    return <p>no data to display</p>;
+    return <p className='noData'>no data to display</p>;
   }
   const doughnutChartData = getDoughnutChartData(data, categories);
   const chartOptions = { plugins: { legend: { display: false } } };

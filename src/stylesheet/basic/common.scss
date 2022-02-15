@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -22,11 +24,11 @@ html {
 
   ::-webkit-scrollbar-track {
     background: linear-gradient(
-        to right,
-        transparent 40%,
-        var(--border-color) 40%,
-        var(--border-color) 60%,
-        transparent 60%
+      to right,
+      transparent 40%,
+      var(--border-color) 40%,
+      var(--border-color) 60%,
+      transparent 60%
     );
   }
 
@@ -61,7 +63,12 @@ p {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
 }
 
@@ -109,7 +116,28 @@ a {
 
 .rdtPicker {
   border-radius: 8px;
-  td{
+  td {
     font-size: 19px;
+  }
+}
+
+.noData {
+  width: 100%;
+  font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  color: #fdfd01;
+  text-shadow: 0px 6px 4px #5fa7c0;
+  margin: 0 0 10px;
+  cursor: default;
+  padding: 0 5px;
+  margin-bottom: 80px;
+  text-align: left;
+  @media screen and (min-width: 420px) {
+    font-size: 25px;
+  }
+  @media screen and (min-width: 656px) {
+    font-size: 40px;
   }
 }

@@ -1,6 +1,14 @@
 .header {
-  padding-bottom: 15px;
-
+  @media (max-width: 655px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4141b3;
+    background-image: url(../../assets/images/background-fragment.png);
+    padding: 20px 15px 0;
+    z-index: 10;
+  }
   @media (min-width: 768px) {
     padding-bottom: 22px;
   }
@@ -16,6 +24,7 @@
     width: 850px;
     max-width: 100%;
     margin: 0 auto;
+
     @media (min-width: 576px) {
       border-radius: 25px 0px 25px 25px;
     }

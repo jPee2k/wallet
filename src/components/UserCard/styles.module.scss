@@ -68,7 +68,7 @@
   //flex-shrink: 0;
   //width: 180px;
   cursor: default;
-  @media (min-width: 576px) {
+  @media (min-width: 656px) {
     min-height: unset;
     border-radius: 30px;
     width: 290px;
@@ -99,7 +99,7 @@
       2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
       -2px 2px 0 #000000, 2px 2px 0 #000000;
     margin-bottom: 8px;
-    @media (min-width: 576px) {
+    @media (min-width: 656px) {
       font-size: 19px;
     }
     @media (min-width: 992px) {

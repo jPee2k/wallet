@@ -10,7 +10,7 @@ const { transactionTable, table, decTransaction, newTransaction, operationBlock 
 const TableTransaction = ({ data = {} }) => {
   const { items = [], categories = [] } = data;
   if (items.length === 0) {
-    return <p>no transactions</p>;
+    return <p className='noData'>no transactions</p>;
   }
 
   return (

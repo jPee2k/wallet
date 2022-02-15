@@ -4,12 +4,14 @@
   margin-bottom: 100px;
   min-height: 530px;
   @media (min-width: 656px) {
-    height: 40vh;
-    min-height: unset;
+    // height: 40vh;
+    height: calc(100vh - 550px);
+    // min-height: unset;
     margin-bottom: 20px;
+    min-height: 220px;
   }
   @media (min-width: 992px) {
-    height: calc(100vh - 313px);
+    height: calc(100% - 70px);
   }
   .table {
     width: 100%;
@@ -95,6 +97,13 @@
 
         td {
           text-transform: capitalize;
+          @media (min-width: 992px) {
+            max-width: 96px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            overflow-wrap: break-word;
+            table-layout: fixed;
+          }
           span {
             margin-right: 5px;
             @media (min-width: 656px) {
@@ -141,7 +150,7 @@
             }
           }
         }
-        @media (min-width: 656px) {
+        @media (min-width: 657px) {
           box-shadow: none;
           &::after {
             display: none;

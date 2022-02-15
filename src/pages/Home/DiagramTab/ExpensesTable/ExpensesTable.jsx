@@ -6,7 +6,7 @@ const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
 
 const ExpensesTable = ({ data = [], categories = [] }) => {
   if (data.length === 0) {
-    return <p>no transactions</p>;
+    return <p className='noData'> no transactions</p>;
   }
   const { expensesData, totalIncome, totalExpenses } = ExpensesDataMapper(data, categories);
 

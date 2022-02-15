@@ -18,11 +18,15 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
-    padding: 0 0 16px;
+    padding: 75px 0 16px;
     @media (min-width: 576px) {
       flex-direction: row;
-      // height: 190px;
       justify-content: center;
+      padding-top: 100px;
+    }
+    
+    @media (min-width: 656px) {
+      padding-top: 10px;
     }
     @media (min-width: 992px) {
       flex-direction: column;
@@ -54,5 +58,7 @@
   flex-direction: column-reverse;
   @media (min-width: 656px) {
     flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
   }
 }
