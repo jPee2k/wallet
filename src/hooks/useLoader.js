@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { hideSpinner, showSpinner } from '../app/slices/globalSlice.js';
 
-export const useLoader = ({ dispatch, isLoading, isError, isSuccess }) => {
+export const useLoader = ({ isLoading, isError, isSuccess }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     isLoading && dispatch(showSpinner());
   }, [isLoading]);

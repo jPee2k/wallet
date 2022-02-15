@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { getTransactionsState } from '../../../app/slices/selectors.js';
-import useTransactionsQuery from '../../../hooks/useTransactionsQuery.js';
 
 import ButtonAddTransaction from '../../../components/ButtonAddTransaction';
 import ModalAddTransaction from '../../../components/ModalAddTransaction';
@@ -13,7 +12,6 @@ import styles from './styles.module.scss';
 
 const TransactionTab = () => {
   const transactionsState = useSelector(getTransactionsState);
-  useTransactionsQuery();
 
   const { mainBlock, transactionsContainer } = styles;
   return (

@@ -19,6 +19,19 @@ export const transactionsApi = createApi({
       }),
       // providesTags: ['transactions'],
     }),
+    getTransactionsSummary: build.query({
+      query: (params = {}) => {
+        const queryParams = new URLSearchParams();
+        Object.entries(params).forEach(([key, value]) => {
+          value && queryParams.set(key, value);
+        });
+        const result = queryParams.toString() ? `?${queryParams.toString()}` : '';
+        return {
+          method: 'GET',
+          url: `/api/transactions-summary${result}`,
+        };
+      },
+    }),
     createTransaction: build.mutation({
       query: (body) => ({
         method: 'POST',
@@ -48,4 +61,5 @@ export const {
   useCreateTransactionMutation,
   useUpdateTransactionMutation,
   useRemoveTransactionMutation,
+  useGetTransactionsSummaryQuery,
 } = transactionsApi;
