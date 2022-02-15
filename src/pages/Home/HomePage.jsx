@@ -1,35 +1,21 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { useLoader } from '../../hooks/useLoader.js';
-import { useGetTransactionCategoriesQuery } from '../../services/transactionCategoryAPI.js';
-import { addCategories } from '../../app/slices/financeSlice.js';
+import useTransactionsCategoriesQuery from '../../hooks/useTransactionsCategoriesQuery.js';
+import useTransactionsQuery from '../../hooks/useTransactionsQuery.js';
 
 import Currency from '../../components/Currency';
 import UserCard from '../../components/UserCard';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
+
 import styles from './TransactionTab/styles.module.scss';
 
-const { mainSectionBlock, currencyInfoBlock } = styles;
-
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const {
-    isLoading,
-    isError,
-    isSuccess,
-    data = [],
-  } = useGetTransactionCategoriesQuery();
+  useTransactionsQuery();
+  useTransactionsCategoriesQuery();
 
-  useLoader({ dispatch, isLoading, isError, isSuccess });
-  useEffect(() => {
-    if (isSuccess && data) {
-      dispatch(addCategories(data));
-    }
-  }, [data]);
-
+  const { mainSectionBlock, currencyInfoBlock } = styles;
   return (
     <React.Fragment>
       <Header />
