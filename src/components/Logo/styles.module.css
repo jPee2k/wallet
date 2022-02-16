@@ -21,19 +21,23 @@
   color: var(--confirm-background-color);
   text-transform: uppercase;
   text-shadow: 0 6px 4px var(--logo-shadow-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-indent: 5px;
 }
+
 @media (min-width: 468px) {
   .name {
-    font-size: 33px;
+    font-size: 5vw;
   }
 }
+
 @media (min-width: 768px) {
   .name {
-    font-size: 40px;
+    font-size: 38px;
   }
 }
-
-
 
 .description {
   font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
