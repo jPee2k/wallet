@@ -1,0 +1,50 @@
+.label {
+  width: 100%;
+  min-height: 75px;
+}
+
+.select {
+  height: 50px;
+  width: 100%;
+  padding: 0 20px;
+
+  appearance: none;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--border-color);
+
+  border: 3px solid var(--border-color);
+  border-radius: 15px 0 15px 15px;
+
+  background-color: var(--confirm-background-color);
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5px;
+
+  transition: border-radius 80ms ease-in, background-color 180ms ease-in-out;
+
+  &:focus-visible {
+    background-color: var(--active-element-color);
+  }
+
+  .reset {
+    color: gray;
+    font-weight: 400;
+  }
+
+  option {
+    font: inherit;
+  }
+}
+
+.errorMessage {
+  text-indent: 20px;
+  font-size: 18px;
+  padding-left: 23px;
+}
+
+.focus {
+  border-radius: 15px 15px 0 0;
+}

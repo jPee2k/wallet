@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ErrorMessage, Field } from 'formik';
 
+import styles from './styles.module.scss';
+
 const YearSelector = ({ name = '', options = [] }) => {
+  const [isFocus, setFocus] = useState(false);
+
+  const clickHandler = () => {
+    setFocus((preVal) => !preVal);
+  };
+
+  const { label, select, focus, errorMessage } = styles;
   return (
-    <label>
-      <Field component="select" name={name}>
+    <label className={label}>
+      <Field component="select" name={name}
+        className={`${select} ${isFocus ? focus : ''}`.trim()}
+        onClick={clickHandler}
+        onBlur={() => setFocus(false)}
+      >
         <option value="">Year</option>
         {options.map((value) => (
           <option key={value} value={value}>{value}</option>
         ))}
       </Field>
-      <ErrorMessage name={name} component="span"/>
+      <ErrorMessage className={errorMessage} name={name} component="span"/>
     </label>
   );
 };

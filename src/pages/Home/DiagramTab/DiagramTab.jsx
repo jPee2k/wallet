@@ -21,7 +21,6 @@ const DiagramTab = () => {
   const { transactionsSummary, setSkip, refetch } = useTransactionsSummary(dates.current);
 
   const submitHandler = async ({ month, year }, actions) => {
-    console.log({ month, year });
     try {
       if ((month && year) || (!month && !year)) {
         dates.current = { month, year };
@@ -38,7 +37,7 @@ const DiagramTab = () => {
     ? getDiagramTabData(transactionsSummary)
     : { doughnutDataResult: null, expensesDataResult: null };
 
-  const { statisticsBlock, statistics } = styles;
+  const { statisticsBlock, statistics, form } = styles;
   return doughnutDataResult && expensesDataResult ? (
     <div>
       <Formik
@@ -48,7 +47,7 @@ const DiagramTab = () => {
       >
         {({ submitForm }) => {
           return (
-            <Form onChange={submitForm}>
+            <Form className={form} onChange={submitForm}>
               <MonthSelector name="month" options={months}/>
               <YearSelector name="year" options={years}/>
             </Form>
