@@ -8,6 +8,7 @@ import TransactionTab from '../pages/Home/TransactionTab';
 import DiagramTab from '../pages/Home/DiagramTab';
 import HomePage from '../pages/Home';
 import AuthPage from '../pages/Auth';
+import Page404 from '../pages/404';
 
 const App = () => (
   <React.Fragment>
@@ -20,7 +21,7 @@ const App = () => (
         <Route path="statistics" element={<DiagramTab/>}/>
       </Route>
 
-      <Route path="*" element={<h2>404: This page is not found</h2>}/>
+      <Route path="*" element={<Page404/>}/>
     </Routes>
 
     <Spinner/>
