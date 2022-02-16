@@ -1,0 +1,38 @@
+.errorPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  margin: auto;
+}
+
+.imgWrapper {
+  width: 100%;
+  max-width: 360px;
+}
+
+.textBlock {
+  font-family: "Consolas", "Georgia", fantasy, system-ui;
+  font-weight: 400;
+  color: var(--main-text-color);
+}
+
+.textBlock > *:not(last-child) {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 1;
+  text-shadow: 2px 2px 3px var(--confirm-background-color);
+  letter-spacing: 0.05em;
+}
+
+.description {
+  font-size: 24px;
+  line-height: 1.3;
+  text-shadow: 1px 1px 3px var(--confirm-background-color);
+  letter-spacing: 0.03em;
+}

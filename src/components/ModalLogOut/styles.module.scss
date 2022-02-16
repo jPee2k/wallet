@@ -38,6 +38,10 @@
   font-size: 45px;
   line-height: 1.2;
   color: var(--border-color);
+
+  @media screen and (max-width: 480px) {
+    font-size: 9vw;
+  }
 }
 
 .message {
