@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Field, ErrorMessage } from 'formik';
@@ -19,17 +19,26 @@ const SelectCategory = ({ type = '' }) => {
     return null;
   }
 
+  const [isFocus, setFocus] = useState(false);
+  const clickHandler = () => {
+    setFocus((preVal) => !preVal);
+  };
+
   const options = data
     .filter((category) => category.type === type)
     .map(({ id, name }) => (
       <option key={id} value={id}>{name}</option>
     ));
 
-  const { input, label, errorMessage } = styles;
+  const { input, label, focus, errorMessage, reset } = styles;
   return (
     <label className={label}>
-      <Field className={input} component="select" name="categoryId">
-        <option value="">Select a category</option>
+      <Field component="select" name="categoryId"
+        className={`${input} ${isFocus ? focus : ''}`.trim()}
+        onClick={clickHandler}
+        onBlur={() => setFocus(false)}
+      >
+        <option className={reset} value="">Select a category</option>
         {options}
       </Field>
       <ErrorMessage className={errorMessage} name="categoryId" component="span"/>
