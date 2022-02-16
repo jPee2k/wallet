@@ -22,7 +22,7 @@
   &:hover {
     background-color: #4141b3;
   }
-  @media (min-width: 656px) {
+  @media (min-width: 640px) {
     position: unset;
     right: unset;
     bottom: unset;
@@ -35,7 +35,7 @@
 
   span {
     display: none;
-    @media (min-width: 656px) {
+    @media (min-width: 640px) {
       display: block;
       margin-left: 5px;
     }

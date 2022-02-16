@@ -82,7 +82,7 @@
   justify-content: space-between;
   flex-direction: column;
 
-  @media (min-width: 656px) {
+  @media (min-width: 640px) {
     flex-direction: row;
     flex-grow: 1;
     column-gap: 20px;
@@ -96,14 +96,14 @@
 .buttonCancel {
   background-color: var(--main-background-color);
 
-  @media (max-width: 656px) {
+  @media (max-width: 639px) {
     margin-bottom: 20px;
     width: 100%;
   }
 }
 
 .buttonConfirm {
-  @media (max-width: 656px) {
+  @media (max-width: 639px) {
     width: 100%;
   }
 }

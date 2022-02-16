@@ -3,7 +3,7 @@
   padding: 3px;
   margin-bottom: 100px;
   min-height: 530px;
-  @media (min-width: 656px) {
+  @media (min-width: 640px) {
     // height: 40vh;
     height: calc(100vh - 550px);
     // min-height: unset;
@@ -17,7 +17,7 @@
     width: 100%;
     border-collapse: separate;
 
-    @media (min-width: 656px) {
+    @media (min-width: 640px) {
       border-collapse: collapse;
       border-spacing: 0 15px;
     }
@@ -39,7 +39,7 @@
         background-color: #4141b3;
         background-image: url(../../../../assets/images/background-fragment.png);
       }
-      @media (max-width: 656px) {
+      @media (max-width: 639px) {
         display: none;
       }
 
@@ -106,7 +106,7 @@
           }
           span {
             margin-right: 5px;
-            @media (min-width: 656px) {
+            @media (min-width: 640px) {
             display: none;
             }
           }
@@ -116,7 +116,7 @@
             display: -webkit-box;
             -webkit-line-clamp: 1;
           }
-          @media (max-width: 656px) {
+          @media (max-width: 639px) {
             padding: 0 0 0px 15px;
             // &:nth-child(2),
             // &:nth-child(4),
@@ -129,7 +129,7 @@
           }
         }
 
-        @media (max-width: 656px) {
+        @media (max-width: 639px) {
           display: flex;
           flex-direction: column;
           margin-bottom: 20px;
@@ -150,7 +150,7 @@
             }
           }
         }
-        @media (min-width: 657px) {
+        @media (min-width: 640px) {
           box-shadow: none;
           &::after {
             display: none;

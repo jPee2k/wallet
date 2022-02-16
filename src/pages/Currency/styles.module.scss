@@ -1,0 +1,9 @@
+.currencyPage {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+
+  @media screen and (min-width: 576px) {
+    margin-top: 116px;
+  }
+}

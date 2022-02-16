@@ -1,54 +1,60 @@
 .mainSectionBlock {
-  //flex: 1;
-  width: 1260px;
-  max-width: 100%;
-  //padding: 13px 15px 20px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   order: 3;
-  @media (min-width: 656px) {
+  gap: 16px;
+
+  width: 1260px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 90px;
+
+  @media screen and (min-width: 576px) {
+    margin-top: 116px;
+  }
+
+  @media screen and (min-width: 640px) {
+    margin-top: 0;
     order: 2;
   }
+
+  @media screen and (min-width: 992px) {
+    flex-wrap: nowrap;
+    gap: 22px;
+  }
+
   .currencyInfoBlock {
     order: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    padding: 75px 0 16px;
+    gap: 16px;
+
     @media (min-width: 576px) {
       flex-direction: row;
-      justify-content: center;
-      padding-top: 100px;
+      justify-content: space-between;
     }
-    
-    @media (min-width: 656px) {
-      padding-top: 10px;
-    }
+
     @media (min-width: 992px) {
-      flex-direction: column;
+      flex-direction: column-reverse;
       justify-content: flex-start;
       width: 320px;
       order: 2;
-      padding: 0;
+      gap: 22px;
     }
     @media (min-width: 1100px) {
       width: 340px;
       // align-self: start;
     }
   }
+
   .mainBlock {
     order: 2;
     width: 100%;
     @media (min-width: 992px) {
       order: 1;
-      width: calc(100% - 337px);
-    }
-    @media (min-width: 1100px) {
-      width: calc(100% - 365px);
     }
   }
 }
@@ -56,7 +62,7 @@
 .transactionsContainer {
   display: flex;
   flex-direction: column-reverse;
-  @media (min-width: 656px) {
+  @media (min-width: 640px) {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100%;

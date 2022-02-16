@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Media from 'react-media';
 
 import useTransactionsCategoriesQuery from '../../hooks/useTransactionsCategoriesQuery.js';
 import useTransactionsQuery from '../../hooks/useTransactionsQuery.js';
@@ -18,17 +19,19 @@ const HomePage = () => {
   const { mainSectionBlock, currencyInfoBlock } = styles;
   return (
     <React.Fragment>
-      <Header />
+      <Header/>
       <div className={mainSectionBlock}>
         <div className={currencyInfoBlock}>
-          <UserCard />
-          <Currency />
+          <UserCard/>
+          <Media queries={{ min: { minWidth: 640 } }}>
+            {(matches) => (matches.min ? <Currency/> : null)}
+          </Media>
         </div>
-        <Outlet />
-        {/* content from router */}
+
+        <Outlet/>
       </div>
 
-      <Navigation />
+      <Navigation/>
     </React.Fragment>
   );
 };

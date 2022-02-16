@@ -7,19 +7,18 @@
   width: 1260px;
   max-width: 100%;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+  margin: auto;
+  margin-bottom: 0 !important;
   padding: 15px 20px;
 
-  @media screen and (max-width: 655px) {
+  @media screen and (max-width: 639px) {
     border-top: 3px solid var(--confirm-background-color);
     background-image: url("../../assets/images/background-fragment.png");
     background-repeat: repeat;
     background-color: var(--main-background-color);
   }
 
-  @media (min-width: 656px) {
+  @media (min-width: 640px) {
     position: static;
     padding: 15px;
     order: 3;
@@ -30,7 +29,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    @media (min-width: 656px) {
+    @media (min-width: 640px) {
       padding: 18px 0 0;
       border-top: 3px solid #fdfd01;
     }

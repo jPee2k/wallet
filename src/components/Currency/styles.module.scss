@@ -1,23 +1,20 @@
 .currencyWidget {
-  display: none;
   flex-direction: column;
   margin: 0;
-  margin-left: auto;
   width: 100%;
+
   @media (min-width: 576px) {
-    display: none;
     max-width: 360px;
     flex-direction: row;
     justify-content: end;
     flex-wrap: wrap;
   }
 
-  @media (min-width: 656px) {
+  @media (min-width: 640px) {
     display: flex;
   }
 
   @media (min-width: 992px) {
-    order: -1;
     width: 100%;
   }
 
@@ -26,6 +23,7 @@
     width: 100%;
     border-spacing: 0 15px;
     border-collapse: collapse;
+
     &::before {
       content: "";
       z-index: -1;
@@ -35,17 +33,19 @@
       top: 0;
       display: block;
       width: calc(100% + 6px);
-      height: 97%;
+      height: 100%;
       box-shadow: 0px 5px 4px 3px #000000;
       border-radius: 25px 0 25px 25px;
       background-color: #f3c10a;
       background-image: url(../../assets/images/background-fragment.png);
     }
+
     thead {
       position: relative;
       top: 3px;
       z-index: 1;
       cursor: default;
+
       &::after {
         content: "";
         position: absolute;
@@ -71,13 +71,14 @@
           padding: 15px 0px 15px 15px;
           color: #fdfd01;
           text-shadow: 0 -2px 0 #000000, 0 -2px 0 #000000, 0 2px 0 #000000,
-            0 2px 0 #000000, -2px 0 0 #000000, 2px 0 0 #000000, -2px 0 0 #000000,
-            2px 0 0 #000000, -1px -2px 0 #000000, 1px -2px 0 #000000,
-            -1px 2px 0 #000000, 1px 2px 0 #000000, -2px -1px 0 #000000,
-            2px -1px 0 #000000, -2px 1px 0 #000000, 2px 1px 0 #000000,
-            -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
-            2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
-            -2px 2px 0 #000000, 2px 2px 0 #000000;
+          0 2px 0 #000000, -2px 0 0 #000000, 2px 0 0 #000000, -2px 0 0 #000000,
+          2px 0 0 #000000, -1px -2px 0 #000000, 1px -2px 0 #000000,
+          -1px 2px 0 #000000, 1px 2px 0 #000000, -2px -1px 0 #000000,
+          2px -1px 0 #000000, -2px 1px 0 #000000, 2px 1px 0 #000000,
+          -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
+          2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
+          -2px 2px 0 #000000, 2px 2px 0 #000000;
+
           svg {
             fill: #fdfd01;
             filter: drop-shadow(3px 3px 2px #000000b5);
@@ -85,6 +86,7 @@
         }
       }
     }
+
     tbody {
       tr {
         &:first-of-type {
@@ -95,6 +97,7 @@
             }
           }
         }
+
         &:last-of-type {
           td {
             padding-bottom: 20px;
@@ -103,6 +106,7 @@
             }
           }
         }
+
         td {
           font-family: "BebasNeue", "Arial", sans-serif, system-ui;
           font-weight: 400;
@@ -110,13 +114,13 @@
           line-height: 1.2;
           color: #00fff0;
           text-shadow: -0 -2px 0 #000000, 0 -2px 0 #000000, -0 2px 0 #000000,
-            0 2px 0 #000000, -2px -0 0 #000000, 2px -0 0 #000000,
-            -2px 0 0 #000000, 2px 0 0 #000000, -1px -2px 0 #000000,
-            1px -2px 0 #000000, -1px 2px 0 #000000, 1px 2px 0 #000000,
-            -2px -1px 0 #000000, 2px -1px 0 #000000, -2px 1px 0 #000000,
-            2px 1px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
-            -2px 2px 0 #000000, 2px 2px 0 #000000, -2px -2px 0 #000000,
-            2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+          0 2px 0 #000000, -2px -0 0 #000000, 2px -0 0 #000000,
+          -2px 0 0 #000000, 2px 0 0 #000000, -1px -2px 0 #000000,
+          1px -2px 0 #000000, -1px 2px 0 #000000, 1px 2px 0 #000000,
+          -2px -1px 0 #000000, 2px -1px 0 #000000, -2px 1px 0 #000000,
+          2px 1px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000,
+          -2px 2px 0 #000000, 2px 2px 0 #000000, -2px -2px 0 #000000,
+          2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
           padding: 10px 0px 0 15px;
           @media (min-width: 768px) {
             font-size: 27px;

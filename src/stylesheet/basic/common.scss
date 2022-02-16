@@ -109,8 +109,22 @@ a {
   display: flex;
   flex-direction: column;
 
+  & > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
   @media screen and (min-width: 480px) {
     padding: 20px;
+
+    & > *:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    & > *:not(:last-child) {
+      margin-bottom: 22px;
+    }
   }
 }
 
@@ -137,7 +151,7 @@ a {
   @media screen and (min-width: 420px) {
     font-size: 25px;
   }
-  @media screen and (min-width: 656px) {
+  @media screen and (min-width: 640px) {
     font-size: 40px;
   }
 }
