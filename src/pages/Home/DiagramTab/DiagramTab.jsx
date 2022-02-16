@@ -10,6 +10,7 @@ import DiagramRenderer from './DiagramRenderer';
 import ExpensesTable from './ExpensesTable';
 import MonthSelector from './MonthSelector';
 import YearSelector from './YearSelector';
+import Spinner from '../../../components/Spinner';
 
 import styles from './styles.module.scss';
 
@@ -20,6 +21,7 @@ const DiagramTab = () => {
   const { transactionsSummary, setSkip, refetch } = useTransactionsSummary(dates.current);
 
   const submitHandler = async ({ month, year }, actions) => {
+    console.log({ month, year });
     try {
       if ((month && year) || (!month && !year)) {
         dates.current = { month, year };
@@ -32,9 +34,13 @@ const DiagramTab = () => {
     actions.setSubmitting(false);
   };
 
+  const { doughnutDataResult, expensesDataResult } = transactionsSummary
+    ? getDiagramTabData(transactionsSummary)
+    : { doughnutDataResult: null, expensesDataResult: null };
+
   const { statisticsBlock, statistics } = styles;
-  return (
-    <>
+  return doughnutDataResult && expensesDataResult ? (
+    <div>
       <Formik
         initialValues={{ month: dates.current.month, year: dates.current.year }}
         validationSchema={schema}
@@ -49,20 +55,75 @@ const DiagramTab = () => {
           );
         }}
       </Formik>
-
       <div className={statisticsBlock}>
         <div className={statistics}>
-          {
-            /* TODO -> parse transactionsSummary instead data && category */
-            console.log(transactionsSummary)
-          }
-          <DiagramRenderer data={[]} categories={[]}/>
+          <DiagramRenderer data={doughnutDataResult}/>
         </div>
-        {/* TODO -> parse transactionsSummary instead data && category */}
-        <ExpensesTable data={[]} categories={[]}/>
+        <div>
+          <ExpensesTable data={expensesDataResult}/>
+        </div>
       </div>
-    </>
+    </div>
+  ) : (
+    <Spinner/>
   );
+};
+
+const getCategoryColor = () => {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
+
+// const getCategoryColor = (categoryName) => {
+//   const colors = {
+//     'Доход': '#fff',
+//     'Семейние росходи': '#bbb'
+//   }
+//   return colors[categoryName];
+// };
+
+const getDiagramTabData = (data) => {
+  const { expenseSummary, incomeSummary, categoriesSummary } = data;
+  const diagramTabData = categoriesSummary.reduce((accumulator, dataItem) => {
+    const { name, total } = dataItem;
+    const amountData = Math.abs(total);
+    const color = getCategoryColor(name);
+
+    // we are showing only expenses in the table
+    if (name === 'Доход') {
+      return accumulator;
+    }
+
+    // expenses table data mapping logic
+    const expensesDataArray = accumulator.expensesDataResult.expensesData;
+    const existingResultIndex = expensesDataArray.findIndex((existingExpensesData) => {
+      return existingExpensesData.categoryName === name;
+    });
+    if (existingResultIndex >= 0) {
+      accumulator.expensesDataResult.expensesData[existingResultIndex].amountData += amountData;
+    } else {
+      const expensesData = { categoryName: name, amountData, color };
+      accumulator.expensesDataResult.expensesData.push(expensesData);
+    }
+
+    // doughnut chart data mapping logic
+    const doughnutDataResultLabels = accumulator.doughnutDataResult.labels;
+    const existingLabelIndex = doughnutDataResultLabels.indexOf(name);
+    if (existingLabelIndex >= 0) {
+      accumulator.doughnutDataResult.datasets[0].data[existingLabelIndex] += amountData;
+    } else {
+      accumulator.doughnutDataResult.labels.push(name);
+      accumulator.doughnutDataResult.datasets[0].data.push(amountData);
+      accumulator.doughnutDataResult.datasets[0].backgroundColor.push(color);
+    }
+
+    return accumulator;
+  }, {
+    expensesDataResult: { expensesData: [] },
+    doughnutDataResult: { labels: [], datasets: [{ data: [], backgroundColor: [] }] },
+  });
+  diagramTabData.expensesDataResult.totalIncome = incomeSummary;
+  diagramTabData.expensesDataResult.totalExpenses = Math.abs(expenseSummary);
+  return diagramTabData;
 };
 
 export default DiagramTab;
