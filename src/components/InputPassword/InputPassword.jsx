@@ -15,7 +15,7 @@ const InputPassword = ({ name, value, ...props }) => {
   const { input, label, wrapper, errorMessage, eyeBtn } = styles;
   const button = (
     <button className={eyeBtn} type="button" onClick={toggleVisibilityHandler}>
-      {inputType === 'password' ? <Eye/> : <EyeBlocked/>}
+      {inputType === 'password' ? <EyeBlocked/> : <Eye/>}
     </button>
   );
 
