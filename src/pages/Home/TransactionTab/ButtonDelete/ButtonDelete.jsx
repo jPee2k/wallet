@@ -2,21 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { openRemoveTransactionModal } from '../../../../app/slices/globalSlice.js';
-import { ReactComponent as Delete } from '../../../../assets/images/icons/delete.svg';
+import Button from '../../../../components/Button';
 
-const ButtonDelete = ({ transactionID }) => {
+const ButtonDelete = ({ transactionID, className = '', onClick: closeInfoModal }) => {
   const dispatch = useDispatch();
   const clickHandler = () => {
+    closeInfoModal();
     dispatch(openRemoveTransactionModal(transactionID));
   };
 
   return (
-    <button onClick={clickHandler}><Delete/></button>
+    <Button className={className} onClick={clickHandler}>Delete</Button>
   );
 };
 
 ButtonDelete.propTypes = {
   transactionID: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default ButtonDelete;

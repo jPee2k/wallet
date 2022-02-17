@@ -2,21 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { openTransactionModal } from '../../../../app/slices/globalSlice.js';
-import { ReactComponent as Edit } from '../../../../assets/images/icons/edit.svg';
+import Button from '../../../../components/Button';
 
-const ButtonEdit = ({ transactionID }) => {
+const ButtonEdit = ({ transactionID, className = '', onClick: closeInfoModal }) => {
   const dispatch = useDispatch();
   const clickHandler = () => {
+    closeInfoModal();
     dispatch(openTransactionModal(transactionID));
   };
 
   return (
-    <button onClick={clickHandler}><Edit/></button>
+    <Button className={className} onClick={clickHandler}>Edit</Button>
   );
 };
 
 ButtonEdit.propTypes = {
   transactionID: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default ButtonEdit;

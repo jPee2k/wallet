@@ -12,7 +12,6 @@ const Header = () => {
     logoImg,
   } = styles;
 
-  // TODO -> exchanged currency list
   return (
     <div className={header}>
       <div className={headerBlock}>
@@ -21,7 +20,6 @@ const Header = () => {
           <p className={titleDescription}>team react project</p>
         </div>
         <img src={logo} alt="logo" className={logoImg}/>
-        {/* <Logo className={logoImg}/> */}
       </div>
     </div>
   );

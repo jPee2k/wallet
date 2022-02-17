@@ -12,20 +12,58 @@
 }
 
 .modal {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
+
   max-width: calc(100% - 40px);
   width: 600px;
   padding: 20px;
+
   border: 3px solid var(--border-color);
   border-radius: 25px 0 25px 25px;
   box-shadow: 0 4px 4px var(--border-color);
   background-color: var(--confirm-background-color);
+
   @media (min-width: 576px) {
     padding: 20px 40px 30px;
-    gap: 30px;
+    gap: 18px;
+  }
+}
+
+.buttonClose {
+  appearance: none;
+
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  color: var(--remove-background-color);
+  fill: var(--remove-background-color);;
+
+  border: unset;
+  background-color: unset;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  svg {
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -47,18 +85,20 @@
 .message {
   font-family: "CutiveMono", "Georgia", serif, system-ui;
   font-weight: 700;
-  font-size: 21px;
-  letter-spacing: -0.7px;
+  font-size: 19px;
+  letter-spacing: -0.08em;
   text-indent: 20px;
-  color: var(--active-element-color);
-  text-shadow: var(--text-shadow);
+  color: var(--dark-text-color);
   max-width: 300px;
   text-align: center;
 
-  @media (min-width: 576px) {
-    font-size: 24px;
-    letter-spacing: 2.3px;
+  @media screen and (min-width: 576px) {
+    font-size: 21px;
     max-width: 400px;
+  }
+
+  @media screen and (min-width: 640px) {
+    text-align: left;
   }
 }
 
@@ -71,16 +111,16 @@
   width: 100%;
 }
 
-.buttonConfirm {
-  background-color: var(--remove-background-color);
-}
-
-.buttonCancel {
+.buttonEdit {
   background-color: var(--main-background-color);
 }
 
-.buttonCancel,
-.buttonConfirm {
+.buttonRemove {
+  background-color: var(--remove-background-color);
+}
+
+.buttonRemove,
+.buttonEdit {
   @media screen and (max-width: 575px) {
     height: 36px;
     min-width: 130px;
@@ -107,5 +147,15 @@
     &:focus-visible {
       transform: unset;
     }
+  }
+}
+
+.table {
+  color: var(--dark-text-color);
+  font-size: 18px;
+  font-weight: 700;
+
+  @media screen and (min-width: 576px) {
+    font-size: 22px;
   }
 }

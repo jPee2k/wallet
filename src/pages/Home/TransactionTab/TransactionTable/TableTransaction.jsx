@@ -1,52 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ButtonEdit from '../ButtonEdit';
-import ButtonDelete from '../ButtonDelete';
+import ModalTransactionInfo from './ModalTransactionInfo';
 import styles from './styles.module.scss';
 
 const TRANSACTION_TYPES = { inc: 'INCOME', dec: 'EXPENSE' };
-const { transactionTable, table, decTransaction, newTransaction, operationBlock } = styles;
+const { transactionTable, table, decTransaction, newTransaction } = styles;
 
 const TableTransaction = ({ data = {} }) => {
+  const [isVisibleModal, setVisibilityModal] = useState(false);
+  const [transactionData, setTransactionData] = useState({});
+
   const { items = [], categories = [] } = data;
   if (items.length === 0) {
     return <p className='noData'>no transactions</p>;
   }
+
+  const clickHandler = (transaction) => {
+    const categoryName = getCategoryNameByID(categories, transaction.categoryId);
+    setTransactionData({ ...transaction, categoryName });
+    showModal();
+  };
+
+  const showModal = () => {
+    setVisibilityModal(true);
+  };
+
+  const hideModal = () => {
+    setVisibilityModal(false);
+  };
 
   return (
     <div className={transactionTable}>
       <table className={table}>
         <thead>
         <tr>
-          <th>Date</th>
           <th>Type</th>
+          <th>Date</th>
           <th>Category</th>
-          <th>Comments</th>
           <th>Amount</th>
           <th>Balance</th>
-          <th>Operations</th>
         </tr>
         </thead>
         <tbody>
-        {/* eslint-disable-next-line max-len */}
-        {items.map(({ id, transactionDate, type, categoryId, comment, amount, balanceAfter, status }) => {
+        {items.map((transaction) => {
+          const {
+            id, transactionDate, type, categoryId, amount, balanceAfter, status,
+          } = transaction;
           return (
-            <tr key={id} className={getClassName(type, status)}>
-              <td><span>Date</span> {new Date(transactionDate).toLocaleDateString()}</td>
+            <tr key={id} className={getClassName(type, status)}
+              onClick={() => clickHandler(transaction)}
+            >
               <td><span>Type</span>{type === TRANSACTION_TYPES.inc ? '+' : '-'}</td>
+              <td><span>Date</span>{new Date(transactionDate).toLocaleDateString()}</td>
               <td><span>Category</span>{getCategoryNameByID(categories, categoryId)}</td>
-              <td><span>Comments</span>{comment}</td>
               <td><span>Amount</span>{amount.toFixed(2)}</td>
               <td><span>Balance</span>{balanceAfter.toFixed(2)}</td>
-              <td className={operationBlock}>
-                <ButtonEdit transactionID={id}/>
-                <ButtonDelete transactionID={id}/>
-              </td>
             </tr>
           );
         })}
         </tbody>
       </table>
+
+      <ModalTransactionInfo
+        isVisible={isVisibleModal}
+        hideModal={hideModal}
+        transaction={transactionData}
+      />
     </div>
   );
 };
@@ -82,7 +101,7 @@ function getClassName(type, status) {
   return `${typeClass} ${statusClass}`.trim();
 }
 
-function getCategoryNameByID(categories, id) {
+function getCategoryNameByID(categories = [], id = '') {
   const currItem = categories.find((category) => category.id === id);
   return currItem?.name || '';
 }
