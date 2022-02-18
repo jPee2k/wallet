@@ -5,8 +5,8 @@ import { ReactComponent as Close } from '../../../../../assets/images/icons/dele
 import styles from './styles.module.scss';
 
 import TransactionInfoTable from './TransactionInfoTable';
-import ButtonEdit from '../../ButtonEdit';
-import ButtonDelete from '../../ButtonDelete';
+import ButtonDelete from './ButtonDelete';
+import ButtonEdit from './ButtonEdit';
 
 const ModalTransactionInfo = ({ isVisible = false, hideModal, transaction = {} }) => {
   useEffect(() => {
@@ -42,15 +42,15 @@ const ModalTransactionInfo = ({ isVisible = false, hideModal, transaction = {} }
 ModalTransactionInfo.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   hideModal: PropTypes.func.isRequired,
-  transaction: PropTypes.objectOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    amount: PropTypes.number.isRequired,
-    balanceAfter: PropTypes.number.isRequired,
+  transaction: PropTypes.shape({
+    id: PropTypes.string,
+    amount: PropTypes.number,
+    balanceAfter: PropTypes.number,
     transactionDate: PropTypes.string,
     type: PropTypes.string,
     categoryName: PropTypes.string,
     comment: PropTypes.string,
-  })).isRequired,
+  }).isRequired,
 };
 
 export default ModalTransactionInfo;

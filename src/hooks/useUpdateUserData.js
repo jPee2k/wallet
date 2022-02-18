@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLoader } from './useLoader.js';
 import { useGetUserQuery } from '../services/userAPI.js';
-import { updateUserBalance } from '../app/slices/sessionSlice.js';
+import { updateUserBalance } from '../redux/slices/sessionSlice.js';
 
 const useUpdateUserData = (id = 'current') => {
   const dispatch = useDispatch();

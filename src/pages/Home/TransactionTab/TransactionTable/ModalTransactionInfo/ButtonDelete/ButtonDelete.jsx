@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { openRemoveTransactionModal } from '../../../../app/slices/globalSlice.js';
-import Button from '../../../../components/Button';
+import { openRemoveTransactionModal } from '../../../../../../redux/slices/globalSlice.js';
+import Button from '../../../../../../components/Button';
 
 const ButtonDelete = ({ transactionID, className = '', onClick: closeInfoModal }) => {
   const dispatch = useDispatch();

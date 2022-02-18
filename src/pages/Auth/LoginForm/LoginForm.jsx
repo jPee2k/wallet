@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import schema from './validationSchema.js';
 import { useAuthUserMutation } from '../../../services/authAPI.js';
-import { addUserData, addError } from '../../../app/slices/sessionSlice.js';
+import { addUserData, addError } from '../../../redux/slices/sessionSlice.js';
 import { useLoader } from '../../../hooks/useLoader.js';
 
 import Input from '../../../components/Input';
@@ -31,9 +31,8 @@ const LoginForm = () => {
       dispatch(addUserData(response));
       actions.resetForm();
     } catch (err) {
-      const errMessage = err?.data?.message || 'Oops, something went wrong =(';
       dispatch(addError(err));
-      toast.error(errMessage);
+      toast.error(err?.data?.message || 'Oops, something went wrong =(');
     }
     actions.setSubmitting(false);
   };

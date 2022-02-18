@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import { getAuthState } from '../../app/slices/selectors.js';
+import { getAuthState } from '../../redux/slices/selectors.js';
 
 const AuthRoute = ({ children }) => {
   const isAuth = useSelector(getAuthState);

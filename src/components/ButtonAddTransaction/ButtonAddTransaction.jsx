@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { openTransactionModal } from '../../app/slices/globalSlice.js';
+import { openTransactionModal } from '../../redux/slices/globalSlice.js';
 import Button from '../Button';
 import styles from './styles.module.scss';
 

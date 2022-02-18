@@ -5,9 +5,9 @@ import { toast } from 'react-toastify';
 import useEscapeButton from '../../hooks/useEscapeButton.js';
 import useUpdateUserData from '../../hooks/useUpdateUserData.js';
 import useRemoveTransaction from '../../hooks/useRemoveTransaction.js';
-import { closeRemoveTransactionModal } from '../../app/slices/globalSlice.js';
-import { removeTransaction as removeTransactionFromStore } from '../../app/slices/financeSlice.js';
-import { getRemoveTransactionModalState, getTransactionID } from '../../app/slices/selectors.js';
+import { closeRemoveTransactionModal } from '../../redux/slices/globalSlice.js';
+import { removeTransaction as removeTransactionFromStore } from '../../redux/slices/financeSlice.js';
+import { getRemoveTransactionModalState, getTransactionID } from '../../redux/slices/selectors.js';
 
 import Button from '../Button';
 import styles from './styles.module.scss';

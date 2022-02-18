@@ -4,10 +4,10 @@ import { toast } from 'react-toastify';
 
 import { useLoader } from '../../hooks/useLoader.js';
 import { useLogOutMutation } from '../../services/authAPI.js';
-import { closeLogoutModal } from '../../app/slices/globalSlice.js';
-import { resetUserData } from '../../app/slices/sessionSlice.js';
-import { resetFinanceData } from '../../app/slices/financeSlice.js';
-import { getLogOutModalState } from '../../app/slices/selectors.js';
+import { closeLogoutModal } from '../../redux/slices/globalSlice.js';
+import { resetUserData } from '../../redux/slices/sessionSlice.js';
+import { resetFinanceData } from '../../redux/slices/financeSlice.js';
+import { getLogOutModalState } from '../../redux/slices/selectors.js';
 
 import Button from '../Button';
 import styles from './styles.module.scss';

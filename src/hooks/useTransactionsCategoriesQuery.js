@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addCategories } from '../app/slices/financeSlice.js';
+import { addCategories } from '../redux/slices/financeSlice.js';
 import { useGetTransactionCategoriesQuery } from '../services/transactionCategoryAPI.js';
 import { useLoader } from './useLoader.js';
 

@@ -6,11 +6,11 @@ import { toast } from 'react-toastify';
 
 import schema from '../validationSchema.js';
 import { useLoader } from '../../../hooks/useLoader.js';
-import { closeTransactionModal } from '../../../app/slices/globalSlice.js';
-import { editTransaction } from '../../../app/slices/financeSlice.js';
-import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
+import { closeTransactionModal } from '../../../redux/slices/globalSlice.js';
+import { editTransaction } from '../../../redux/slices/financeSlice.js';
+import { updateUserBalance } from '../../../redux/slices/sessionSlice.js';
 import { useUpdateTransactionMutation } from '../../../services/transactionsAPI.js';
-import { getTransactionByID } from '../../../app/slices/selectors.js';
+import { getTransactionByID } from '../../../redux/slices/selectors.js';
 import { getAmountSignByType } from '../../../utils/data.js';
 
 import SelectCategory from '../SelectCategory';
@@ -49,7 +49,7 @@ const EditTransactionForm = ({ transactionID = null }) => {
       await updateTransaction({ transactionID, body: preparedData }).unwrap();
       actions.resetForm();
     } catch (err) {
-      toast.error(err.data.message);
+      toast.error(err?.data?.message || 'Oops, something went wrong =(');
     }
     actions.setSubmitting(false);
   };

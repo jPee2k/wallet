@@ -6,6 +6,7 @@ const TransactionInfoTable = ({ className = '', transaction = {} }) => {
 
   return (
     <table className={className}>
+      <tbody>
       <tr>
         <td>Category:&nbsp;</td>
         <td>{categoryName}</td>
@@ -22,18 +23,19 @@ const TransactionInfoTable = ({ className = '', transaction = {} }) => {
         <td>Balance:&nbsp;</td>
         <td>{balanceAfter.toFixed(2)}</td>
       </tr>
+      </tbody>
     </table>
   );
 };
 
 TransactionInfoTable.propTypes = {
   className: PropTypes.string,
-  transaction: PropTypes.objectOf(PropTypes.shape({
+  transaction: PropTypes.shape({
     amount: PropTypes.number.isRequired,
     balanceAfter: PropTypes.number.isRequired,
     transactionDate: PropTypes.string,
     categoryName: PropTypes.string,
-  })).isRequired,
+  }).isRequired,
 };
 
 export default TransactionInfoTable;

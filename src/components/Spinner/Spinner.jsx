@@ -2,7 +2,7 @@ import React from 'react';
 import { Triangle } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 
-import { getLoadingState } from '../../app/slices/selectors.js';
+import { getLoadingState } from '../../redux/slices/selectors.js';
 import { getCssVariable } from '../../utils/useful.js';
 
 import styles from './styles.module.css';

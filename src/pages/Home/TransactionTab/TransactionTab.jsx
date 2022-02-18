@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getTransactionsState } from '../../../app/slices/selectors.js';
+import { getTransactionsState } from '../../../redux/slices/selectors.js';
 
 import ButtonAddTransaction from '../../../components/ButtonAddTransaction';
 import ModalAddTransaction from '../../../components/ModalAddTransaction';

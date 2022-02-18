@@ -5,9 +5,9 @@ import { toast } from 'react-toastify';
 
 import { useLoader } from '../../../hooks/useLoader.js';
 import schema, { dateNow } from '../validationSchema.js';
-import { closeTransactionModal } from '../../../app/slices/globalSlice.js';
-import { addTransaction } from '../../../app/slices/financeSlice.js';
-import { updateUserBalance } from '../../../app/slices/sessionSlice.js';
+import { closeTransactionModal } from '../../../redux/slices/globalSlice.js';
+import { addTransaction } from '../../../redux/slices/financeSlice.js';
+import { updateUserBalance } from '../../../redux/slices/sessionSlice.js';
 import { useCreateTransactionMutation } from '../../../services/transactionsAPI.js';
 import { getAmountSignByType } from '../../../utils/data.js';
 
@@ -54,7 +54,7 @@ const TransactionForm = () => {
       await createTransaction(preparedData).unwrap();
       actions.resetForm();
     } catch (err) {
-      toast.error(err.data.message);
+      toast.error(err?.data?.message || 'Oops, something went wrong =(');
     }
     actions.setSubmitting(false);
   };

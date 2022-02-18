@@ -7,8 +7,9 @@
   width: 1260px;
   max-width: 100%;
   display: flex;
-  margin: auto;
-  margin-bottom: 0 !important;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 15px 20px;
 
   @media screen and (max-width: 639px) {

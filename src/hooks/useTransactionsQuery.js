@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useGetTransactionsQuery } from '../services/transactionsAPI.js';
-import { addData } from '../app/slices/financeSlice.js';
+import { addData } from '../redux/slices/financeSlice.js';
 import { useLoader } from './useLoader.js';
 
 const useTransactionsQuery = () => {

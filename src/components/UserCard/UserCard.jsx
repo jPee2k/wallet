@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getUserFromState } from '../../app/slices/selectors.js';
+import { getUserFromState } from '../../redux/slices/selectors.js';
 import { getCardNumber } from '../../utils/useful.js';
 import getFormattedCurrency from '../../utils/money.js';
 

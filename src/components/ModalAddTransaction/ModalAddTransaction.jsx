@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { closeTransactionModal } from '../../app/slices/globalSlice.js';
-import { getTransactionID, getTransactionModalState } from '../../app/slices/selectors.js';
+import { closeTransactionModal } from '../../redux/slices/globalSlice.js';
+import { getTransactionID, getTransactionModalState } from '../../redux/slices/selectors.js';
 
 import EditTransactionForm from './EditTransactionForm';
 import TransactionForm from './TransactionForm';

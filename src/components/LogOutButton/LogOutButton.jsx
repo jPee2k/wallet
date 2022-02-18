@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { openLogoutModal } from '../../app/slices/globalSlice.js';
+import { openLogoutModal } from '../../redux/slices/globalSlice.js';
 import NavButton from '../NavButton';
 import ModalLogOut from '../ModalLogOut';
 import { ReactComponent as Exit } from '../../assets/images/icons/exit.svg';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getTransactionsFromState } from '../app/slices/selectors.js';
+import { getTransactionsFromState } from '../redux/slices/selectors.js';
 
 const useGetMonthsAndYears = () => {
   const transactions = useSelector(getTransactionsFromState);
