@@ -1,11 +1,14 @@
 import * as yup from 'yup';
+import { parse, isDate } from 'date-fns';
 
 export const dateNow = new Date();
 
 const validationSchema = yup.object({
   transactionDate: yup.date()
+    .typeError('Must be in the format "DD-MM-YYYY"')
     .min(new Date('01-01-1900'), 'Must be greater than 1900')
-    .max(dateNow, 'Please enter a valid date')
+    .max(dateNow, 'Can\'t be in the future')
+    .transform(parseDateString)
     .required('Field is required'),
   type: yup.string()
     .oneOf(['INCOME', 'EXPENSE'])
@@ -20,5 +23,11 @@ const validationSchema = yup.object({
     .max(2147483647, 'Maximum value exceeded')
     .required('Field is required'),
 });
+
+function parseDateString(value, originalValue) {
+  return isDate(originalValue)
+    ? originalValue
+    : parse(originalValue, 'dd-MM-yyyy', dateNow);
+}
 
 export default validationSchema;

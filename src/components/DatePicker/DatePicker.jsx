@@ -18,9 +18,13 @@ const DatePicker = ({ name, ...props }) => {
   };
 
   const changeHandler = (momentDate) => {
-    const isoDateFormat = momentDate.toISOString();
-    const date = new Date(isoDateFormat);
-    setValue(date);
+    if (typeof momentDate === 'object') {
+      const isoDateFormat = momentDate.toISOString();
+      const date = new Date(isoDateFormat);
+      setValue(date);
+    } else {
+      setValue(momentDate);
+    }
   };
 
   return (
@@ -37,6 +41,7 @@ const DatePicker = ({ name, ...props }) => {
 
 DatePicker.propTypes = {
   name: PropTypes.string.isRequired,
+  initDate: PropTypes.instanceOf(Date),
 };
 
 export default DatePicker;
