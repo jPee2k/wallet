@@ -2,9 +2,10 @@
 ![Intellias](.github/companies/intellias.svg?raw=true) &nbsp;
 ![GoIT](.github/companies/goit.svg?raw=true)
 
-# Cyber Wallet - training project from Intellias
+# Cyber Wallet - training project from [Intellias](https://intellias.com/)
 
 This project was developed with [React](https://reactjs.org/) library.
+
 
 ## Links
 
