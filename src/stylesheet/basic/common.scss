@@ -24,11 +24,11 @@ html {
 
   ::-webkit-scrollbar-track {
     background: linear-gradient(
-      to right,
-      transparent 40%,
-      var(--border-color) 40%,
-      var(--border-color) 60%,
-      transparent 60%
+        to right,
+        transparent 40%,
+        var(--border-color) 40%,
+        var(--border-color) 60%,
+        transparent 60%
     );
   }
 
@@ -41,6 +41,7 @@ html {
       background-color: var(--hover-background-color);
     }
   }
+
   ::-webkit-scrollbar-button {
     height: 12px;
   }
@@ -51,7 +52,6 @@ body {
   font-weight: 400;
   color: var(--main-text-color);
 
-  min-width: 320px;
   overflow-x: hidden;
 
   background-image: url("../../assets/images/background-fragment.png");
@@ -130,6 +130,7 @@ a {
 
 .rdtPicker {
   border-radius: 8px;
+
   td {
     font-size: 19px;
   }

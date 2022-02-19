@@ -1,10 +1,9 @@
 .label {
   width: 100%;
-  min-height: 75px;
 }
 
 .input {
-  height: 50px;
+  height: 46px;
   width: 100%;
   padding: 0 20px;
 
@@ -13,7 +12,6 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--border-color);
-
 
   border: 3px solid var(--border-color);
   border-radius: 15px 0 15px 15px;
@@ -40,9 +38,10 @@
 }
 
 .errorMessage {
-  text-indent: 20px;
-  font-size: 18px;
-  padding-left: 23px;
+  padding-left: 20px;
+  font-size: 16px;
+  color: var(--remove-background-color);
+  text-shadow: initial;
 }
 
 .focus {

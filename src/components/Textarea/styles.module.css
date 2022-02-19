@@ -1,13 +1,12 @@
 .label {
   width: 100%;
-  min-height: 75px;
 }
 
 .textarea {
-  min-height: 160px;
+  height: 130px;
   width: 100%;
 
-  padding: 10px;
+  padding: 10px 20px;
 
   appearance: none;
   resize: none;
@@ -23,6 +22,12 @@
   transition: background-color 180ms ease-in-out;
 }
 
+@media screen and (max-width: 479px) {
+  .textarea {
+    height: 100px;
+  }
+}
+
 .textarea::placeholder {
   font: inherit;
   font-weight: 600;
@@ -35,5 +40,7 @@
 
 .errorMessage {
   text-indent: 20px;
-  font-size: 18px;
+  font-size: 16px;
+  color: var(--remove-background-color);
+  text-shadow: initial;
 }

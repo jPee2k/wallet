@@ -18,31 +18,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 14px;
   width: 600px;
-  max-width: calc(100% - 60px);
-  padding: 20px;
+  max-width: calc(100% - 40px);
+  padding: 14px;
   border: 3px solid var(--border-color);
   border-radius: 25px 0 25px 25px;
   box-shadow: 0 4px 4px var(--border-color);
   background-color: var(--confirm-background-color);
-  @media (min-width: 576px){
+
+  @media (min-width: 480px) {
+    padding: 20px;
+  }
+
+  @media (min-width: 576px) {
+    max-width: calc(100% - 60px);
     padding: 20px 40px 30px;
+    gap: 24px;
   }
 }
 
 .title {
-  margin: 0;
-
   font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
   text-shadow: 0 4px 4px var(--hover-background-color);
   font-weight: normal;
-  font-size: 25px;
+  font-size: 18px;
   line-height: 1.2;
   color: var(--border-color);
+
+  margin: 0;
+
+  @media screen and (min-width: 320px) and (max-width: 575px) {
+    font-size: 6.8vw;
+  }
+
   @media (min-width: 576px) {
     font-size: 37px;
-
     padding: 0 20px;
   }
 
@@ -63,10 +74,10 @@
   color: var(--dark-text-color);
   color: #fdfd01;
   text-shadow: -0 -1px 0 #1e1e54, 0 -1px 0 #1e1e54, -0 1px 0 #1e1e54,
-    0 1px 0 #1e1e54, -1px -0 0 #1e1e54, 1px -0 0 #1e1e54, -1px 0 0 #1e1e54,
-    1px 0 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54,
-    1px 1px 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54,
-    -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
+  0 1px 0 #1e1e54, -1px -0 0 #1e1e54, 1px -0 0 #1e1e54, -1px 0 0 #1e1e54,
+  1px 0 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54, -1px 1px 0 #1e1e54,
+  1px 1px 0 #1e1e54, -1px -1px 0 #1e1e54, 1px -1px 0 #1e1e54,
+  -1px 1px 0 #1e1e54, 1px 1px 0 #1e1e54;
 }
 
 .navSection {
@@ -81,6 +92,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  gap: 10px;
 
   @media (min-width: 640px) {
     flex-direction: row;
@@ -95,17 +107,44 @@
 
 .buttonCancel {
   background-color: var(--main-background-color);
+}
 
-  @media (max-width: 639px) {
-    margin-bottom: 20px;
-    width: 100%;
+@media screen and (max-width: 575px) {
+  .buttonCancel,
+  .buttonConfirm {
+    height: 36px;
+    min-width: 130px;
+    min-height: unset;
+
+    padding: 0 10px;
+
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px 0 15px 15px;
+  }
+
+  .navSection {
+    column-gap: 20px;
+    row-gap: 8px;
+    justify-content: center;
   }
 }
 
-.buttonConfirm {
-  @media (max-width: 639px) {
-    width: 100%;
+@media screen and (max-width: 768px) {
+  .buttonCancel,
+  .buttonConfirm {
+    &:active {
+      background-color: var(--hover-background-color);
+    }
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      transform: unset;
+    }
   }
 }
-
-
