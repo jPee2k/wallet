@@ -1,10 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { getCssVariable } from '../../utils/useful.js';
 import styles from './styles.module.css';
 
-const NavButton = ({ type = 'button', ariaLabel = '', className = '', onClick: clickHandler, to, children }) => {
+const NavButton = (props) => {
+  const {
+    type = 'button',
+    className = '',
+    ariaLabel = '',
+    to,
+    isActive = false,
+    onClick: clickHandler,
+    children,
+  } = props;
   const { navButton } = styles;
+  const currentColor = isActive
+    ? getCssVariable('--active-element-color')
+    : getCssVariable('--confirm-background-color');
 
   if (typeof to !== 'undefined') {
     return (
@@ -12,6 +25,7 @@ const NavButton = ({ type = 'button', ariaLabel = '', className = '', onClick: c
         aria-label={ariaLabel}
         onClick={clickHandler}
         to={to}
+        style={{ backgroundColor: currentColor }}
       >
         {children}
       </Link>
@@ -23,6 +37,7 @@ const NavButton = ({ type = 'button', ariaLabel = '', className = '', onClick: c
       aria-label={ariaLabel}
       onClick={clickHandler}
       type={type}
+      style={{ backgroundColor: currentColor }}
     >
       {children}
     </button>
@@ -36,6 +51,7 @@ NavButton.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   to: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 
 export default NavButton;
