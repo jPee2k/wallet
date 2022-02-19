@@ -15,7 +15,7 @@
   --disabled-color: rgba(255, 255, 255, 0.3);
   --checkbox-area: #5FA7C0;
   --logo-shadow-color: #5FA7C0;
-
+  --a: #fbfbfb;
   /* --- sizes --- */
   --desktop: 1200px;
   --desktop-sm: 992px; /* lg */

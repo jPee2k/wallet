@@ -2,7 +2,7 @@ name: eslint
 
 on:
   push:
-    branches: [config, sandbox, develop, main]
+    branches: [sandbox, develop, main]
   pull_request:
     branches: [main]
 
