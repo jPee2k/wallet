@@ -52,7 +52,7 @@
         border-radius: 25px 0 25px 25px;
 
         th {
-          text-align: center;
+          text-align: left;
           padding: 26px 5px;
           color: var(--confirm-background-color);
 
@@ -126,10 +126,6 @@
           }
 
           &:first-of-type {
-            text-align: center;
-          }
-
-          &:last-of-type {
             text-align: center;
           }
 
