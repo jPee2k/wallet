@@ -6,6 +6,12 @@
 
 This project was developed with [React](https://reactjs.org/) library.
 
+## Links
+
+- [prod](https://wallet-sandbox.vercel.app/) on Vercel
+- [develop](https://wallet-develop.vercel.app/) on Vercel
+- [sandbox](https://wallet-intellias.vercel.app/) on Vercel
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -25,3 +31,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run eslint` && `npm run eslint-fix`
 
 Runs the linter that checks source files for errors in the `/src` folder.
+
+#### Our Team
+
+- Team Lead: [Serhii Pylypenko](https://cv-jpee2k.vercel.app/)
+- PM & developer: [Olena Kolibanych](https://github.com/olenakol)
+- Developer: [Roman](https://github.com/)
+- Developer: [Viktor](https://github.com/)
+- Designer: [Ihor](https://github.com/)
