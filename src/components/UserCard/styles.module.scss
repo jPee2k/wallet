@@ -8,7 +8,7 @@
   border: 3px solid #fdfd01;
   box-shadow: 0 5px 4px 3px #000000;
   border-radius: 25px;
-  padding: 12px;
+  padding: 60px 12px 60px;
   min-height: 189px;
   cursor: default;
   @media (min-width: 640px) {
@@ -79,6 +79,7 @@
       }
     }
     .cardCode {
+      position: relative;
       font-family: "MokotoGlitch", "Georgia", fantasy, system-ui;
       font-weight: normal;
       font-size: 4.5vw;
@@ -97,6 +98,29 @@
       }
       @media (min-width: 768px) {
         font-size: 15px;
+      }
+      &:hover, &:active, &:focus {
+        ul {
+          display: block;
+          height: max-content;
+        }
+      }
+
+      ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        transform: 0.4s;
+        display: none;
+        height: 0;
+        li {
+          list-style: none;
+          font-size: 12px;
+          line-height: 1.4;
+          text-align: right;
+        }
       }
     }
   }

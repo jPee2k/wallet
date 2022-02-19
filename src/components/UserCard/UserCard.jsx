@@ -1,7 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getExchangeRatesFromState, getUserFromState } from '../../redux/slices/selectors.js';
+import {
+  getExchangeRatesFromState,
+  getUserFromState,
+} from '../../redux/slices/selectors.js';
 import { getCardNumber } from '../../utils/useful.js';
 import getFormattedCurrency from '../../utils/money.js';
 
@@ -19,18 +22,16 @@ const UserCard = () => {
         <p className={cardNumber}>{getCardNumber(user.id)}</p>
         <div className={cardInfo}>
           <p className={cardMember}>{username}</p>
-          <p className={cardCode}>
+          <div className={cardCode}>
             {getFormattedCurrency(balance)}
-          </p>
+            <ul>
+              {rates.map(({ ccy: code, sale }) => (
+                <li key={code}>{prepareRate(balance, sale, code)}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-
-      {/* TODO -> hover || onClick || place in card ?? add styles */}
-      <ul>
-        {rates.map(({ ccy: code, sale }) => (
-          <li key={code}>{prepareRate(balance, sale, code)}</li>
-        ))}
-      </ul>
     </section>
   );
 };
