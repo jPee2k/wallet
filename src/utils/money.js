@@ -1,7 +1,7 @@
-const getFormattedCurrency = (value) => {
-  return value.toLocaleString('ua-UA', {
+const getFormattedCurrency = (value = '', currencyCode = 'UAH', countryCode = 'ua-UA') => {
+  return value.toLocaleString(countryCode, {
     style: 'currency',
-    currency: 'UAH',
+    currency: currencyCode,
   });
 };
 

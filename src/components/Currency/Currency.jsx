@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import Loader from './Loader';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import styles from './styles.module.scss';
+import { ReactComponent as CurrencyIcon } from '../../assets/images/icons/currency.svg';
+
 import useExchangeRateQuery from '../../hooks/useExchangeRateQuery.js';
 import { controller } from '../../services/privatBankAPI.js';
 import { setDataToLocalStorage, getDataFromLocalStorage } from '../../utils/localStorage.js';
-import { ReactComponent as CurrencyIcon } from '../../assets/images/icons/currency.svg';
-import styles from './styles.module.scss';
+import { getExchangeRatesFromState } from '../../redux/slices/selectors.js';
+import { addExchangeRates } from '../../redux/slices/financeSlice.js';
+
+import Loader from './Loader';
 
 const ALLOWED_CURRENCY = ['USD', 'EUR', 'RUR'];
 
 const Currency = () => {
-  const [rates, setRates] = useState([]);
   const { isLoading, isFetching, isSuccess, data } = useExchangeRateQuery();
+  const rates = useSelector(getExchangeRatesFromState);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const oneHour = 60 * 60 * 1000;
@@ -18,7 +25,8 @@ const Currency = () => {
 
     if (timestamp > Date.now()) {
       controller.abort();
-      setRates(getDataFromLocalStorage('rates'));
+      const ratesFromStorage = getDataFromLocalStorage('rates');
+      dispatch(addExchangeRates(ratesFromStorage));
     }
   }, []);
 
@@ -29,7 +37,7 @@ const Currency = () => {
         date: Date.now(),
         rates: filteredRates,
       });
-      setRates(filteredRates);
+      dispatch(addExchangeRates(filteredRates));
     }
   }, [data]);
 
@@ -49,7 +57,7 @@ const Currency = () => {
         <tr>
           <th>Buy</th>
           <th>Sell</th>
-          <th><CurrencyIcon/></th>{/* Currency */}
+          <th><CurrencyIcon/></th>
         </tr>
         </thead>
         <tbody>{
