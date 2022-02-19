@@ -1,5 +1,5 @@
-![eslint](https://github.com/jPee2k/wallet/actions/workflows/eslint.yml/badge.svg)
-![Intellias](.github/companies/intellias.svg?raw=true)
+![eslint](https://github.com/jPee2k/wallet/actions/workflows/eslint.yml/badge.svg) &nbsp;
+![Intellias](.github/companies/intellias.svg?raw=true) &nbsp;
 ![GoIT](.github/companies/goit.svg?raw=true)
 
 # Cyber Wallet - training project from Intellias
