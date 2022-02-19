@@ -12,6 +12,7 @@ export const getTransactionsFromState = (state) => state.finance.items;
 export const getTransactionByID = (state, transactionID) => {
   return state.finance.items.find(({ id }) => id === transactionID);
 };
+export const getExchangeRatesFromState = (state) => state.finance.exchangeRates;
 
 // modals
 export const getTransactionModalState = (state) => state.global.isModalAddTransactionOpen;

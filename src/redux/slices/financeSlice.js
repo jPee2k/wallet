@@ -4,37 +4,41 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   items: [],
   categories: [],
+  exchangeRates: [],
 };
 
 export const financeSlice = createSlice({
   name: 'finance',
   initialState,
   reducers: {
-    addCategories: (state, action) => {
-      state.categories = action.payload;
+    addCategories: (state, { payload: categories }) => {
+      state.categories = categories;
     },
-    addTransaction: (state, action) => {
-      state.items.unshift({ status: 'new', ...action.payload });
+    addTransaction: (state, { payload: transaction }) => {
+      state.items.unshift({ status: 'new', ...transaction });
     },
-    editTransaction: (state, action) => {
+    editTransaction: (state, { payload: transaction }) => {
       state.items = state.items.map((item) => {
-        if (item.id === action.payload.id) {
-          return action.payload;
+        if (item.id === transaction.id) {
+          return transaction;
         }
         return item;
       });
     },
-    removeTransaction: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+    removeTransaction: (state, { payload: transaction }) => {
+      state.items = state.items.filter((item) => item.id !== transaction);
     },
-    addData: (state, action) => {
-      state.items = [...action.payload].sort((a, b) => {
+    addData: (state, { payload: transactions }) => {
+      state.items = [...transactions].sort((a, b) => {
         const dateA = new Date(a.transactionDate);
         const dateB = new Date(b.transactionDate);
         return dateB - dateA;
       });
     },
     resetFinanceData: () => initialState,
+    addExchangeRates: (state, { payload: rates }) => {
+      state.exchangeRates = rates;
+    },
   },
 });
 
@@ -45,5 +49,6 @@ export const {
   resetFinanceData,
   editTransaction,
   removeTransaction,
+  addExchangeRates,
 } = financeSlice.actions;
 export default financeSlice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getUserFromState } from '../../redux/slices/selectors.js';
+import { getExchangeRatesFromState, getUserFromState } from '../../redux/slices/selectors.js';
 import { getCardNumber } from '../../utils/useful.js';
 import getFormattedCurrency from '../../utils/money.js';
 
@@ -9,21 +9,37 @@ import styles from './styles.module.scss';
 
 const UserCard = () => {
   const user = useSelector(getUserFromState);
+  const rates = useSelector(getExchangeRatesFromState);
   const { username = '', balance = 0 } = user;
-  const { cardBlock, cardNumber, cardInfo, cardMember, cardCode } = styles;
 
-  // TODO -> exchanged currency list
+  const { cardBlock, cardNumber, cardInfo, cardMember, cardCode } = styles;
   return (
-    <div className={cardBlock}>
-      <p className={cardNumber}>{getCardNumber(user.id)}</p>
-      <div className={cardInfo}>
-        <p className={cardMember}>{username}</p>
-        <p className={cardCode}>
-          {getFormattedCurrency(balance)}
-        </p>
+    <section>
+      <div className={cardBlock}>
+        <p className={cardNumber}>{getCardNumber(user.id)}</p>
+        <div className={cardInfo}>
+          <p className={cardMember}>{username}</p>
+          <p className={cardCode}>
+            {getFormattedCurrency(balance)}
+          </p>
+        </div>
       </div>
-    </div>
+
+      {/* TODO -> hover || onClick || place in card ?? add styles */}
+      <ul>
+        {rates.map(({ ccy: code, sale }) => (
+          <li key={code}>{prepareRate(balance, sale, code)}</li>
+        ))}
+      </ul>
+    </section>
   );
 };
+
+function prepareRate(balance = '', sale = '', code = '') {
+  const parsedBalance = parseFloat(balance);
+  const parsedSale = parseFloat(sale);
+  const convertedAmount = parsedBalance / parsedSale;
+  return getFormattedCurrency(convertedAmount, code.toUpperCase());
+}
 
 export default UserCard;
