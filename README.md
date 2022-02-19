@@ -6,6 +6,10 @@
 
 This project was developed with [React](https://reactjs.org/) library.
 
+Wallet - application for personal budget planning and tracking.
+
+In the application you can enter your income and expenses and describe them. This will all be reflected in your private account. The application allows you to analyze where money is spent and whether your expenses do not exceed. 
+It's really convenient!
 
 ## Links
 
@@ -36,7 +40,7 @@ Runs the linter that checks source files for errors in the `/src` folder.
 #### Our Team
 
 - Team Lead: [Serhii Pylypenko](https://cv-jpee2k.vercel.app/)
-- PM & developer: [Olena Kolibanych](https://github.com/olenakol)
+- PM & developer: [Olena Kolibanych](https://olenakol.github.io/KolibanuchOlena.github.io/#f3c10a)
 - Developer: [Roman](https://github.com/)
-- Developer: [Viktor](https://github.com/)
+- Developer: [Viktor](https://vitusha26.github.io/Test_task_Intelli/)
 - Designer: [Ihor](https://github.com/)
