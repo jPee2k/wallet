@@ -70,8 +70,8 @@ const getCategoryColor = () => {
 // const getCategoryColor = (categoryName) => {
 //   const colors = {
 //     'Доход': '#fff',
-//     'Семейние росходи': '#bbb'
-//   }
+//     'Семейние росходи': '#bbb',
+//   };
 //   return colors[categoryName];
 // };
 
