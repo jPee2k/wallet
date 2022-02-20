@@ -1,5 +1,6 @@
 .statisticsTable {
-  width: 100%;
+  flex-grow: 1;
+
   @media (min-width: 768px) {
     width: 350px;
     order: 2;
@@ -44,6 +45,8 @@
             }
           }
           td {
+            padding-left: 10px;
+            padding-right: 10px;
             text-transform: uppercase;
             font-family: "BebasNeue", "Arial", sans-serif, system-ui;
             font-size: 25px;

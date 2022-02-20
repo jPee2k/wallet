@@ -17,22 +17,20 @@ const UserCard = () => {
 
   const { cardBlock, cardNumber, cardInfo, cardMember, cardCode } = styles;
   return (
-    <section>
-      <div className={cardBlock}>
-        <p className={cardNumber}>{getCardNumber(user.id)}</p>
-        <div className={cardInfo}>
-          <p className={cardMember}>{username}</p>
-          <div className={cardCode}>
-            {getFormattedCurrency(balance)}
-            <ul>
-              {rates.map(({ ccy: code, sale }) => (
-                <li key={code}>{prepareRate(balance, sale, code)}</li>
-              ))}
-            </ul>
-          </div>
+    <div className={cardBlock}>
+      <p className={cardNumber}>{getCardNumber(user.id)}</p>
+      <div className={cardInfo}>
+        <p className={cardMember}>{username}</p>
+        <div className={cardCode}>
+          {getFormattedCurrency(balance)}
+          <ul>
+            {rates.map(({ ccy: code, sale }) => (
+              <li key={code}>{prepareRate(balance, sale, code)}</li>
+            ))}
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

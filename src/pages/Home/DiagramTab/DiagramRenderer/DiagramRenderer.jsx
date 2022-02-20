@@ -6,11 +6,11 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DiagramRenderer = ({ data = {} }) => {
-  if (data.length === 0) {
+  if (data.labels && data.labels.length === 0) {
     return <p className='noData'>no data to display</p>;
   }
   const chartOptions = { plugins: { legend: { display: false } } };
-  return <Doughnut data={data} options={chartOptions}/>;
+  return <Doughnut data={data} options={chartOptions}/>; // TODO -> type ??
 };
 
 DiagramRenderer.propTypes = {
