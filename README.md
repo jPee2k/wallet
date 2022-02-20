@@ -13,9 +13,9 @@ It's really convenient!
 
 ## Links
 
-- [prod](https://wallet-sandbox.vercel.app/) on Vercel
+- [prod](https://wallet-intellias.vercel.app/) on Vercel
 - [develop](https://wallet-develop.vercel.app/) on Vercel
-- [sandbox](https://wallet-intellias.vercel.app/) on Vercel
+- [sandbox](https://wallet-sandbox.vercel.app/) on Vercel
 
 ## Available Scripts
 
