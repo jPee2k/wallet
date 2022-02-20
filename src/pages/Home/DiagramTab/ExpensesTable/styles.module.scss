@@ -5,6 +5,7 @@
     order: 2;
   }
   table {
+    width: 100%;
     thead {
       position: relative;
       z-index: 1;
@@ -25,7 +26,7 @@
         border-radius: 25px 0px 25px 25px;
         th {
           text-align: left;
-          padding: 26px 0px 17px 15px;
+          padding: 26px 15px 17px 15px;
           color: #fdfd01;
           font-size: 19px;
           @media (min-width: 992px) {
@@ -39,11 +40,8 @@
       tr {
         &:first-of-type {
           td {
-            padding-top: 30px;
+            padding-top: 20px;
             }
-          }
-          &:last-of-type {
-            border-top: 3px solid #f3c10a;
           }
           td {
             text-transform: uppercase;
