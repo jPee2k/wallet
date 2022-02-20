@@ -14,7 +14,11 @@ const DiagramRenderer = ({ data = {} }) => {
 };
 
 DiagramRenderer.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    categoryName: PropTypes.string,
+    amountData: PropTypes.number,
+    color: PropTypes.string,
+  }),
 };
 
 export default DiagramRenderer;

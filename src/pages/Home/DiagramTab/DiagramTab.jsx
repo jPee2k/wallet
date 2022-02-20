@@ -39,30 +39,25 @@ const DiagramTab = () => {
 
   const { statisticsBlock, statistics, form } = styles;
   return doughnutDataResult && expensesDataResult ? (
-    <div>
-      <Formik
-        initialValues={{ month: dates.current.month, year: dates.current.year }}
-        validationSchema={schema}
-        onSubmit={submitHandler}
-      >
-        {({ submitForm }) => {
-          return (
-            <Form className={form} onChange={submitForm}>
-              <MonthSelector name="month" options={months}/>
-              <YearSelector name="year" options={years}/>
-            </Form>
-          );
-        }}
-      </Formik>
       <div className={statisticsBlock}>
         <div className={statistics}>
           <DiagramRenderer data={doughnutDataResult}/>
+            <Formik
+              initialValues={{ month: dates.current.month, year: dates.current.year }}
+              validationSchema={schema}
+              onSubmit={submitHandler}>
+              {({ submitForm }) => {
+                return (
+                  <Form className={form} onChange={submitForm}>
+                    <MonthSelector name="month" options={months}/>
+                    <YearSelector name="year" options={years}/>
+                  </Form>
+                );
+              }}
+            </Formik>
         </div>
-        <div>
-          <ExpensesTable data={expensesDataResult}/>
-        </div>
+        <ExpensesTable data={expensesDataResult}/>
       </div>
-    </div>
   ) : (
     <Spinner/>
   );

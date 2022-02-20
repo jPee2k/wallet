@@ -1,11 +1,12 @@
 .label {
   width: 100%;
   min-height: 75px;
+  display: flex;
 }
 
 .select {
   height: 50px;
-  width: 100%;
+  width: 90%;
   padding: 0 20px;
 
   appearance: none;
