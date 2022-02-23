@@ -6,7 +6,7 @@ export const dateNow = new Date();
 const validationSchema = yup.object({
   transactionDate: yup.date()
     .typeError('Must be in the format "DD-MM-YYYY"')
-    .min(new Date('01-01-1900'), 'Must be greater than 1900')
+    .min(new Date(1990, 1, 1), 'Must be greater than 1900')
     .max(dateNow, 'Can\'t be in the future')
     .transform(parseDateString)
     .required('Field is required'),
